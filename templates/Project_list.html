@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block title %}
+Projects
+{% endblock title %}
+
+{% block content %}
+
+   <div class="border border-2 rounded-5 m-4 p-4" id="centa">
+      {% if error %}
+      <div class="alert alert-danger mx-3 my-2" role="alert">
+      {{error}}
+      </div> 
+      {% endif %}
+        <table class="table">
+          <thead>
+             <tr class="w3-animate-zoom">
+                <th >Sno.</th>
+                <th colspan="2">Project Name</th>
+                <th >skills required</th>
+                <th colspan="2">Perks</th>
+                <th class='text-center'>Apply </th>
+                <th> </th>
+             </tr>
+          </thead>
+          <tbody>
+             {% for project in projects %}
+             <tr class="w3-animate-zoom">
+                <td>{{forloop.counter}}</td>
+                <td colspan="2">{{project.Name}}</td>
+                <td >{{project.Skill_req}}</td>
+             <td colspan="2">{{project.Perks}}</td>
+             <td>
+                <form action="/apply/" method="post" class="btn-block">
+                {% csrf_token %}
+                <input type="text" name="apply" value="{{project.id}}" hidden>
+                {% if request.session.student %}
+                <!-- <button type="" class="btn btn-outline-primary" disabled>Applied</button> -->
+                <button type="submit" class="btn btn-outline-primary">Apply</button>
+                {% else %}
+                <a href="/login" class="btn btn-outline-primary">Apply</a>
+                {% endif %}
+              </form>
+             </td>
+             <td>
+               <form action="/description/" method="post" class="btn-block">
+                  {% csrf_token %}
+                  <input type="text" name="pro_id" value="{{project.id}}" hidden>
+                  {% if request.session.student %}
+                  <button type="submit" class="btn btn-outline-dark">See more...</button>
+                  {% else %}
+                  <a href="/login" class="btn btn-outline-dark">See more...</a>
+                  {% endif %}
+                </form>
+             </td>
+          </tr>
+               
+             {% endfor %}
+          
+          </tbody>
+       </table>
+      </div>
+
+
+{% endblock content %}

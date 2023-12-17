@@ -1,0 +1,89 @@
+{% extends "e_base.html" %}
+
+{% block title %}
+Add New Project
+{% endblock title %}
+
+{% block content %}
+
+<div class="container">
+        <div class="p-4 m-4">
+            <div class="col-lg-5 mx-auto border rounded pt-4">
+                <h3 class="alert alert-light border rounded mx-3 mt-2 mb-4">Upload New Project</h3>
+                <form method="post">
+                    
+                    {% if error %}
+                    <div class="alert alert-danger mx-3 my-2" role="alert">
+                        {{error}}
+                    </div> 
+                    {% endif %}
+    
+                    {% csrf_token %}  
+                                 
+                    <!-- Project Name -->
+                    <div class="form-group mx-3 my-2">
+                        <label for="">Project Name</label>
+                        <input type="text" name="name" placeholder="Enter Project name" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom" required>
+                      </div>
+
+                      
+                      <!-- Skill Req -->
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Skill(s) Required</label>
+                        <input type="text" name="skill" placeholder="Skills Required" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom" required>
+                      </div>
+    
+                    <!-- Company -->
+                    <div class="form-group mx-3 my-2">
+                      <label for="">Company</label>
+                      <select class="form-select btn btn-outline-dark w3-animate-zoom" name='company' aria-label="Default select example" required>
+                        <option disabled selected>Select Compnay</option>
+                        {% for company in company %}
+                        <option value="{{company.id}}">{{company.Name}}</option>
+                        {% endfor %}
+                      </select>
+                    </div>
+                    
+                    <!-- Project Image -->
+                    <div class="form-group mx-3 my-2">
+                      <label for="">Project Details</label>
+                      <input type="file" name="detail" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom" required>
+                    </div>
+                    
+                    <!-- Project Description -->
+                    <div class="form-group mx-3 my-2">
+                        <label for="">Project Description</label>
+                        <textarea name="description" placeholder="Enter Project description (maximum length 200 characters)" class="form-control form-control-sm border border-dark w3-animate-zoom" maxlength="200" required></textarea>
+                      </div>
+
+                    <!-- Perks -->
+                    <div class="form-group mx-3 my-2">
+                        <label for="">Perk(s)</label>
+                        <input type="text" name="perk" placeholder="perks" class="form-control form-control-sm border border-secondary w3-animate-zoom" required>
+                      </div>
+
+                    <!-- Stipend -->
+                    <div class="form-group mx-3 my-2">
+                        <label for="">Stipend</label>
+                        <input type="number" name="stipend" placeholder="Enter stipend in rupees ₹" class="form-control form-control-sm border border-secondary w3-animate-zoom" required>
+                      </div>
+
+                      <!-- Project Duration -->
+                      <div class="form-group mx-3 my-2">
+                      <label for="">Deadline</label>
+                      <input type="date" name="duration" placeholder="Enter deadline " class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom" required>
+                    </div>
+                      
+                      <input type="text" name="empid" value="{{employee.id}}" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom" hidden>
+
+
+    
+                    <div class="form-group mx-3 mt-5 mb-3 w3-animate-zoom">
+                      <input class="btn btn-outline-dark border border-dark rounded-4" type="submit" value="Add Item">
+                    </div>
+    
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

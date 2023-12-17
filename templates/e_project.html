@@ -1,0 +1,49 @@
+{% extends "e_base.html" %}
+
+{% block title %}
+Projects
+{% endblock title %}
+
+{% block content %}
+
+    <div class="border border-2 rounded-5 m-4 p-4" id="centa">
+        <table class="table">
+          <thead>
+             <tr class="w3-animate-zoom">
+                <th >Sno.</th>
+                <th colspan="2">Project Name</th>
+                <th >skills required</th>
+                <th colspan="2">Perks</th>
+                <th class='text-center'>Status </th>
+                <th> </th>
+             </tr>
+          </thead>
+          <tbody>
+             {% for project in projects %}
+             <tr class="w3-animate-zoom">
+                <td>{{forloop.counter}}</td>
+                <td colspan="2">{{project.Name}}</td>
+                <td >{{project.Skill_req}}</td>
+             <td colspan="2">{{project.Perks}}</td>
+             {% if project.status %}
+             <td> <b style="color: green;">Submitted</b> </td> 
+             {% else %}
+             <td> <b style="color: red;">Pending</b> </td>
+             {% endif %}
+             <td>
+               <form action="/description/" method="post" class="btn-block">
+                  {% csrf_token %}
+                  <input type="text" name="pro_id" value="{{project.id}}" hidden>
+                  <button type="submit" class="btn btn-outline-dark">See more...</button>
+                </form>
+             </td>
+          </tr>
+               
+             {% endfor %}
+          
+          </tbody>
+       </table>
+      </div>
+
+
+{% endblock content %}
