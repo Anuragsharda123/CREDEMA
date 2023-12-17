@@ -6,6 +6,7 @@ from home.models.project import Project
 
 class Index(View):
     def get(self, request):
+        # request.session.clear()
         search = request.GET.get('search')
         projects = Project.objects.all()
         stu = None
