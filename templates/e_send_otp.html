@@ -28,7 +28,7 @@
             <div class="p-4 m-4">
                 <div class="col-lg-7 mx-auto border rounded pt-4">
                     <h3 class="alert alert-light border rounded mx-3 mt-2 mb-4">Forget Password<img src="/docu/download/static/images/forget.webp" alt="" height="45px" width="45px" style="margin-left: 17vw;"></h3>
-                    <form action="/ereset/" method="post">
+                    <form action="/e_sendotp/" method="post">
                     {% csrf_token %}
                     {% if error %}
                 <div class="alert alert-danger mx-3 my-2" role="alert">
@@ -36,11 +36,11 @@
                 </div> 
                 {% endif %}
                         <div class="form-group mx-5 my-2">
-                            <label>Enter your Email address</label>
-                            <input type="email" name="email" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom" placeholder="example@gmail.com" required>
+                            <label class="">Enter OTP</label>
+                            <input type="text" name="otp" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom" placeholder="Enter OTP" required>
                         </div>
                         <div class="form-group mx-5 mt-4 mb-3 w3-animate-zoom">
-                        <input class="btn btn-outline-dark col-lg-3" type="submit" value="Send OTP">
+                        <input class="btn btn-outline-dark col-lg-3" type="submit" value="Submit OTP">
                     </div>
                     </form>
                 </div>

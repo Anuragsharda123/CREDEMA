@@ -22,4 +22,4 @@ class Student(models.Model):
     Skills = models.CharField(max_length=1000)
 
     def __str__(self):
-        return self.Name
+        return str(self.Email)

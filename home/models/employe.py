@@ -20,4 +20,4 @@ class Employe(models.Model):
     Social3 = models.CharField(max_length=50, blank=True)
 
     def __str__(self):
-        return self.Name
+        return str(self.Email)

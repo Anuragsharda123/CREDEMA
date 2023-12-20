@@ -9,4 +9,4 @@ class Company(models.Model):
     Franchise = models.IntegerField()
 
     def __str__(self):
-        return self.Name
+        return self.Official_Email

@@ -14,8 +14,10 @@ class Project(models.Model):
     Student = models.ForeignKey(Student, on_delete=models.CASCADE, null=True, blank=True, default=None)
     Description = models.CharField(max_length=1000)
     Duration = models.DateField(null=True)
-    status = models.BooleanField(default=False)
-
+    Status = models.BooleanField(default=False)
+    Final_Submit = models.FileField(upload_to='Documents/Final_submission/', null = True)
+    
+    
     def __str__(self):
         return self.Name
     
