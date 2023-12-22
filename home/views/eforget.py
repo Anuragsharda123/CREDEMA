@@ -37,11 +37,9 @@ class EmailReset(View):
                 subject = "Forget Password"
 
                 res = send_mail(subject, body, settings.EMAIL_HOST_USER, [obj.Email])
+        
         except:
             error_message = "Email doesn't Exist"
-            print(error_message)
-            print(obj.Email)
-            print(res)
             return render(request, 'e_email_reset.html',{"error":error_message})
         
         print(error_message)
