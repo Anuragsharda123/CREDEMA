@@ -43,9 +43,9 @@ class AddProject(View):
         project = Project(Name=name, Employe=emp, Project=detail, Skill_req=skill,
                           Description=description, Duration=duration, Perks=perk, Stipend=stipend, Company=company)
         
-        isExist = Project.objects.filter(Name=name)
+        isExist = Project.objects.filter(Project=detail)
         if isExist:
-            error_message = "Project with this name, Already Exists"
+            error_message = "Project Already Exists"
 
         if not error_message:
             project.save()
