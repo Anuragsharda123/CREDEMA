@@ -17,7 +17,6 @@ class Project(models.Model):
     Duration = models.DateField(null=True)
     Status = models.BooleanField(default=False)
     Last_update = models.DateField(default= datetime.today(), null=True, blank=True)
-    Final_Submit = models.FileField(upload_to='Documents/Final_submission/', null = True)
     
     
     def __str__(self):
