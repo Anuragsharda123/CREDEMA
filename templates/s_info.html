@@ -1,0 +1,79 @@
+{% extends "e_base.html" %}
+
+{% block title %}
+Student Profile
+{% endblock title %}
+
+{% block content %}
+
+<div class="border border-2 rounded-5 p-4 col-lg-8" id="centa">
+        <div id="main-head">
+            <h2>{{student.Name}}</h2>
+        </div>
+
+        <br><br>
+
+        <div id="about">
+            <b>About student</b><br>
+            {% for des in description %}
+            <span class="about">{{des}}</span>
+            {% endfor %}
+        </div>
+
+        <br><br>
+        
+        <div id="skill_perk" style="display: flex;">
+
+            <div id="skill" style="margin-left: 3vw;">
+                <b>Skill(s) Required</b>
+                    <ul>
+                    {% for skill in skill %}
+                        <li>{{skill}}</li>
+                    {% endfor %}
+                        
+                    </ul>
+            </div>
+            
+            <div id="perk" style="margin-left: 33vw;">
+                <b>Perk(s)</b>
+                    <ul>
+                    {% for perk in perk %}
+                        <li>{{perk}}</li>
+                    {% endfor %}
+                    </ul>
+            </div>
+        </div>
+<br>
+        <br>
+
+        <div id="detail_dead" style="display: flex;">
+            <div id="detail" style="margin-left: 3vw;">
+                <strong>Project Details</strong>
+                <br>
+                <a href="/docu/download/{{project.Project}}" download><img src="/docu/download/static/images/pdflogo.webp" alt="pdf" height="110vh"></a>
+            </div>
+    <br>
+            <div id="deadline" style="margin-left: 35vw;">
+                <strong>Deadline</strong><br><br>
+                {{project.Duration}}
+            </div>
+        </div>
+
+        <div id="detail_dead" style="display: flex;">
+            <div style="margin-left:3vw;">
+                <strong>Allocated to</strong><br><br>
+                {{project.Student}}
+            </div>
+
+    <br>
+            <div id="deadline" style="margin-left: 35vw;">
+                <strong>Stipend</strong><br><br>
+                ₹ {{project.Stipend}}
+            </div>
+        </div>
+
+<br><br>
+
+      </div>
+
+{% endblock content %}

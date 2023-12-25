@@ -6,4 +6,56 @@ Applicants
 
 {% block content %}
 
+   <div class="border border-2 rounded-5 m-4 p-4" id="centa">
+    <form action="/edescription/" method="post" class="btn-block">
+        {% csrf_token %}
+        <input type="text" name="pro_id" value="{{project.id}}" hidden>
+        <button type="submit" class="btn btn-outline-primary"><strong style="font-size: large;">{{project.Name}}</strong></button>
+    </form>
+
+        
+   <br>
+   <br>
+   <br>
+      {% if error %}
+      <div class="alert alert-danger mx-3 my-2" role="alert">
+      {{error}}
+      </div> 
+      {% endif %}
+        <table class="table">
+          <thead>
+             <tr class="w3-animate-zoom">
+                <th >Sno.</th>
+                <th>Student Name</th>
+                <th colspan="2">Student Email</th>
+                <th colspan="2">skills</th>
+                <th></th>
+             </tr>
+          </thead>
+          <tbody>
+             {% for student in students %}
+             <tr class="w3-animate-zoom">
+                <td>{{forloop.counter}}</td>
+                <td>{{student.Name}}</td>
+                <td colspan="2">{{student.Email}}</td>
+                <td colspan="2">{{student.Skills}}</td>
+            
+             <td>
+               <form action="/studentinfo/" method="post" class="btn-block">
+                  {% csrf_token %}
+                  
+                  <input type="text" name="stu_id" value="{{student.id}}" hidden>
+                  <button type="submit" class="btn btn-outline-dark">See Profile</button>
+                  
+                </form>
+             </td>
+          </tr>
+               
+             {% endfor %}
+          
+          </tbody>
+       </table>
+      </div>
+
+
 {% endblock content %}

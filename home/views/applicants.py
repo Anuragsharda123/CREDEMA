@@ -7,21 +7,30 @@ from django.views import View
 
 class Applicants(View):
     def get(self, request):
-        pro_id = request.GET.get('pro_id')
-        
-        project = Project.objects.get(id=pro_id)
-        application = Applicant.objects.filter(Project=project).values_list('Student')
-        stu_id = []
-
-        for i in application:
-            stu_id.append(i[0])
-
-        print("Pro:                    ", project)
-        print("App:                    ", application)
-        print("Boom:                   ", stu_id)
-        return redirect('e_project')
-
+        try:
+            if request.session['employee']:
+                return redirect('e_project')
+        except:
+            if request.session['student']:
+                return redirect('home')
+            
+        return redirect('e_login')
 
 
     def post(self, request):
-        pass
+        pro_id = request.POST.get('pro_id')
+
+        project = Project.objects.get(id=pro_id)
+        application = Applicant.objects.filter(Project=project).values_list('Student')
+        students = []
+        data = {}
+
+        for i in application:
+            stu_id = i[0]
+            students.append(Student.objects.get(id=stu_id))
+
+
+        data['students'] = students
+        data['project'] = project
+
+        return render(request, 'p_applicant.html', data)

@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path
-from .views import home, login, signup, description, addproject, esignup, elogin, addapplicant, sapplication, sproject, eproject, forget, otp, eforget, eotp, edescription, updatepro, applicants
+from .views import home, login, signup, description, addproject, esignup, elogin, addapplicant, sapplication, sproject, eproject, forget, otp, eforget, eotp, edescription, updatepro, applicants, studentinfo
 
 
 urlpatterns = [
@@ -26,5 +26,6 @@ urlpatterns = [
     path('applicant/', applicants.Applicants.as_view(), name="applicant"),
     path('resetpassword/', otp.ResetPassword.as_view(), name='reset_password'),
     path('eresetpassword/', eotp.ResetPassword.as_view(), name='e_reset_password'),
+    path('studentinfo/', studentinfo.Studentinfo.as_view(), name='s_info'),
 
 ]
