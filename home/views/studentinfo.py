@@ -11,7 +11,31 @@ class Studentinfo(View):
         data = {}
 
         student = Student.objects.get(id=stu_id)
+        Name = student.Name.capitalize()
+        skill = student.Skills.split(',')
+        
+        for i in range(0,len(skill)):
+            w = skill[i].lstrip(" ")
+            skill[i] = w.capitalize()
 
         data['student'] = student
+        data['Name'] = Name
+        data['skill'] = skill
 
         return render(request, 's_info.html', data)
+    
+
+
+
+
+
+
+    # <div id="skill" style="margin-left: 3vw;">
+    #             <b>Skill(s) Required</b>
+    #                 <ul>
+    #                 {% for skill in skill %}
+    #                     <li>{{skill}}</li>
+    #                 {% endfor %}
+                        
+    #                 </ul>
+    #         </div>

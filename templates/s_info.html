@@ -8,31 +8,19 @@ Student Profile
 
 <div class="border border-2 rounded-5 p-4 col-lg-8" id="centa">
         <div id="main-head">
-            <h2>{{student.Name}}</h2>
+            <h2>{{Name}}</h2>
         </div>
 
         <br><br>
 
         <div id="about">
-            <b>About student</b><br>
-            {% for des in description %}
-            <span class="about">{{des}}</span>
-            {% endfor %}
+            <b>Email</b><br>
+            <span class="about">{{student.Email}}</span>
         </div>
 
         <br><br>
         
         <div id="skill_perk" style="display: flex;">
-
-            <div id="skill" style="margin-left: 3vw;">
-                <b>Skill(s) Required</b>
-                    <ul>
-                    {% for skill in skill %}
-                        <li>{{skill}}</li>
-                    {% endfor %}
-                        
-                    </ul>
-            </div>
             
             <div id="perk" style="margin-left: 33vw;">
                 <b>Perk(s)</b>
@@ -53,7 +41,7 @@ Student Profile
                 <a href="/docu/download/{{project.Project}}" download><img src="/docu/download/static/images/pdflogo.webp" alt="pdf" height="110vh"></a>
             </div>
     <br>
-            <div id="deadline" style="margin-left: 35vw;">
+            <div id="deadline" style="margin-left: 32.5vw;">
                 <strong>Deadline</strong><br><br>
                 {{project.Duration}}
             </div>
