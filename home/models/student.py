@@ -4,6 +4,7 @@ class Student(models.Model):
     Email = models.EmailField(unique=True)
     Password = models.CharField(max_length=100)
     Name = models.CharField(max_length=50)
+    Photo = models.ImageField(blank=True, null=True, upload_to='Documents/Student/Profile_Image')
     Age = models.IntegerField()
     Phone = models.BigIntegerField(unique=True)
     Gender = models.CharField(max_length=10)

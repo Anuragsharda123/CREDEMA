@@ -46,6 +46,9 @@ class AddProject(View):
         isExist = Project.objects.filter(Project=detail)
         if isExist:
             error_message = "Project Already Exists"
+        
+        if detail[-4:] != '.pdf':
+            error_message = "Only .pdf files are accepted"
 
         if not error_message:
             project.save()

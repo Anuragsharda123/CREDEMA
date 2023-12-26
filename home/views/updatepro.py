@@ -1,20 +1,25 @@
 from django.shortcuts import render, redirect
 from home.models.company import Company
 from home.models.project import Project
+from datetime import datetime
 from django.views import View
 
 class Updateproduct(View):
     def get(self, request):
-        pro_id = request.GET.get('update')
-        company = Company.objects.all()
-        project = Project.objects.get(id=pro_id)
+        try:
+            if request.session['employee']:
+                pro_id = request.GET.get('update')
+                company = Company.objects.all()
+                project = Project.objects.get(id=pro_id)
 
-        data = {}
+                data = {}
 
-        data['project'] = project
-        data['company'] = company
+                data['project'] = project
+                data['company'] = company
 
-        return render(request, 'updatepro.html', data)
+                return render(request, 'updatepro.html', data)
+        except:
+            return redirect('e_login')
     
     def post(self, request):
         name = request.POST.get('name')
@@ -26,6 +31,7 @@ class Updateproduct(View):
         duration = request.POST.get('duration')
         status = int(request.POST.get('status'))
         pro_id = request.POST.get('pro_id')
+        last_update = datetime.today()
         
         project = Project.objects.get(id=pro_id)
 
@@ -34,6 +40,7 @@ class Updateproduct(View):
         project.Skill_req = skill
         project.Stipend = stipend
         project.Status = status
+        project.Last_update = last_update
     
         if detail:
             project.Project = detail

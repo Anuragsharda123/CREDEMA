@@ -32,7 +32,7 @@ Project Description
                     </ul>
             </div>
             
-            <div id="perk" style="margin-left: 33vw;">
+            <div id="perk" style="margin-left: 45vw; position: absolute;">
                 <b>Perk(s)</b>
                     <ul>
                     {% for perk in perk %}
@@ -41,7 +41,7 @@ Project Description
                     </ul>
             </div>
         </div>
-<br>
+<br><br>
         <br>
 
         <div id="detail_dead" style="display: flex;">
@@ -51,12 +51,13 @@ Project Description
                 <a href="/docu/download/{{project.Project}}" download><img src="/docu/download/static/images/pdflogo.webp" alt="pdf" height="110vh"></a>
             </div>
     <br>
-            <div id="deadline" style="margin-left: 35vw;">
+            <div id="deadline" style="margin-left: 45vw; position: absolute;">
                 <strong>Deadline</strong><br><br>
                 {{project.Duration}}
             </div>
         </div>
-
+<br>
+<br>
         <div id="detail_dead" style="display: flex;">
             <div style="margin-left:3vw;">
                 <strong>Allocated to</strong><br><br>
@@ -64,13 +65,17 @@ Project Description
             </div>
 
     <br>
-            <div id="deadline" style="margin-left: 35vw;">
+            <div id="deadline" style="margin-left: 45vw; position: absolute;">
                 <strong>Stipend</strong><br><br>
                 ₹ {{project.Stipend}}
             </div>
         </div>
 
 <br><br>
+            <div id="deadline" style="margin-left: 3vw;">
+                <strong>Last Updated</strong><br><br>
+                {{project.Last_update}}
+            </div>
 
       </div>
 

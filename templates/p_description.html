@@ -32,7 +32,7 @@ Project Description
                     </ul>
             </div>
             
-            <div id="perk" style="margin-left: 33vw;">
+            <div id="perk" style="margin-left: 45vw; position: absolute;">
                 <b>Perk(s)</b>
                     <ul>
                     {% for perk in perk %}
@@ -51,11 +51,18 @@ Project Description
                 <a href="/docu/download/{{project.Project}}" download><img src="/docu/download/static/images/pdflogo.webp" alt="pdf" height="110vh"></a>
             </div>
     <br>
-            <div id="deadline" style="margin-left: 35vw;">
+    
+            <div id="deadline" style="margin-left: 45vw; position: absolute;">
                 <strong>Deadline</strong><br><br>
                 {{project.Duration}}
             </div>
         </div>
+<br>
+            <div id="deadline" style="margin-left: 3vw;">
+                <strong>Stipend</strong><br><br>
+                ₹ {{project.Stipend}}
+            </div>
+
 <br><br><br>
         <form action="/apply/" method="post" class="btn-block">
             {% csrf_token %}
