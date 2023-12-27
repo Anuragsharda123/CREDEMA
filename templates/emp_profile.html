@@ -1,0 +1,120 @@
+{% extends "e_base.html" %}
+
+{% block title %}
+Profile
+{% endblock title %}
+
+{% block content %}
+
+<div class="border border-2 rounded-5 p-4 col-lg-8" id="centa">
+        <div id="main-head" style="display: flex;">
+            <h2>{{Name}}</h2>
+        </div>
+
+        <br><br><br><br><br><br>
+
+        <div id="about">
+            <b>Email: </b>
+            <span class="about">{{employe.Email}}</span>
+        </div>
+
+        <br><br><br>
+        
+        <div id="skill_perk" style="display: flex;">
+            
+            <div id="age" style="margin-left:3vw; width:30;">
+            <b>Age:</b>
+            {{employe.Age}} yrs
+            </div>
+
+            <div id="perk" style="margin-left: 40vw; position: absolute;">
+                <b>Gender: </b>
+                    {{employe.Gender}}
+            </div>
+        </div>
+<br>
+<br>
+
+        <div id="detail_dead" style="display: flex;">
+            <div id="detail" style="margin-left: 3vw;">
+                <strong>Country: </strong>
+                {{employe.Country}}
+            </div>
+            <div id="deadline" style="margin-left: 40vw; position: absolute;">
+                <strong>Contact no: </strong>
+                {{employe.Phone}}
+            </div>
+        </div>
+<br>
+<br>
+
+        <div id="detail_dead" style="display: flex;">
+            <div style="margin-left:3vw;">
+                <strong>State: </strong>
+                {{employe.State}}
+            </div>
+
+    <br>
+            <div id="deadline" style="margin-left: 40vw; position: absolute;">
+                <strong>City: </strong>
+                {{employe.City}}
+            </div>
+        </div>
+
+<br><br>
+            <div id="deadline" style="margin-left:3vw;">
+                <strong>Address: </strong>
+                {{employe.Address}}
+            </div>
+
+<br><br><br><br>
+            <div id="deadline" style="margin-left:3vw;">
+                <strong>Company Name: </strong>
+                {{employe.Company_name}}
+            </div>
+
+<br><br>
+            <div id="deadline" style="margin-left:3vw;">
+                <strong>Employee ID no: </strong>
+                {{employe.Employee_Id_no}}
+            </div>
+
+<br><br>
+            <div id="deadline" style="margin-left:3vw;">
+                <strong>Role: </strong>
+                {{employe.Role}}
+            </div>
+
+<br><br><br><br>
+
+            {% if employe.Social1 %}
+            <div id="deadline" style="margin-left:3vw;">
+                <strong>Social profile: </strong>
+                <a href="http://{{employe.Social1}}" style="text-decoration: none; color: blue;" target="_blank"><i>{{employe.Social1}}</i></a>
+            </div>            
+            {% endif %}
+            
+            <br><br>
+            {% if employe.Social2 %}
+            <div id="deadline" style="margin-left:3vw;">
+                <strong>Social profile: </strong>
+                <a href="http://{{employe.Social2}}" style="text-decoration: none; color: blue;" target="_blank"><i>{{employe.Social2}}</i></a>
+            </div>
+            {% endif %}
+            
+            <br><br>
+            {% if employe.Social3 %}
+            <div id="deadline" style="margin-left:3vw;">
+                <strong>Social profile: </strong>
+                <a href="http://{{employe.Social3}}" style="text-decoration: none; color: blue;" target="_blank"><i>{{employe.Social3}}</i></a>
+            </div>
+            {% endif %}
+            
+            <br>
+            <div class="update" style="margin-left: 25vw;">
+                <a href="/editemploye" class="btn btn-outline-primary px-5">Edit Profile</a>
+            </div>
+            <br>
+      </div>
+
+{% endblock content %}
