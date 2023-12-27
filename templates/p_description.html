@@ -66,9 +66,8 @@ Project Description
 <br><br><br>
         <form action="/apply/" method="post" class="btn-block">
             {% csrf_token %}
-    {% if request.session.employee  %}
-
-    {% elif applied %}
+    
+    {% if applied %}
             <button class="btn btn-outline-primary px-5" id="apply" disabled>Applied</button>
     {% else %}
             <button type="submit" class="btn btn-outline-primary px-5" id="apply">Apply</button>

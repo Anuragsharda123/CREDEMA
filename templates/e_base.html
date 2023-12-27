@@ -17,7 +17,7 @@
 
     <style>
         .text-end{
-            margin-left: 35vw;
+            margin-left: 45vw;
             margin-right: 1vw;
             display:flex;
         }
@@ -109,9 +109,20 @@
               
                {% if request.session.employee %}
                <a href="/eproject" style="text-decoration: none;"><button type="button" class="btn btn-outline-dark ">My Projects</button></a>
-              <a href="/add_project" style="text-decoration: none;"><button type="button" class="btn btn-outline-dark ms-2">Add new Project</button></a>
-              <a href="/elogout" style="text-decoration: none;"><button type="button" class="btn btn-outline-dark ms-2">Logout</button></a>
-               {% endif %} 
+              
+              <div class="dropdown">
+                <a class="btn btn-outline-dark dropdown-toggle ms-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Updates
+                </a>
+
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Profile</a></li>
+                  <li><a class="dropdown-item" href="/add_project">Add New Project</a></li>
+                  <li><a class="dropdown-item" href="/elogout">Logout</a></li>
+                </ul>
+              </div>
+
+              {% endif %} 
               {% if not request.session.employee %} 
               <a href="/employee_login" style="text-decoration: none;"><button type="button" class="btn btn-outline-dark me-2">Login</button></a>
               <a href="/employee_signup" style="text-decoration: none;"><button type="button" class="btn btn-outline-dark">Sign-up</button></a>

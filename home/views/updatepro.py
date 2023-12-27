@@ -4,7 +4,7 @@ from home.models.project import Project
 from datetime import datetime
 from django.views import View
 
-class Updateproduct(View):
+class Updateproject(View):
     def get(self, request):
         try:
             if request.session['employee']:

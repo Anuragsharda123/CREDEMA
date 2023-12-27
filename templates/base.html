@@ -17,7 +17,8 @@
 
     <style>
         .text-end{
-            margin-left: 5vw;
+            margin-left: 10vw;
+            display: flex;
         }
         #find{
             width:17vw;
@@ -89,7 +90,8 @@
         color:#0A63BC;
       }
       #centa{
-            margin: 3% 0% 0% 15%;
+        background-color: rgb(248, 244, 244);
+        margin: 5vh 0vw 0vh 18vw;
         }
         #apply{
             margin-left: 26vw;
@@ -119,10 +121,20 @@
             <div class="text-end">
               
                {% if request.session.student %}
-               <a href="/application" style="text-decoration: none;"><button type="button" class="btn btn-outline-dark ">Applications</button></a>
-              <a href="/sproject" style="text-decoration: none;"><button type="button" class="btn btn-outline-dark ms-2">My Project</button></a>
-              <a href="/logout" style="text-decoration: none;"><button type="button" class="btn btn-outline-dark ms-2">Logout</button></a>
-               {% endif %} 
+              <a href="/sproject" style="text-decoration: none;"><button type="button" class="btn btn-outline-dark ms-2">My Projects</button></a>
+              <div class="dropdown">
+                <a class="btn btn-outline-dark dropdown-toggle ms-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Updates
+                </a>
+
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/profile">Profile</a></li>
+                  <li><a class="dropdown-item" href="/application">Applications</a></li>
+                  <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                </ul>
+              </div> 
+
+              {% endif %} 
               {% if not request.session.student %} 
               <a href="/login" style="text-decoration: none;"><button type="button" class="btn btn-outline-dark me-2">Login</button></a>
               <a href="/signup" style="text-decoration: none;"><button type="button" class="btn btn-outline-dark">Sign-up</button></a>

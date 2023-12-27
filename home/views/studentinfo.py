@@ -21,7 +21,7 @@ class Studentinfo(View):
         data['student'] = student
         data['Name'] = Name
         data['skill'] = skill
-        print(skill)
+        # print(skill)
 
         return render(request, 's_info.html', data)
     
