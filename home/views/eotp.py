@@ -50,7 +50,7 @@ class ResetPassword(View):
         error_message = None
         password = request.POST.get('password')
         confirm_password = request.POST.get('confirmpass')
-        print(request.session['obj'])
+        # print(request.session['eobj'])
 
         if len(password)<=8:
             error_message = "Password should be greater than 8 characters"
@@ -62,7 +62,7 @@ class ResetPassword(View):
             return render(request, 'e_resetpassword.html',{"error":error_message})
         
         try:
-            obj = request.session['obj']
+            obj = request.session['eobj']
             employ = Employe.objects.get(id=obj)
             employ.Password = make_password(password)
             employ.save()

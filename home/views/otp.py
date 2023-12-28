@@ -44,7 +44,9 @@ class ResetPassword(View):
                     return redirect('home')
             except:
                 return render(request, 'resetpassword.html')
-    
+                
+                
+
     def post(self, request):
         error_message = None
         password = request.POST.get('password')
@@ -60,10 +62,11 @@ class ResetPassword(View):
             return render(request, 'resetpassword.html',{"error":error_message})
         
         try:
-            obj = request.session['obj']
+            obj = request.session['sobj']
             student = Student.objects.get(id=obj)
             student.Password = make_password(password)
             student.save()
+            del request.session['sobj']
             return redirect('s_login')
         except:
             print(error_message)
