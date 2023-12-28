@@ -6,7 +6,17 @@ from django.views import View
 
 class OTP(View):
     def get(self, request):
-        return render(request, 'send_otp.html')
+        try:
+            if request.session['otp']:
+                return render(request, 'send_otp.html')
+        
+        except:
+            try:
+                if request.session['student']:
+                    return redirect('home')
+                
+            except:
+                return redirect('home')
     
     def post(self, request):
         otp = int(request.POST.get('otp'))
@@ -16,6 +26,7 @@ class OTP(View):
 
         flag =  request.session['otp'] == otp
         if flag:
+            del request.session['otp']
             return redirect('reset_password')
         else:
             error_message = "Incorrect OTP"
@@ -24,7 +35,15 @@ class OTP(View):
 
 class ResetPassword(View):
     def get(self, request):
-        return render(request, 'resetpassword.html')
+        try:
+            if request.session['student']:
+                return redirect('home')
+        except:
+            try:
+                if request.session['otp']:
+                    return redirect('home')
+            except:
+                return render(request, 'resetpassword.html')
     
     def post(self, request):
         error_message = None

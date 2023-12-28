@@ -9,15 +9,16 @@ from random import randint
 
 class EmailReset(View):
     def get(self,request):
-        # try:
-            # if request.session['otp']:
-                # return redirect('home')
-        # except:
-        #     try:
-        #         if (request.session['student']) or (request.session['employee']):
-        #             return redirect('home')
-        #     except:
-        #         pass
+        try:
+            if request.session['otp']:
+                del request.session['otp']
+                return redirect('home')
+        except:
+            try:
+                if request.session['student']:
+                    return redirect('home')
+            except:
+                pass
         
         return render(request, 'email_reset.html')
     
@@ -39,22 +40,7 @@ class EmailReset(View):
                 res = send_mail(subject, body, settings.EMAIL_HOST_USER, [obj.Email])
                 
         except:
-            try:
-                if Employe.objects.get(Email=email):
-                    obj = Employe.objects.get(Email=email)
-                    otp = randint(100000,999999)
-                    request.session['otp'] = otp
-                    request.session['emp_obj'] = obj.id
+            error_message = "Email doesn't Exist"            
+            return render(request, 'email_reset.html',{"error":error_message})
 
-                    body = 'Your OTP for generating new password: ' + str(otp)
-                    subject = "Forget Password"
-
-                    res = send_mail(subject, body, settings.EMAIL_HOST_USER, [obj.Email])
-            except:
-                error_message = "Email doesn't Exist"
-                print(error_message)
-                print(obj.Email)
-                print(res)
-                return render(request, 'email_reset.html',{"error":error_message})
-        print(error_message)
         return redirect('send_otp')

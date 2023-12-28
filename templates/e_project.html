@@ -53,9 +53,10 @@ Projects
                 </td>
 
                 <td>
-                  <form action="/update/" method="get" class="btn-block">
+                  <form action="/update/" method="post" class="btn-block">
                      {% csrf_token %}
                      <input type="text" name="update" value="{{project.id}}" hidden>
+                     <input type="text" value="get" name="meth" hidden>
                      <button type="submit" class="btn btn-outline-dark">Update</button>
                   </form>
              </td>

@@ -16,6 +16,7 @@ Update Project
                         {{error}}
                     </div> 
                     {% endif %}
+                      <input type="text" value="post" name="meth" hidden>
     
                     {% csrf_token %}  
                                  
@@ -32,16 +33,6 @@ Update Project
                         <input type="text" value="{{project.Skill_req}}" name="skill" placeholder="Skills Required" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom" required>
                       </div>
     
-                    <!-- Company -->
-                    <!-- <div class="form-group mx-3 my-2">
-                      <label for="">Company</label>
-                      <select class="form-select btn btn-outline-dark w3-animate-zoom" name='company' aria-label="Default select example" required>
-                        <option disabled selected>Select Compnay</option>
-                        {% for company in company %}
-                        <option value="{{company.id}}">{{company.Name}}</option>
-                        {% endfor %}
-                      </select>
-                    </div> -->
                     
                     <!-- Project Image -->
                     <div class="form-group mx-3 my-2">

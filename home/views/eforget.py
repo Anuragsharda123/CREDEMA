@@ -8,17 +8,17 @@ from random import randint
 
 class EmailReset(View):
     def get(self,request):
-        # try:
-            # if request.session['otp']:
-                # return redirect('home')
-        # except:
-        #     try:
-        #         if (request.session['student']) or (request.session['employee']):
-        #             return redirect('home')
-        #     except:
-        #         pass
+        try:
+            if request.session['otp']:
+                del request.session['otp']
+                return redirect('e_login')
+        except:
+            try:
+                if request.session['employee']:
+                    return redirect('e_project')
+            except:
+                return render(request, 'e_email_reset.html')
         
-        return render(request, 'e_email_reset.html')
     
     def post(self, request):
         email = request.POST.get('email')
