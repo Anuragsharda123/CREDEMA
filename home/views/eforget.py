@@ -31,7 +31,7 @@ class EmailReset(View):
                 obj = Employe.objects.get(Email=email)
                 otp = randint(100000,999999)
                 request.session['otp'] = otp
-                request.session['obj'] = obj.id
+                request.session['eobj'] = obj.id
 
                 body = 'Your OTP for generating new password: ' + str(otp)
                 subject = "Forget Password"

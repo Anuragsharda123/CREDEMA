@@ -14,8 +14,8 @@ Projects
                 <th colspan="2">Project Name</th>
                 <th >skills required</th>
                 
-                <th class='text-center'>Status </th>
-                <th class='text-center' colspan="2">Assigned </th>
+                <th>Status </th>
+                <th>Assigned </th>
                 <th></th>
                 <th></th>
                 <th></th>
@@ -30,17 +30,19 @@ Projects
                 <td colspan="2">{{project.Name}}</td>
                 <td >{{project.Skill_req}}</td>
                 
+                <td>
                 {% if project.Status %}
-                <td> <b style="color: green;">Submitted</b> </td> 
+                 <b style="color: green;">Submitted</b> 
                 {% else %}
-                <td> <b style="color: red;">Pending</b> </td>
+                 <b style="color: red;">Pending</b>
                 {% endif %}
-                
+               </td>
+
                 <td>
                 {% if project.Student %}
-                <td> <b style="color: green;">Assigned</b> </td> 
+                 <b style="color: green;">Assigned</b> 
                 {% else %}
-                <td> <b style="color: red;">Unassigned</b> </td>
+                 <b style="color: red;">Unassigned</b>
                 {% endif %}
                 </td>
 
