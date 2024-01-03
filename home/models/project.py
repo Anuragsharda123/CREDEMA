@@ -26,5 +26,5 @@ class Project(models.Model):
     @staticmethod
     def get_project_by_search(search):
         srch = search
-        pro = Project.objects.filter(Skill_req__contains = srch)
+        pro = Project.objects.filter(Skill_req__contains = srch, Student=None)
         return pro

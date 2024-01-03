@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from home.models.student import Student
 from home.models.project import Project
 from django.views import View
@@ -13,6 +13,7 @@ class StudentProject(View):
         data = {}
 
         data['projects'] = projects
+        data['student'] = student
 
         return render(request, 's_project.html', data)
         # except:

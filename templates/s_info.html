@@ -63,33 +63,34 @@ Student Profile
         </div>
 
 <br><br>
-            <div id="deadline" style="margin-left:3vw;">
+            <div style="margin-left:3vw;">
                 <strong>Address: </strong>
                 {{student.Address}}
             </div>
 
 <br><br><br><br>
-            <div id="deadline" style="margin-left:3vw;">
+            <div style="margin-left:3vw;">
                 <strong>University Name: </strong>
                 {{student.University_name}}
             </div>
 
 <br><br>
-            <div id="deadline" style="margin-left:3vw;">
+            <div style="margin-left:3vw;">
                 <strong>University Roll no: </strong>
                 {{student.Roll_no}}
             </div>
 
 <br><br>
-            <div id="deadline" style="margin-left:3vw;">
-                <strong>Pursuing/Completed: </strong>
-                {{student.Passed}}
+            <div style="margin-left:3vw;">
+                <strong>Course Name: </strong>
+                {{student.Course}}
             </div>
 
 <br><br>
-            <div id="deadline" style="margin-left:3vw;">
-                <strong>Course Name: </strong>
-                {{student.Course}}
+            
+            <div style="margin-left:3vw;">
+                <strong>Pursuing/Completed: </strong>
+                {{student.Passed}}
             </div>
 
 <br><br><br><br>
@@ -103,7 +104,7 @@ Student Profile
                     </ul>
                 </div>
 
-                <div id="deadline" style="margin-left: 40vw; position: absolute;">
+                <div style="margin-left: 40vw; position: absolute;">
                     <strong>Resume: </strong><br>
                 <a href="/docu/download/{{student.Resume}}" download><img src="/docu/download/static/images/pdflogo.webp" alt="pdf" height="110vh"></a>  
                 </div>
@@ -111,7 +112,7 @@ Student Profile
 
 <br><br><br>
             {% if student.Social1 %}
-            <div id="deadline" style="margin-left:3vw;">
+            <div style="margin-left:3vw;">
                 <strong>Social profile: </strong>
                 <a href="http://{{student.Social1}}" style="text-decoration: none; color: blue;" target="_blank"><i>{{student.Social1}}</i></a>
             </div>
@@ -121,7 +122,7 @@ Student Profile
             
             <br><br>
             {% if student.Social2 %}
-            <div id="deadline" style="margin-left:3vw;">
+            <div style="margin-left:3vw;">
                 <strong>Social profile: </strong>
                 <a href="http://{{student.Social2}}" style="text-decoration: none; color: blue;" target="_blank"><i>{{student.Social2}}</i></a>
             </div>

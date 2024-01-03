@@ -16,7 +16,7 @@ class AdminStudent(admin.ModelAdmin):
     list_display = ['Name', 'Email', 'Phone']
 
 class AdminProject(admin.ModelAdmin):
-    list_display = ['Name', 'Skill_req', 'Perks', 'Duration']
+    list_display = ['Name', 'Skill_req', 'Perks', 'Duration', 'Last_update']
 
 class AdminApplicant(admin.ModelAdmin):
     list_display = ['Project', 'Student']

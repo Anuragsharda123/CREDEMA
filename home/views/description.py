@@ -56,5 +56,6 @@ class Description(View):
         data['skill'] = skill
         data['description'] = description
         data['applied'] = applied
+        data['student'] = student
 
         return render(request, 'p_description.html', data)

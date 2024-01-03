@@ -35,7 +35,6 @@ Projects
                 {% csrf_token %}
                 <input type="text" name="apply" value="{{project.id}}" hidden>
                 {% if request.session.student %}
-                
                 <button type="submit" class="btn btn-outline-primary">Apply</button>
                 {% else %}
                 <a href="/login" class="btn btn-outline-primary">Apply</a>

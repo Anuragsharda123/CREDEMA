@@ -20,11 +20,15 @@ class StudentApplication(View):
                     pro_index.append(pro)
 
                 for i in pro_index:
-                    proj = Project.objects.get(id=i)
-                    projects.append(proj)
+                    try:
+                        proj = Project.objects.get(id=i, Student=None)
+                        projects.append(proj)
+                    except:
+                        pass
                     
                     
                 data['projects'] = projects
+                data['student'] = student
 
                 return render(request, 's_application.html',data)
         

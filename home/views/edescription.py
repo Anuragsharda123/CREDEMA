@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views import View
+from home.models.employe import Employe
 from home.models.project import Project
 
 class Description(View):
@@ -19,6 +20,8 @@ class Description(View):
         skill = project.Skill_req.split(',')
         perk = project.Perks.split(',')
         description = project.Description.split('.')
+        emp_id = request.session['employee']
+        employe = Employe.objects.get(id=emp_id)
         
 
 
@@ -39,5 +42,6 @@ class Description(View):
         data['skill'] = skill
         data['description'] = description
         data['applied'] = applied
+        data['employe'] = employe
 
         return render(request, 'e_p_description.html', data)

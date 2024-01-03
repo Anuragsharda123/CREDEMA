@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from home.models.company import Company
+from home.models.employe import Employe
 from home.models.project import Project
 from datetime import datetime
 from django.views import View
@@ -12,11 +13,14 @@ class Updateproject(View):
                 pro_id = request.POST.get('update')
                 company = Company.objects.all()
                 project = Project.objects.get(id=pro_id)
+                emp_id = request.session['employee']
+                employe = Employe.objects.get(id=emp_id)
 
                 data = {}
 
                 data['project'] = project
                 data['company'] = company
+                data['employe'] = employe
 
                 return render(request, 'updatepro.html', data)
             # except:

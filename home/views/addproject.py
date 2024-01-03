@@ -1,10 +1,9 @@
 from django.shortcuts import render, redirect
-from django.http import HttpRequest
 from home.models.project import Project
 from home.models.company import Company
 from home.models.employe import Employe
 from django.views import View
-import json
+
 
 class AddProject(View):
     def get(self, request):
@@ -13,10 +12,11 @@ class AddProject(View):
         # try:
         empid = request.session['employee']
         
-        emp = Employe.objects.get(id=empid)
+        employe = Employe.objects.get(id=empid)
 
         data['company'] = company
-        data['employee'] = emp
+        data['employee'] = employe
+        data['employe'] = employe
             
         return render(request, "add_project.html", data)
         # except:
