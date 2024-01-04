@@ -64,11 +64,15 @@ Projects
              </td>
 
                 <td>
+                {% if project.Student %}
+                <button type="submit" class="btn btn-outline-dark" disabled>Applicants</button>
+                {% else %}
                   <form action="/applicant/" method="post" class="btn-block">
                      {% csrf_token %}
                      <input type="text" name="pro_id" value="{{project.id}}" hidden>
                      <button type="submit" class="btn btn-outline-dark">Applicants</button>
                   </form>
+                {% endif %}
              </td>
 
           </tr>

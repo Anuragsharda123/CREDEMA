@@ -25,10 +25,11 @@ Applicants
         <table class="table">
           <thead>
              <tr class="w3-animate-zoom">
-                <th >Sno.</th>
+                <th >S no.</th>
                 <th>Student Name</th>
                 <th colspan="2">Student Email</th>
-                <th colspan="2">skills</th>
+                <th colspan="2">Skills</th>
+                <th></th>
                 <th></th>
              </tr>
           </thead>
@@ -39,8 +40,19 @@ Applicants
                 <td>{{student.Name}}</td>
                 <td colspan="2">{{student.Email}}</td>
                 <td colspan="2">{{student.Skills}}</td>
-            
-             <td>
+               
+               <td>
+               <form action="/allocate/" method="post" class="btn-block">
+                  {% csrf_token %}
+                  
+                  <input type="text" name="allocate" value="{{student.id}}" hidden>
+                  <input type="text" name="pro_id" value="{{project.id}}" hidden>
+                  <button type="submit" class="btn btn-outline-dark">Allocate</button>
+                  
+                </form>
+             </td>
+
+               <td>
                <form action="/studentinfo/" method="post" class="btn-block">
                   {% csrf_token %}
                   
@@ -56,6 +68,5 @@ Applicants
           </tbody>
        </table>
       </div>
-
 
 {% endblock content %}

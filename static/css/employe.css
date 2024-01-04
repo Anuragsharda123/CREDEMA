@@ -1,0 +1,81 @@
+.reset{
+    margin: 5vw 0vw 5vw 12vw;
+}
+.text-end{
+    margin-left: 38vw;
+    margin-right: 1vw;
+    display:flex;
+}
+#ima{
+    transition: transform 300ms;
+}
+#ima:hover{
+    transform: scale(1.2);
+}
+.alrdy{
+    margin-left: 170px;
+    font-family: cursive;
+    text-decoration: none;
+    transition: color 200ms;
+    transition: font-size 100ms;
+}
+.alrdy:hover{
+    font-size:15.5px;
+    color: rgb(37, 141, 148);
+}
+.sialrdy{
+    margin-left: 11vw;
+    text-decoration: none;
+    font-family: cursive;
+    transition: color 200ms;
+    transition: font-size 100ms;
+}
+.sialrdy:hover{
+    font-size:15.5px;
+    color: rgb(37, 141, 148);
+}
+.forgetpass{
+    margin-top: 5vh;
+    font-family: cursive;
+    text-decoration: none;
+    transition: color 200ms;
+    transition: font-size 100ms;
+}
+.forgetpass:hover{
+    font-size:16px;
+    color: rgb(37, 141, 148);
+}
+.fot{
+    font-family:cursive;
+}
+#twit, #inst, #fb{
+    opacity: 0.8;
+    transition: color 400ms;
+}
+#fb{
+    margin-right: 1vw;
+}
+#twit:hover{
+    opacity: 1;
+    color:black
+}
+#inst:hover{
+    opacity: 1;
+    color:rgb(248, 27, 163);
+}
+#fb:hover{
+    opacity: 1;
+    color:#0A63BC;
+}
+#centa{
+    margin: 3% 0% 0% 15%;
+}
+#apply{
+    margin-left: 26vw;
+}
+#about{
+    width: 60vw;
+}
+.about{
+    width: 10%;
+}

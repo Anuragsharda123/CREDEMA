@@ -8,7 +8,9 @@ class Studentinfo(View):
 
     def post(self,request):
         stu_id = request.POST.get('stu_id')
+        pro_id = request.POST.get('pro_id')
         data = {}
+        
 
         student = Student.objects.get(id=stu_id)
         Name = student.Name.capitalize()
