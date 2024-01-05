@@ -35,5 +35,4 @@ class Allocate(View):
 
         send_mail(subject, body, settings.EMAIL_HOST_USER, [student.Email])
 
-
         return redirect("e_project")
