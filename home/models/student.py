@@ -1,4 +1,5 @@
 from django.db import models
+from datetime import date
 
 class Student(models.Model):
     Email = models.EmailField(unique=True)
@@ -21,6 +22,8 @@ class Student(models.Model):
     Social2 = models.CharField(max_length=50, blank=True)
     Social3 = models.CharField(max_length=50, blank=True)
     Skills = models.CharField(max_length=1000)
+    is_Suspended = models.BooleanField(default=False)
+    Suspend_till = models.DateField(default=date.today())
 
     def __str__(self):
         return str(self.Email)

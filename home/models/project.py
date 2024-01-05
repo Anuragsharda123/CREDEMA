@@ -16,7 +16,7 @@ class Project(models.Model):
     Description = models.CharField(max_length=1000)
     Duration = models.DateField(null=True)
     Status = models.BooleanField(default=False)
-    Last_update = models.DateField(default= datetime.today(), null=True, blank=True)
+    Last_update = models.DateField(default= datetime.today())
     
     
     def __str__(self):
