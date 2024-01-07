@@ -22,6 +22,8 @@ class Applicants(View):
         pro_id = request.POST.get('pro_id')
 
         project = Project.objects.get(id=pro_id)
+        if project.Student:
+            return redirect('e_project')
         application = Applicant.objects.filter(Project=project).values_list('Student')
         emp_id = request.session['employee']
         employe = Employe.objects.get(id=emp_id)

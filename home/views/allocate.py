@@ -21,12 +21,13 @@ class Allocate(View):
     def post(self, request):
         pro_id = request.POST.get('pro_id')
         stu_id = request.POST.get('allocate')
-        print("stu:  ", stu_id)
-        print("pro:  ", pro_id)
-
 
         project = Project.objects.get(id=pro_id)
+        if project.Student:
+            return redirect('e_project')
+        
         student = Student.objects.get(id=stu_id)
+        
         project.Student = student
         project.save()
 

@@ -52,6 +52,8 @@ class EmployeProject(View):
                             student.is_Suspended = True
                             student.Suspend_till = date.today()+timedelta(days=21)
                             student.save()
+                            i.Student = None
+                            i.save()
                         else:
                             pass
                                                 
