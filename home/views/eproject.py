@@ -28,7 +28,6 @@ class EmployeProject(View):
                             res = send_mail(subject, body, settings.EMAIL_HOST_USER, [student.Email])
                             student.is_Suspended = False
                             student.save()
-                        
                     
                     else:
                         if date.today() == i.Duration-timedelta(days=15):
