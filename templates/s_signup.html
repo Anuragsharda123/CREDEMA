@@ -437,6 +437,16 @@ Student-Signup
                                   <input type="text" name="skill" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom" placeholder="Enter your Skills" required>
                                 </div>
 
+                                <br>
+                                <div class="col-12 form-group mx-3 my-2">
+                                        <div class="form-check">
+                                            <input class="form-check-input border border-dark" type="checkbox" value="" id="invalidCheck2" required>
+                                            <label class="form-check-label" for="invalidCheck2">
+                                                Agree to<a class="link-primary text-decoration-none" href=# data-bs-toggle="modal" data-bs-target="#staticBackdrop">Terms and conditions</a>
+                                            </label>
+                                        </div>
+                                    </div>
+
                                 <div class="form-group mx-3 mt-5 mb-3 w3-animate-zoom">
                                     <input class="btn btn-outline-dark border border-dark rounded-4" type="submit" value="Submit">
                                     
@@ -452,5 +462,27 @@ Student-Signup
             </div>
         </form>
     </div>
+
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-fullscreen-xxl-down">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;"><b>Terms and Conditions</b></h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" style="font-family: cursive;">
+        Hello123
+        <br>
+        <br>
+        <br>
+        1
+        <br>    
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 {% endblock content %}
