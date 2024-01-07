@@ -35,6 +35,6 @@ class AddApplicant(View):
         body = student.Name + ' have applied to Project: ' + project.Name
         subject = "Project Application"
 
-        res = send_mail(subject, body, settings.EMAIL_HOST_USER, [employ.Email])
+        send_mail(subject, body, settings.EMAIL_HOST_USER, [employ.Email])
 
         return redirect('home')

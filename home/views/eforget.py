@@ -36,7 +36,7 @@ class EmailReset(View):
                 body = 'Your OTP for generating new password: ' + str(otp)
                 subject = "Forget Password"
 
-                res = send_mail(subject, body, settings.EMAIL_HOST_USER, [obj.Email])
+                send_mail(subject, body, settings.EMAIL_HOST_USER, [obj.Email])
         
         except:
             error_message = "Email doesn't Exist"
