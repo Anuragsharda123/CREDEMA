@@ -16,7 +16,7 @@ class EmployeProject(View):
                 projects = Project.objects.filter(Employe=employe, Status='False')
                 data = {}
                 
-                pro = Project.objects.filter(Employe=employe).exclude(Student=None)
+                pro = Project.objects.all().exclude(Student=None)
                 for i in pro:
                     stu = i.Student
                     student = Student.objects.get(Email=stu)
@@ -54,8 +54,15 @@ class EmployeProject(View):
                             student.save()
                             i.Student = None
                             i.save()
+                        elif date.today()>student.Suspend_till:
+                            body = "Your Account is Suspended for 20 daysProject as you haven't Complete the Project " + i.Name + " before deadline" 
+                            subject = "CREDEMA - ACCOUNT SUSPENDED"
+                            res = send_mail(subject, body, settings.EMAIL_HOST_USER, [student.Email])
+                            student.is_Suspended = False
+                            student.save()
                         else:
                             pass
+
                                                 
 
                 data['projects'] = projects
