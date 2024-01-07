@@ -22,7 +22,13 @@ class EmployeProject(View):
                     student = Student.objects.get(Email=stu)
                     
                     if student.is_Suspended:
-                        pass
+                        if date.today()>student.Suspend_till:
+                            body = "Your Account is Suspended for 20 daysProject as you haven't Complete the Project " + i.Name + " before deadline" 
+                            subject = "CREDEMA - ACCOUNT SUSPENDED"
+                            res = send_mail(subject, body, settings.EMAIL_HOST_USER, [student.Email])
+                            student.is_Suspended = False
+                            student.save()
+                        
                     
                     else:
                         if date.today() == i.Duration-timedelta(days=15):
@@ -54,12 +60,7 @@ class EmployeProject(View):
                             student.save()
                             i.Student = None
                             i.save()
-                        elif date.today()>student.Suspend_till:
-                            body = "Your Account is Suspended for 20 daysProject as you haven't Complete the Project " + i.Name + " before deadline" 
-                            subject = "CREDEMA - ACCOUNT SUSPENDED"
-                            res = send_mail(subject, body, settings.EMAIL_HOST_USER, [student.Email])
-                            student.is_Suspended = False
-                            student.save()
+                        
                         else:
                             pass
 
