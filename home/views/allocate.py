@@ -31,7 +31,7 @@ class Allocate(View):
         project.Student = student
         project.save()
 
-        body = project.Name + ' is allocated to you. Hope you work on it properly and finish it before given deadline.'
+        body = 'Project: '+project.Name + ' is allocated to you. Hope you work on it properly and finish it before given deadline.'
         subject = "CREDEMA Projects - Project Allocation"
 
         send_mail(subject, body, settings.EMAIL_HOST_USER, [student.Email])

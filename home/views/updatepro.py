@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from home.models.company import Company
 from home.models.employe import Employe
 from home.models.project import Project
-from datetime import datetime
+from datetime import datetime, date
 from django.views import View
 
 class Updateproject(View):
@@ -54,7 +54,10 @@ class Updateproject(View):
                 project.Description = description
         
             if duration:
-                project.Duration = duration
+                dur = duration.split('-')
+                duration = date(int(dur[0]), int(dur[1]), int(dur[2]))
+                if duration>project.Duration:
+                    project.Duration = duration
         
 
             project.save()

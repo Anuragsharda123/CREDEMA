@@ -7,14 +7,7 @@ from django.views import View
 
 
 class Applicants(View):
-    def get(self, request):
-        try:
-            if request.session['employee']:
-                return redirect('e_project')
-        except:
-            if request.session['student']:
-                return redirect('home')
-            
+    def get(self, request):  
         return redirect('e_login')
 
 

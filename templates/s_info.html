@@ -137,11 +137,46 @@ Student Profile
                 <a href="http://{{student.Social3}}" style="text-decoration: none; color: blue;" target="_blank"><i>{{student.Social3}}</i></a>
 
             </div>
-{% else %}
-
-{% endif %}
-
+            {% else %}
+            {% endif %}
 <br>
+            <!-- Button trigger modal -->
+            {% if project.Student %}
+            <button type="button" class="btn btn-outline-dark px-5" style="margin:0vw 15vw 0vw 26vw;" data-bs-toggle="modal" data-bs-target="#staticBackdrop" disabled>
+                Already Allocated
+            </button>
+            
+            {% else %}
+            <button type="button" class="btn btn-outline-dark px-5" style="margin-left:27vw;" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                Allocate
+            </button>
+            {% endif %}
       </div>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Confirm Allocation</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Are you Sure you want to allocate this Project:<b><i>{{project.Name}}</i></b> to <b>{{student.Name}}</b>
+      </div>
+        <form action="/allocate/" method="post" class="btn-block">
+      <div class="modal-footer flex-row">
+                  {% csrf_token %}
+                  
+                  <input type="text" name="allocate" value="{{student.id}}" hidden>
+                  <input type="text" name="pro_id" value="{{project.id}}" hidden>
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-outline-primary"> Confirm </button>
+                  
+      </div>
+                </form>
+    </div>
+  </div>
+</div>
 
 {% endblock content %}
