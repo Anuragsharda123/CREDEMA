@@ -7,7 +7,8 @@ Student-Login
 {% block content %}
 
     <div class="containrer">
-        <div class="p-4 m-4">
+        <br>
+        <div class="p-3 m-3">
             <div class="col-lg-5 mx-auto border rounded pt-4">
                 <h3 class="alert alert-light border rounded mx-3 mt-2 mb-4">Login <img src="https://cdn-icons-png.flaticon.com/512/2889/2889078.png" alt="" height="45px" width="45px" style="margin-left: 25vw;"></h3>
                 <form method="post">
@@ -32,23 +33,14 @@ Student-Login
                       <a href="/ereset" class="forgetpass">Forget Password ?</a>
                     </div>
     
-                    <div class="form-group mx-3 mt-5 mb-3 w3-animate-zoom">
-                        <input class="btn btn-outline-dark col-lg-3" type="submit" value="Login">
-                        <a href="/signup" class="alrdy">Don't have an account! 😅</a>
+                    <div class="form-group mx-3 mt-5 mb-3 w3-animate-zoom sign">
+                        <input class="btn btn-outline-dark col-lg-2" type="submit" value="Login">
+                        <p class="already">New to CREMEDA? Register (<a href="/signup" style="text-decoration: none; color: rgb(8, 141, 230);">Student</a> / <a style="text-decoration: none; color: rgb(8, 141, 230);" href="/employee_login">Employe</a>)</p>
                     </div>
     
                 </form>
             </div>
         </div>
-
-        <div class="container">
-            <div class="p-4 m-4">
-                <div class="col-lg-7 mx-auto border rounded pt-4">
-                <h3 class="alert alert-dismissible border rounded mx-3 mt-2 mb-4"><a href="/employee_login" style="text-decoration: none; color: blue;"><em>Click here</em></a> for Sign-in to your Employee account</h3>
-                </div>
-            </div>
-        </div>
-
 </div>
 
 {% endblock content %}
