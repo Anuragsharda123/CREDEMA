@@ -35,7 +35,7 @@
     color: rgb(37, 141, 148);
 }
 .forgetpass{
-    margin-top: 5vh;
+    margin: 5vw 1vw 0vw 14vw;
     font-family: cursive;
     text-decoration: none;
     transition: color 200ms;
