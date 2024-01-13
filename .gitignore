@@ -6,3 +6,4 @@
 /home/migrations/__pycache__
 /venv
 /db.sqlite3
+/.gitignore
