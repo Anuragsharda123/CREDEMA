@@ -5,3 +5,4 @@
 /home/models/__pycache__
 /home/migrations/__pycache__
 /venv
+/db.sqlite3
