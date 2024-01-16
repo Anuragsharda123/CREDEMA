@@ -14,9 +14,9 @@ class Description(View):
         except:
             try:
                 if request.session['employee']:
-                    return redirect('e_project')
+                    return redirect('s_project')
             except:
-                return redirect('e_login')
+                return redirect('s_login')
         
     
     def post(self, request):

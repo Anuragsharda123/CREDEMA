@@ -25,6 +25,7 @@ class OTP(View):
         error_message = None
 
         flag =  request.session['otp'] == otp
+        request.session['flag'] = flag
         if flag:
             del request.session['otp']
             return redirect('reset_password')
@@ -43,7 +44,12 @@ class ResetPassword(View):
                 if request.session['otp']:
                     return redirect('home')
             except:
-                return render(request, 'resetpassword.html')
+                try:
+                    if request.session['flag']:
+                        request.session['flag'] = 0
+                        return render(request, 'resetpassword.html')
+                except:
+                    return redirect('home')
                 
                 
 
