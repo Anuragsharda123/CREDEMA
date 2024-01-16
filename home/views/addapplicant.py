@@ -14,27 +14,31 @@ class AddApplicant(View):
 
     def post(self, request):
 
-        proj = request.POST.get('apply')
-        stu = request.session['student']
-        project = Project.objects.get(id=proj)
-        emp = project.Employe
-        print("booooo:     ", emp)
-        employ = Employe.objects.get(Email=emp)
-        student = Student.objects.get(id=stu)
-
         try:
-            isExist = Applicant.objects.get(Student=student, Project=project)
+            if request.session['student']:
+                proj = request.POST.get('apply')
+                stu = request.session['student']
+                project = Project.objects.get(id=proj)
+                emp = project.Employe
+                print("booooo:     ", emp)
+                employ = Employe.objects.get(Email=emp)
+                student = Student.objects.get(id=stu)
 
-            if isExist:  
-                return redirect('s_application')
+                try:
+                    isExist = Applicant.objects.get(Student=student, Project=project)
+
+                    if isExist:  
+                        return redirect('s_application')
+                except:
+                    apply = Applicant(Student=student, Project=project)
+
+                    apply.save()
+
+                body = student.Name + ' have applied to Project: ' + project.Name
+                subject = "Project Application"
+
+                send_mail(subject, body, settings.EMAIL_HOST_USER, [employ.Email])
+
+                return redirect('home')
         except:
-            apply = Applicant(Student=student, Project=project)
-
-            apply.save()
-
-        body = student.Name + ' have applied to Project: ' + project.Name
-        subject = "Project Application"
-
-        send_mail(subject, body, settings.EMAIL_HOST_USER, [employ.Email])
-
-        return redirect('home')
+            return redirect('home')

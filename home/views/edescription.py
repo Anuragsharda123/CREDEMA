@@ -13,35 +13,40 @@ class Description(View):
         
     
     def post(self, request):
-        pro_id = request.POST.get('pro_id')
-        applied = None
-        project = Project.objects.get(id = pro_id)
-        data = {}
-        skill = project.Skill_req.split(',')
-        perk = project.Perks.split(',')
-        description = project.Description.split('.')
-        emp_id = request.session['employee']
-        employe = Employe.objects.get(id=emp_id)
-        
+        try:
+            if request.session['employee']:
+                pro_id = request.POST.get('pro_id')
+                applied = None
+                project = Project.objects.get(id = pro_id)
+                data = {}
+                skill = project.Skill_req.split(',')
+                perk = project.Perks.split(',')
+                description = project.Description.split('.')
+                emp_id = request.session['employee']
+                employe = Employe.objects.get(id=emp_id)
+                
 
 
-        for i in range(0,len(skill)):
-            w = skill[i].lstrip(" ")
-            skill[i] = w
+                for i in range(0,len(skill)):
+                    w = skill[i].lstrip(" ")
+                    skill[i] = w
 
-        for i in range(0,len(perk)):
-            w = perk[i].lstrip(" ")
-            perk[i] = w
+                for i in range(0,len(perk)):
+                    w = perk[i].lstrip(" ")
+                    perk[i] = w
+                    
+                for i in range(0,len(description)):
+                    w = description[i].lstrip(" ")
+                    description[i] = w
+
+                data['project'] = project
+                data['perk'] = perk
+                data['skill'] = skill
+                data['description'] = description
+                data['applied'] = applied
+                data['employe'] = employe
+
+                return render(request, 'e_p_description.html', data)
             
-        for i in range(0,len(description)):
-            w = description[i].lstrip(" ")
-            description[i] = w
-
-        data['project'] = project
-        data['perk'] = perk
-        data['skill'] = skill
-        data['description'] = description
-        data['applied'] = applied
-        data['employe'] = employe
-
-        return render(request, 'e_p_description.html', data)
+        except:
+            return redirect('e_login')

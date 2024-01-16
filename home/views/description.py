@@ -20,42 +20,46 @@ class Description(View):
         
     
     def post(self, request):
-        pro_id = request.POST.get('pro_id')
-        applied = None
-        project = Project.objects.get(id = pro_id)
-        data = {}
-        skill = project.Skill_req.split(',')
-        perk = project.Perks.split(',')
-        description = project.Description.split('.')
-        
-
         try:
-            stu = request.session['student']
-            student = Student.objects.get(id=stu)
-            
-            if Applicant.objects.get(Student=student, Project=project):
-                applied = True
-        
+            if request.session['student']:
+                pro_id = request.POST.get('pro_id')
+                applied = None
+                project = Project.objects.get(id = pro_id)
+                data = {}
+                skill = project.Skill_req.split(',')
+                perk = project.Perks.split(',')
+                description = project.Description.split('.')
+                
+
+                try:
+                    stu = request.session['student']
+                    student = Student.objects.get(id=stu)
+                    
+                    if Applicant.objects.get(Student=student, Project=project):
+                        applied = True
+                
+                except:
+                    pass
+
+                for i in range(0,len(skill)):
+                    w = skill[i].lstrip(" ")
+                    skill[i] = w
+
+                for i in range(0,len(perk)):
+                    w = perk[i].lstrip(" ")
+                    perk[i] = w
+                    
+                for i in range(0,len(description)):
+                    w = description[i].lstrip(" ")
+                    description[i] = w
+
+                data['project'] = project
+                data['perk'] = perk
+                data['skill'] = skill
+                data['description'] = description
+                data['applied'] = applied
+                data['student'] = student
+
+                return render(request, 'p_description.html', data)
         except:
-            pass
-
-        for i in range(0,len(skill)):
-            w = skill[i].lstrip(" ")
-            skill[i] = w
-
-        for i in range(0,len(perk)):
-            w = perk[i].lstrip(" ")
-            perk[i] = w
-            
-        for i in range(0,len(description)):
-            w = description[i].lstrip(" ")
-            description[i] = w
-
-        data['project'] = project
-        data['perk'] = perk
-        data['skill'] = skill
-        data['description'] = description
-        data['applied'] = applied
-        data['student'] = student
-
-        return render(request, 'p_description.html', data)
+            return redirect('home')
