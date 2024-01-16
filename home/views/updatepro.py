@@ -6,6 +6,14 @@ from datetime import datetime, date
 from django.views import View
 
 class Updateproject(View):
+    def get(self, request):
+        try: 
+            if request.session['employee']:
+                return redirect('e_project')
+        except:
+            return redirect('e_login')
+    
+
     def post(self, request):
         if request.POST.get('meth')=='get':
             # try:

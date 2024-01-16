@@ -18,9 +18,12 @@ class EmailReset(View):
                 if request.session['student']:
                     return redirect('home')
             except:
-                pass
-        
-        return render(request, 'email_reset.html')
+                try:
+                    if request.session['flag']:
+                        del request.session['flag']
+                        return redirect('s_login')
+                except:
+                    return render(request, 'email_reset.html')
     
     def post(self, request):
         email = request.POST.get('email')

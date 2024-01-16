@@ -17,7 +17,12 @@ class EmailReset(View):
                 if request.session['employee']:
                     return redirect('e_project')
             except:
-                return render(request, 'e_email_reset.html')
+                try:
+                    if request.session['flag']:
+                        del request.session['flag']
+                        return redirect('e_login')
+                except:
+                    return render(request, 'e_email_reset.html')
         
     
     def post(self, request):

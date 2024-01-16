@@ -12,10 +12,11 @@ class Allocate(View):
             if request.session['employee']:
                 return redirect('e_project')
         except:
-            if request.session['student']:
-                return redirect('home')
-            
-        return redirect('e_login')
+            try:
+                if request.session['student']:
+                    return redirect('home')
+            except:
+                return redirect('e_login')
 
 
     def post(self, request):

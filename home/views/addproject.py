@@ -7,20 +7,23 @@ from django.views import View
 
 class AddProject(View):
     def get(self, request):
-        company = Company.objects.all()
-        data={}
-        # try:
-        empid = request.session['employee']
-        
-        employe = Employe.objects.get(id=empid)
 
-        data['company'] = company
-        data['employee'] = employe
-        data['employe'] = employe
-            
-        return render(request, "add_project.html", data)
-        # except:
-        #     return redirect('e_login')
+        try:
+            if request.session['employee']:
+                company = Company.objects.all()
+                data={}
+                # try:
+                empid = request.session['employee']
+                
+                employe = Employe.objects.get(id=empid)
+
+                data['company'] = company
+                data['employee'] = employe
+                data['employe'] = employe
+                    
+                return render(request, "add_project.html", data)
+        except:
+            return redirect('e_login')
     
 
     def post(self, request):
