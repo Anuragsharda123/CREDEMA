@@ -20,17 +20,23 @@ class Studentinfo(View):
         project = Project.objects.get(id=pro_id)
         Name = student.Name.capitalize()
         skill = student.Skills.split(',')
+        project = student.Projects.split(',')
         
         for i in range(0,len(skill)):
             w = skill[i].lstrip(" ")
             skill[i] = w.capitalize()
+
+        for j in range(0,len(project)):
+            p = project[j].lstrip(" ")
+            project[j] = p.capitalize()
 
         data['student'] = student
         data['project'] = project
         data['employe'] = employe
         data['Name'] = Name
         data['skill'] = skill
-        # print(skill)
+        data['project'] = project
+        # print(project)
 
         return render(request, 's_info.html', data)
     

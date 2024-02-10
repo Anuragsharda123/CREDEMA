@@ -26,19 +26,19 @@ Employee Signup
                     
                                     <!-- email -->
                                     <div class="form-group mx-3 my-2">
-                                    <label for="">Email</label>
+                                    <label for="">Email<span style="color: red;">*</span></label>
                                     <input type="email" name="email" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom" placeholder="example@gmail.com" required>
                                     </div>
                     
                                     <!-- password -->
                                     <div class="form-group mx-3 my-2">
-                                    <label for="">Password</label>
+                                    <label for="">Password<span style="color: red;">*</span></label>
                                     <input type="password" name="password" class="form-control form-control-sm btn btn-outline-secondary  w3-animate-zoom" id="myInput" placeholder="************" required>
                                     </div>
                     
                                     <!-- confirm-password -->
                                     <div class="form-group mx-3 my-2">
-                                    <label for="">Confirm Password</label>
+                                    <label for="">Confirm Password<span style="color: red;">*</span></label>
                                     <input type="password" name="confirmpassword" class="form-control form-control-sm btn btn-outline-secondary  w3-animate-zoom" placeholder="************" required>
                                     <input type="checkbox" onclick="myFunction()"> Show Password
                                     </div>
@@ -62,25 +62,25 @@ Employee Signup
                                 
                                     <!-- Name -->
                                     <div class="form-group mx-3 my-2">
-                                        <label for="">Name</label>
+                                        <label for="">Name<span style="color: red;">*</span></label>
                                         <input type="text" name="name" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom" placeholder="Enter your Name" required>
                                     </div>
 
                                     <!-- Age -->
                                     <div class="form-group mx-3 my-2">
-                                        <label for="">Age</label>
+                                        <label for="">Age<span style="color: red;">*</span></label>
                                         <input type="number" name="age" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom" placeholder="Enter your Age" required>
                                     </div>
 
                                     <!-- phone -->
                                     <div class="form-group mx-3 my-2">
-                                        <label for="">Phone</label>
+                                        <label for="">Phone<span style="color: red;">*</span></label>
                                         <input type="text" name="phone" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom" placeholder="Enter your Contact Number" required>
                                     </div>
 
                                     <!-- Gender -->
                                     <div class="form-group mx-3 my-2">
-                                        <label for="">Gender</label>
+                                        <label for="">Gender<span style="color: red;">*</span></label>
                                         <select class="form-select btn btn-outline-dark w3-animate-zoom" name='gender' aria-label="Default select example" required>
                                               <option disabled selected>Select Gender</option>
                                               <option value="Female">Female</option>
@@ -91,7 +91,7 @@ Employee Signup
                                         
                                     <!-- Country -->
                                     <div class="form-group mx-3 my-2">
-                                        <label for="">Country</label>
+                                        <label for="">Country<span style="color: red;">*</span></label>
                                         <select class="form-select btn btn-outline-dark w3-animate-zoom" name='country' aria-label="Default select example" required>
                                                 <option disabled selected>Select Country</option>
                                                 <option value="Afghanistan">Afghanistan</option>
@@ -343,19 +343,19 @@ Employee Signup
                                     
                                     <!-- State -->
                                     <div class="form-group mx-3 my-2">
-                                        <label for="">State</label>
+                                        <label for="">State<span style="color: red;">*</span></label>
                                         <input type="text" name="state" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom" placeholder="Enter your State" required>
                                     </div>
 
                                     <!-- City -->
                                     <div class="form-group mx-3 my-2">
-                                        <label for="">City</label>
+                                        <label for="">City<span style="color: red;">*</span></label>
                                         <input type="text" name="city" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom" placeholder="Enter your City" required>
                                     </div>
 
                                     <!-- Address -->
                                     <div class="form-group mx-3 my-2">
-                                        <label for="">Address</label>
+                                        <label for="">Address<span style="color: red;">*</span></label>
                                         <input type="text" name="address" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom" placeholder="Enter your Address" required>
                                     </div>
 
@@ -378,7 +378,7 @@ Employee Signup
                                 
                                 <!-- Pass/Appear -->
                                 <div class="form-group mx-3 my-2">
-                                    <label for="">Company</label>
+                                    <label for="">Company<span style="color: red;">*</span></label>
                                     <select class="form-select btn btn-outline-dark w3-animate-zoom" name='company' aria-label="Default select example" required>
                                           <option disabled selected>Select Company</option>
                                           {% for company in companies %}
@@ -390,13 +390,13 @@ Employee Signup
 
                                 <!-- Uni roll -->
                                 <div class="form-group mx-3 my-2">
-                                  <label for="">Employe Id no</label>
+                                  <label for="">Employe Id no<span style="color: red;">*</span></label>
                                   <input type="number" name="empno" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom" placeholder="Enter your Employee ID no">
                                 </div>
 
                                 <!-- Resume -->
                                 <div class="form-group mx-3 my-2">
-                                  <label for="">Role</label>
+                                  <label for="">Role<span style="color: red;">*</span></label>
                                   <input type="text" name="role" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom" placeholder="Role in company" required>
                                 </div>
 
@@ -413,7 +413,7 @@ Employee Signup
                                         <div class="form-check">
                                             <input class="form-check-input border border-dark" type="checkbox" value="" id="invalidCheck2" required>
                                             <label class="form-check-label" for="invalidCheck2">
-                                                Agree to<a class="link-primary text-decoration-none" href=# data-bs-toggle="modal" data-bs-target="#staticBackdrop">Terms and conditions</a>
+                                                Agree to<a class="link-primary text-decoration-none" href=# data-bs-toggle="modal" data-bs-target="#staticBackdrop">Terms and conditions</a><span style="color: red;">*</span>
                                             </label>
                                         </div>
                                     </div>

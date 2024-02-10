@@ -29,10 +29,14 @@ class Signup(View):
         university = request.POST.get('university')
         rollno = int(request.POST.get('rollno'))
         course = request.POST.get('course')
+        project = request.POST.get('project')
         resume = request.POST.get('resume')
         social1 = request.POST.get('social1')
         social2 = request.POST.get('social2')
         social3 = request.POST.get('social3')
+        exp1 = request.POST.get('exp1')
+        exp2 = request.POST.get('exp2')
+        exp3 = request.POST.get('exp3')
         skill = request.POST.get('skill')
         skill = skill.lower()
 
@@ -46,8 +50,8 @@ class Signup(View):
 
         student = Student(Email=email, Password=password, Name=name, Age=age, University_name=university,
                           Gender=gender, Phone=phone, Country=country, State=state, City=city, 
-                          Address=address, Passed=complete, Roll_no=rollno, Course=course, Resume=resume,
-                          Social1=social1, Social2=social2, Social3=social3, Skills=skill, Photo=photo)
+                          Address=address, Passed=complete, Roll_no=rollno, Course=course, Projects=project, Resume=resume,
+                          Social1=social1, Social2=social2, Social3=social3, Exp1=exp1, Exp2=exp2, Exp3=exp3, Skills=skill, Photo=photo)
         
         error_message = None
 

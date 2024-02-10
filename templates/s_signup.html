@@ -26,19 +26,19 @@ Student-Signup
                     
                                     <!-- email -->
                                     <div class="form-group mx-3 my-2">
-                                    <label for="">Email</label>
+                                    <label for="">Email<span style="color: red;">*</span></label>
                                     <input type="email" name="email" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom" placeholder="example@gmail.com" required>
                                     </div>
                     
                                     <!-- password -->
                                     <div class="form-group mx-3 my-2">
-                                    <label for="">Password</label>
+                                    <label for="">Password<span style="color: red;">*</span></label>
                                     <input type="password" name="password" class="form-control form-control-sm btn btn-outline-secondary  w3-animate-zoom" id="myInput" placeholder="************" required>
                                     </div>
                     
                                     <!-- confirm-password -->
                                     <div class="form-group mx-3 my-2">
-                                    <label for="">Confirm Password</label>
+                                    <label for="">Confirm Password<span style="color: red;">*</span></label>
                                     <input type="password" name="confirmpassword" class="form-control form-control-sm btn btn-outline-secondary  w3-animate-zoom" placeholder="************" required>
                                     <input type="checkbox" onclick="myFunction()"> Show Password
                                     </div>
@@ -63,31 +63,31 @@ Student-Signup
                                 
                                     <!-- Name -->
                                     <div class="form-group mx-3 my-2">
-                                        <label for="">Name</label>
+                                        <label for="">Name<span style="color: red;">*</span></label>
                                         <input type="text" name="name" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom" placeholder="Enter your Name" required>
                                     </div>
 
                                     <!-- Age -->
                                     <div class="form-group mx-3 my-2">
-                                        <label for="">Age</label>
+                                        <label for="">Age<span style="color: red;">*</span></label>
                                         <input type="number" name="age" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom" placeholder="Enter your Age" required>
                                     </div>
 
                                     <!-- Photo -->
                                     <div class="form-group mx-3 my-2">
-                                        <label for="">Profile Photo</label>
+                                        <label for="">Profile Photo<span style="color: red;">*</span></label>
                                         <input type="file" name="photo" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom" placeholder="Enter your Age" required>
                                     </div>
 
                                     <!-- phone -->
                                     <div class="form-group mx-3 my-2">
-                                        <label for="">Phone</label>
+                                        <label for="">Phone<span style="color: red;">*</span></label>
                                         <input type="text" name="phone" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom" placeholder="Enter your Contact Number" required>
                                     </div>
 
                                     <!-- Gender -->
                                     <div class="form-group mx-3 my-2">
-                                        <label for="">Gender</label>
+                                        <label for="">Gender<span style="color: red;">*</span></label>
                                         <select class="form-select btn btn-outline-dark w3-animate-zoom" name='gender' aria-label="Default select example" required>
                                               <option disabled selected>Select Gender</option>
                                               <option value="Female">Female</option>
@@ -98,7 +98,7 @@ Student-Signup
                                         
                                     <!-- Country -->
                                     <div class="form-group mx-3 my-2">
-                                        <label for="">Country</label>
+                                        <label for="">Country<span style="color: red;">*</span></label>
                                         <select class="form-select btn btn-outline-dark w3-animate-zoom" name='country' aria-label="Default select example" required>
                                                 <option disabled selected>Select Country</option>
                                                 <option value="Afghanistan">Afghanistan</option>
@@ -350,19 +350,19 @@ Student-Signup
                                     
                                     <!-- State -->
                                     <div class="form-group mx-3 my-2">
-                                        <label for="">State</label>
+                                        <label for="">State<span style="color: red;">*</span></label>
                                         <input type="text" name="state" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom" placeholder="Enter your State" required>
                                     </div>
 
                                     <!-- City -->
                                     <div class="form-group mx-3 my-2">
-                                        <label for="">City</label>
+                                        <label for="">City<span style="color: red;">*</span></label>
                                         <input type="text" name="city" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom" placeholder="Enter your City" required>
                                     </div>
 
                                     <!-- Address -->
                                     <div class="form-group mx-3 my-2">
-                                        <label for="">Address</label>
+                                        <label for="">Address<span style="color: red;">*</span></label>
                                         <input type="text" name="address" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom" placeholder="Enter your Address" required>
                                     </div>
 
@@ -385,7 +385,7 @@ Student-Signup
                                 
                                 <!-- Pass/Appear -->
                                 <div class="form-group mx-3 my-2">
-                                    <label for="">Completed/Pursuing</label>
+                                    <label for="">Completed/Pursuing<span style="color: red;">*</span></label>
                                     <select class="form-select btn btn-outline-dark w3-animate-zoom" name='pass' aria-label="Default select example" required>
                                           <option disabled selected>Select</option>
                                           <option value="Pursuing">Pursuing</option>
@@ -395,26 +395,40 @@ Student-Signup
 
                                 <!-- Uni name -->
                                 <div class="form-group mx-3 my-2">
-                                  <label for="">University Name</label>
+                                  <label for="">University Name<span style="color: red;">*</span></label>
                                   <input type="text" name="university" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom" placeholder="Enter your University Name" required>
                                 </div>
 
                                 <!-- Uni roll -->
                                 <div class="form-group mx-3 my-2">
-                                  <label for="">University Roll no</label>
+                                  <label for="">University Roll no<span style="color: red;">*</span></label>
                                   <input type="number" name="rollno" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom" placeholder="Enter your University Roll no" required>
                                 </div>
 
                                 <!-- Course -->
                                 <div class="form-group mx-3 my-2">
-                                  <label for="">Course</label>
-                                  <input type="text" name="course" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom" placeholder="Enter your Course" required>
+                                  <label for="">Course<span style="color: red;">*</span></label>
+                                  <input type="text" name="course" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom" placeholder="Enter your full course name" required>
                                 </div>
 
                                 <!-- Resume -->
                                 <div class="form-group mx-3 my-2">
-                                  <label for="">Upload your Resume</label>
+                                  <label for="">Upload your Resume<span style="color: red;">*</span></label>
                                   <input type="file" name="resume" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom" placeholder="Upload your Resume" required>
+                                </div>
+
+                                <!-- Projects -->
+                                <div class="form-group mx-3 my-2">
+                                  <label for="">Projects (if any)</label>
+                                  <input type="text" name="project" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom" placeholder="e.g.,House Price Prediction, E-Commerce, etc.">
+                                </div>
+
+                                <!-- Social link -->
+                                <div class="form-group mx-3 my-2">
+                                  <label for="">Experience (if any)</label>
+                                  <input type="text" name="exp1" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom m-1" placeholder="e.g., Company_name: Designation">
+                                  <input type="text" name="exp2" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom m-1" placeholder="e.g., Company_name: Designation">
+                                  <input type="text" name="exp3" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom m-1" placeholder="e.g., Company_name: Designation">
                                 </div>
 
                                 <!-- Social link -->
@@ -427,8 +441,8 @@ Student-Signup
 
                                 <!-- Skill -->
                                 <div class="form-group mx-3 my-2">
-                                  <label for="">Skills</label>
-                                  <input type="text" name="skill" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom" placeholder="Enter your Skills" required>
+                                  <label for="">Skills<span style="color: red;">*</span></label>
+                                  <input type="text" name="skill" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom" placeholder="e.g.,Data Analysis, web development" required>
                                 </div>
 
                                 <br>
@@ -436,7 +450,7 @@ Student-Signup
                                         <div class="form-check">
                                             <input class="form-check-input border border-dark" type="checkbox" value="" id="invalidCheck2" required>
                                             <label class="form-check-label" for="invalidCheck2">
-                                                Agree to<a class="link-primary text-decoration-none" href=# data-bs-toggle="modal" data-bs-target="#staticBackdrop">Terms and conditions</a>
+                                                Agree to<a class="link-primary text-decoration-none" href=# data-bs-toggle="modal" data-bs-target="#staticBackdrop">Terms and conditions</a><span style="color: red;">*</span>
                                             </label>
                                         </div>
                                     </div>

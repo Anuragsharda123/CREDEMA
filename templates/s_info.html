@@ -72,6 +72,11 @@ Student Profile
             <div style="margin-left:3vw;">
                 <strong>University Name: </strong>
                 {{student.University_name}}
+
+                <div style="margin-left: 40vw; position: absolute;">
+                    <strong>Resume: </strong><br>
+                <a href="/docu/download/{{student.Resume}}" download><img src="/docu/download/static/images/pdflogo.webp" alt="pdf" height="110vh"></a>  
+                </div>
             </div>
 
 <br><br>
@@ -104,11 +109,41 @@ Student Profile
                     </ul>
                 </div>
 
-                <div style="margin-left: 40vw; position: absolute;">
-                    <strong>Resume: </strong><br>
-                <a href="/docu/download/{{student.Resume}}" download><img src="/docu/download/static/images/pdflogo.webp" alt="pdf" height="110vh"></a>  
-                </div>
+                {% if project %}
+                    <div style="margin-left: 40vw; position: absolute;">
+                        <strong>Projects: </strong><br>
+                            {% for projects in project %}
+                                <ul>
+                                    <li>{{projects}}</li>
+                                </ul>
+                            {% endfor %}
+                    </div>
+                {% endif %}
             </div>
+
+<br><br><br>
+            {% if student.Exp1 %}
+            <div style="margin-left:3vw;">
+                <strong>Experience: </strong>
+                <i>{{student.Exp1}}</i>
+            </div>
+            {% endif %}
+            
+            {% if student.Exp2 %}
+            <br><br>
+            <div style="margin-left:3vw;">
+                <strong>Experience: </strong>
+                <i>{{student.Exp2}}</i>
+            </div>
+            {% endif %}
+            
+            {% if student.Exp3 %}
+            <br><br>
+            <div id="deadline" style="margin-left:3vw;">
+                <strong>Experience: </strong>
+                <i>{{student.Exp3}}</i>
+            </div>
+            {% endif %}
 
 <br><br><br>
             {% if student.Social1 %}
@@ -116,30 +151,26 @@ Student Profile
                 <strong>Social profile: </strong>
                 <a href="http://{{student.Social1}}" style="text-decoration: none; color: blue;" target="_blank"><i>{{student.Social1}}</i></a>
             </div>
-            {% else %}
-            
             {% endif %}
             
-            <br><br>
             {% if student.Social2 %}
+            <br><br>
             <div style="margin-left:3vw;">
                 <strong>Social profile: </strong>
                 <a href="http://{{student.Social2}}" style="text-decoration: none; color: blue;" target="_blank"><i>{{student.Social2}}</i></a>
             </div>
-            {% else %}
-            
             {% endif %}
             
-            <br><br>
             {% if student.Social3 %}
+            <br><br>
             <div id="deadline" style="margin-left:3vw;">
                 <strong>Social profile: </strong>
                 <a href="http://{{student.Social3}}" style="text-decoration: none; color: blue;" target="_blank"><i>{{student.Social3}}</i></a>
 
             </div>
-            {% else %}
+
             {% endif %}
-<br>
+<br><br><br><br>
             <!-- Button trigger modal -->
             {% if project.Student %}
             <button type="button" class="btn btn-outline-dark px-5" style="margin:0vw 15vw 0vw 26vw;" data-bs-toggle="modal" data-bs-target="#staticBackdrop" disabled>
