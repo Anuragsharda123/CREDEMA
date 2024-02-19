@@ -109,7 +109,31 @@ Profile
                 </div>
             </div>
 
-<br><br><br>
+<br><br><br><br>
+            {% if student.Exp1 %}
+            <div style="margin-left:3vw;">
+                <strong>Experience: </strong>
+                <i>{{student.Exp1}}</i>
+            </div>
+            {% endif %}
+            
+            {% if student.Exp2 %}
+            <br><br>
+            <div style="margin-left:3vw;">
+                <strong>Experience: </strong>
+                <i>{{student.Exp2}}</i>
+            </div>
+            {% endif %}
+            
+            {% if student.Exp3 %}
+            <br><br>
+            <div id="deadline" style="margin-left:3vw;">
+                <strong>Experience: </strong>
+                <i>{{student.Exp3}}</i>
+            </div>
+            {% endif %}
+
+<br><br>
             {% if student.Social1 %}
             <div style="margin-left:3vw;">
                 <strong>Social profile: </strong>
