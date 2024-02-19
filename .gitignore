@@ -8,3 +8,7 @@
 /.gitignore
 /.vs
 /db.sqlite3
+home/migrations/0016_alter_project_last_update_alter_student_suspend_till.py
+home/migrations/0017_alter_project_last_update_alter_student_suspend_till.py
+home/migrations/0018_alter_student_suspend_till.py
+db.sqlite3

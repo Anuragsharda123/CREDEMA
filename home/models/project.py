@@ -2,7 +2,7 @@ from django.db import models
 from .company import Company
 from .employe import Employe
 from .student import Student
-from datetime import datetime
+from django.utils import timezone
 
 class Project(models.Model):
     Name = models.CharField(max_length=100)
@@ -16,7 +16,7 @@ class Project(models.Model):
     Description = models.CharField(max_length=1000)
     Duration = models.DateField(null=True)
     Status = models.BooleanField(default=False)
-    Last_update = models.DateField(default= datetime.today())
+    Last_update = models.DateField(default= timezone.now())
     
     
     def __str__(self):

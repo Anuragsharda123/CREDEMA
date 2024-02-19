@@ -1,5 +1,5 @@
 from django.db import models
-from datetime import date
+from django.utils import timezone
 
 class Student(models.Model):
     Email = models.EmailField(unique=True)
@@ -27,7 +27,7 @@ class Student(models.Model):
     Exp3 = models.CharField(max_length=50, blank=True)
     Skills = models.CharField(max_length=1000)
     is_Suspended = models.BooleanField(default=False)
-    Suspend_till = models.DateField(default=date.today())
+    Suspend_till = models.DateField(default=timezone.now())
 
     def __str__(self):
         return str(self.Email)
