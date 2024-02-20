@@ -23,18 +23,21 @@ class Allocate(View):
         pro_id = request.POST.get('pro_id')
         stu_id = request.POST.get('allocate')
 
-        project = Project.objects.get(id=pro_id)
-        if project.Student:
-            return redirect('e_project')
-        
-        student = Student.objects.get(id=stu_id)
-        
-        project.Student = student
-        project.save()
+        try:
+            project = Project.objects.get(id=pro_id)
+            if project.Student:
+                return redirect('e_project')
+            
+            student = Student.objects.get(id=stu_id)
+            
+            project.Student = student
+            project.save()
 
-        body = 'Project: '+project.Name + ' is allocated to you. Hope you work on it properly and finish it before given deadline.'
-        subject = "CREDEMA Projects - Project Allocation"
+            body = 'Project: '+project.Name + ' is allocated to you. Hope you work on it properly and finish it before given deadline.'
+            subject = "CREDEMA Projects - Project Allocation"
 
-        send_mail(subject, body, settings.EMAIL_HOST_USER, [student.Email])
+            send_mail(subject, body, settings.EMAIL_HOST_USER, [student.Email])
 
-        return redirect("e_project")
+            return redirect("e_project")
+        except:
+            return redirect("e_project")
