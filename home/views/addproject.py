@@ -58,7 +58,9 @@ class AddProject(View):
             return redirect('e_login')
 
         else:
+            company = Company.objects.all()
             data = {
-                'error': error_message
+                'error': error_message,
+                'company':company
             }
         return render(request,'add_project.html', data)
