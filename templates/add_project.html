@@ -36,7 +36,7 @@ Add New Project
                             <!-- Skill Req -->
                             <div class="form-group mx-3 my-2">
                               <label for="">Skill(s) Required</label>
-                              <input type="text" name="skill" placeholder="Skills Required" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom" required>
+                              <input type="text" name="skill" placeholder="e.g.,Data Analysis, web development" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom" required>
                             </div>
           
                           <!-- Company -->
@@ -121,7 +121,7 @@ Add New Project
                     <!-- Skill Req -->
                     <div class="form-group mx-3 my-2">
                       <label for="">Skill(s) Required</label>
-                      <input type="text" name="skill" placeholder="Skills Required" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom" required>
+                      <input type="text" name="skill" placeholder="e.g.,Data Analysis, web development" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom" required>
                     </div>
   
                   <!-- Company -->
@@ -153,12 +153,6 @@ Add New Project
                       <input type="text" name="perk" placeholder="perks" class="form-control form-control-sm border border-secondary w3-animate-zoom" required>
                     </div>
 
-                  <!-- Stipend -->
-                  <div class="form-group mx-3 my-2">
-                      <label for="">Stipend</label>
-                      <input type="number" name="stipend" placeholder="Enter stipend in rupees ₹" class="form-control form-control-sm border border-secondary w3-animate-zoom" required>
-                    </div>
-
                     <hr>
 
                     <div class="form-group mx-3 my-2">
@@ -172,8 +166,13 @@ Add New Project
                     </div>
 
                     <div class="form-group mx-3 my-2">
+                      <label for="">Stipend</label>
+                      <input type="number" name="stipend1" placeholder="Enter stipend in rupees ₹" class="form-control form-control-sm border border-secondary w3-animate-zoom" required>
+                    </div>
+
+                    <div class="form-group mx-3 my-2">
                       <label for="">Deadline for task 1</label>
-                        <input type="date" name="tdesc1" placeholder="Provide Complete description of the task" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom" required>
+                        <input type="date" name="t1dead" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom" required>
                     </div>
 
                     <hr>
@@ -181,17 +180,22 @@ Add New Project
 
                     <div class="form-group mx-3 my-2">
                       <label for="">Task 2 Name</label>
-                      <input type="text" name="task1" placeholder="e.g., Back-end" class="form-control form-control-sm border border-secondary w3-animate-zoom" required>
+                      <input type="text" name="task2" placeholder="e.g., Back-end" class="form-control form-control-sm border border-secondary w3-animate-zoom" required>
                     </div>
 
                     <div class="form-group mx-3 my-2">
                       <label for="">Task 2 Description</label>
-                      <input type="text" name="tdesc1" placeholder="Provide Complete description of the task" class="form-control form-control-sm border border-secondary w3-animate-zoom" required>
+                      <input type="text" name="tdesc2" placeholder="Provide Complete description of the task" class="form-control form-control-sm border border-secondary w3-animate-zoom" required>
+                    </div>
+
+                    <div class="form-group mx-3 my-2">
+                      <label for="">Stipend</label>
+                      <input type="number" name="stipend2" placeholder="Enter stipend in rupees ₹" class="form-control form-control-sm border border-secondary w3-animate-zoom" required>
                     </div>
 
                     <div class="form-group mx-3 my-2">
                       <label for="">Deadline for task 2</label>
-                        <input type="date" name="tdesc1" placeholder="Provide Complete description of the task" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom" required>
+                        <input type="date" name="t2dead" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom" required>
                     </div>
 
                     <hr>
@@ -199,17 +203,22 @@ Add New Project
 
                     <div class="form-group mx-3 my-2">
                       <label for="">Task 3 Name</label>
-                      <input type="text" name="task1" placeholder="e.g., SEO" class="form-control form-control-sm border border-secondary w3-animate-zoom" required>
+                      <input type="text" name="task3" placeholder="e.g., SEO" class="form-control form-control-sm border border-secondary w3-animate-zoom" >
                     </div>
 
                     <div class="form-group mx-3 my-2">
                       <label for="">Task 3 Description</label>
-                      <input type="text" name="tdesc1" placeholder="Provide Complete description of the task" class="form-control form-control-sm border border-secondary w3-animate-zoom" required>
+                      <input type="text" name="tdesc3" placeholder="Provide Complete description of the task" class="form-control form-control-sm border border-secondary w3-animate-zoom" >
+                    </div>
+
+                    <div class="form-group mx-3 my-2">
+                      <label for="">Stipend</label>
+                      <input type="number" name="stipend3" placeholder="Enter stipend in rupees ₹" class="form-control form-control-sm border border-secondary w3-animate-zoom" >
                     </div>
 
                     <div class="form-group mx-3 my-2">
                       <label for="">Deadline for task 3</label>
-                        <input type="date" name="tdesc1" placeholder="Provide Complete description of the task" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom" required>
+                        <input type="date" name="t3dead" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom" >
                     </div>
 
                     <hr>
@@ -217,17 +226,22 @@ Add New Project
 
                     <div class="form-group mx-3 my-2">
                       <label for="">Task 4 Name</label>
-                      <input type="text" name="task1" placeholder="e.g., Content-Writting" class="form-control form-control-sm border border-secondary w3-animate-zoom" required>
+                      <input type="text" name="task4" placeholder="e.g., Content-Writting" class="form-control form-control-sm border border-secondary w3-animate-zoom" >
                     </div>
 
                     <div class="form-group mx-3 my-2">
                       <label for="">Task 4 Description</label>
-                      <input type="text" name="tdesc1" placeholder="Provide Complete description of the task" class="form-control form-control-sm border border-secondary w3-animate-zoom" required>
+                      <input type="text" name="tdesc4" placeholder="Provide Complete description of the task" class="form-control form-control-sm border border-secondary w3-animate-zoom" >
+                    </div>
+
+                    <div class="form-group mx-3 my-2">
+                      <label for="">Stipend</label>
+                      <input type="number" name="stipend4" placeholder="Enter stipend in rupees ₹" class="form-control form-control-sm border border-secondary w3-animate-zoom" >
                     </div>
 
                     <div class="form-group mx-3 my-2">
                       <label for="">Deadline for task 4</label>
-                        <input type="date" name="tdesc1" placeholder="Provide Complete description of the task" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom" required>
+                        <input type="date" name="t4dead" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom" >
                     </div>
 
                     <hr>
@@ -235,17 +249,22 @@ Add New Project
 
                     <div class="form-group mx-3 my-2">
                       <label for="">Task 5 Name</label>
-                      <input type="text" name="task1" placeholder="e.g., Logo Designing" class="form-control form-control-sm border border-secondary w3-animate-zoom" required>
+                      <input type="text" name="task5" placeholder="e.g., Logo Designing" class="form-control form-control-sm border border-secondary w3-animate-zoom" >
                     </div>
 
                     <div class="form-group mx-3 my-2">
                       <label for="">Task 5 Description</label>
-                      <input type="text" name="tdesc1" placeholder="Provide Complete description of the task" class="form-control form-control-sm border border-secondary w3-animate-zoom" required>
+                      <input type="text" name="tdesc5" placeholder="Provide Complete description of the task" class="form-control form-control-sm border border-secondary w3-animate-zoom" >
+                    </div>
+
+                    <div class="form-group mx-3 my-2">
+                      <label for="">Stipend</label>
+                      <input type="number" name="stipend5" placeholder="Enter stipend in rupees ₹" class="form-control form-control-sm border border-secondary w3-animate-zoom" >
                     </div>
 
                     <div class="form-group mx-3 my-2">
                       <label for="">Deadline for task 5</label>
-                        <input type="date" name="tdesc1" placeholder="Provide Complete description of the task" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom" required>
+                        <input type="date" name="t5dead" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom" >
                     </div>
 
                     <hr>
@@ -253,17 +272,22 @@ Add New Project
 
                     <div class="form-group mx-3 my-2">
                       <label for="">Task 6 Name</label>
-                      <input type="text" name="task1" placeholder="e.g., Database Management" class="form-control form-control-sm border border-secondary w3-animate-zoom" required>
+                      <input type="text" name="task6" placeholder="e.g., Database Management" class="form-control form-control-sm border border-secondary w3-animate-zoom" >
                     </div>
 
                     <div class="form-group mx-3 my-2">
                       <label for="">Task 6 Description</label>
-                      <input type="text" name="tdesc1" placeholder="Provide Complete description of the task" class="form-control form-control-sm border border-secondary w3-animate-zoom" required>
+                      <input type="text" name="tdesc6" placeholder="Provide Complete description of the task" class="form-control form-control-sm border border-secondary w3-animate-zoom" >
+                    </div>
+
+                    <div class="form-group mx-3 my-2">
+                      <label for="">Stipend</label>
+                      <input type="number" name="stipend6" placeholder="Enter stipend in rupees ₹" class="form-control form-control-sm border border-secondary w3-animate-zoom" >
                     </div>
 
                     <div class="form-group mx-3 my-2">
                       <label for="">Deadline for task 6</label>
-                        <input type="date" name="tdesc1" placeholder="Provide Complete description of the task" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom" required>
+                        <input type="date" name="t6dead" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom" >
                     </div>
 
                     <hr>
@@ -271,17 +295,22 @@ Add New Project
 
                     <div class="form-group mx-3 my-2">
                       <label for="">Task 7 Name</label>
-                      <input type="text" name="task1" placeholder="e.g., Digital Marketing" class="form-control form-control-sm border border-secondary w3-animate-zoom" required>
+                      <input type="text" name="task7" placeholder="e.g., Digital Marketing" class="form-control form-control-sm border border-secondary w3-animate-zoom" >
                     </div>
 
                     <div class="form-group mx-3 my-2">
                       <label for="">Task 7 Description</label>
-                      <input type="text" name="tdesc1" placeholder="Provide Complete description of the task" class="form-control form-control-sm border border-secondary w3-animate-zoom" required>
+                      <input type="text" name="tdesc7" placeholder="Provide Complete description of the task" class="form-control form-control-sm border border-secondary w3-animate-zoom" >
+                    </div>
+
+                    <div class="form-group mx-3 my-2">
+                      <label for="">Stipend</label>
+                      <input type="number" name="stipend7" placeholder="Enter stipend in rupees ₹" class="form-control form-control-sm border border-secondary w3-animate-zoom" >
                     </div>
 
                     <div class="form-group mx-3 my-2">
                       <label for="">Deadline for task 7</label>
-                        <input type="date" name="tdesc1" placeholder="Provide Complete description of the task" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom" required>
+                        <input type="date" name="t7dead" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom" >
                     </div>
 
                     <hr>
@@ -289,17 +318,22 @@ Add New Project
 
                     <div class="form-group mx-3 my-2">
                       <label for="">Task 8 Name</label>
-                      <input type="text" name="task8" placeholder="e.g., Tester" class="form-control form-control-sm border border-secondary w3-animate-zoom" required>
+                      <input type="text" name="task8" placeholder="e.g., Tester" class="form-control form-control-sm border border-secondary w3-animate-zoom" >
                     </div>
 
                     <div class="form-group mx-3 my-2">
                       <label for="">Task 8 Description</label>
-                      <input type="text" name="tdesc8" placeholder="Provide Complete description of the task" class="form-control form-control-sm border border-secondary w3-animate-zoom" required>
+                      <input type="text" name="tdesc8" placeholder="Provide Complete description of the task" class="form-control form-control-sm border border-secondary w3-animate-zoom" >
+                    </div>
+
+                    <div class="form-group mx-3 my-2">
+                      <label for="">Stipend</label>
+                      <input type="number" name="stipend8" placeholder="Enter stipend in rupees ₹" class="form-control form-control-sm border border-secondary w3-animate-zoom" >
                     </div>
 
                     <div class="form-group mx-3 my-2">
                       <label for="">Deadline for task 8</label>
-                        <input type="date" name="t8dead" placeholder="Provide Complete description of the task" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom" required>
+                        <input type="date" name="t8dead" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom" >
                     </div>
 
                     <hr>
@@ -307,17 +341,22 @@ Add New Project
 
                     <div class="form-group mx-3 my-2">
                       <label for="">Task 9 Name</label>
-                      <input type="text" name="task9" placeholder="e.g., DevOps" class="form-control form-control-sm border border-secondary w3-animate-zoom" required>
+                      <input type="text" name="task9" placeholder="e.g., DevOps" class="form-control form-control-sm border border-secondary w3-animate-zoom" >
                     </div>
 
                     <div class="form-group mx-3 my-2">
                       <label for="">Task 9 Description</label>
-                      <input type="text" name="tdesc9" placeholder="Provide Complete description of the task" class="form-control form-control-sm border border-secondary w3-animate-zoom" required>
+                      <input type="text" name="tdesc9" placeholder="Provide Complete description of the task" class="form-control form-control-sm border border-secondary w3-animate-zoom" >
+                    </div>
+
+                    <div class="form-group mx-3 my-2">
+                      <label for="">Stipend</label>
+                      <input type="number" name="stipend9" placeholder="Enter stipend in rupees ₹" class="form-control form-control-sm border border-secondary w3-animate-zoom" >
                     </div>
 
                     <div class="form-group mx-3 my-2">
                       <label for="">Deadline for task 9</label>
-                        <input type="date" name="t9dead" placeholder="Provide Complete description of the task" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom" required>
+                        <input type="date" name="t9dead" placeholder="Provide Complete description of the task" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom" >
                     </div>
 
                     <hr>
@@ -325,17 +364,22 @@ Add New Project
 
                     <div class="form-group mx-3 my-2">
                       <label for="">Task 10 Name</label>
-                      <input type="text" name="task10" placeholder="e.g., Automation" class="form-control form-control-sm border border-secondary w3-animate-zoom" required>
+                      <input type="text" name="task10" placeholder="e.g., Automation" class="form-control form-control-sm border border-secondary w3-animate-zoom" >
                     </div>
 
                     <div class="form-group mx-3 my-2">
                       <label for="">Task 10 Description</label>
-                      <input type="text" name="tdesc10" placeholder="Provide Complete description of the task" class="form-control form-control-sm border border-secondary w3-animate-zoom" required>
+                      <input type="text" name="tdesc10" placeholder="Provide Complete description of the task" class="form-control form-control-sm border border-secondary w3-animate-zoom" >
+                    </div>
+
+                    <div class="form-group mx-3 my-2">
+                      <label for="">Stipend</label>
+                      <input type="number" name="stipend10" placeholder="Enter stipend in rupees ₹" class="form-control form-control-sm border border-secondary w3-animate-zoom" >
                     </div>
 
                     <div class="form-group mx-3 my-2">
                       <label for="">Deadline for task 10</label>
-                        <input type="date" name="t10dead" placeholder="Provide Complete description of the task" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom" required>
+                        <input type="date" name="t10dead" placeholder="Provide Complete description of the task" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom" >
                     </div>
 
                     <hr>
@@ -343,17 +387,22 @@ Add New Project
 
                     <div class="form-group mx-3 my-2">
                       <label for="">Task 11 Name</label>
-                      <input type="text" name="task11" placeholder="e.g., Digital Media" class="form-control form-control-sm border border-secondary w3-animate-zoom" required>
+                      <input type="text" name="task11" placeholder="e.g., Digital Media" class="form-control form-control-sm border border-secondary w3-animate-zoom" >
                     </div>
 
                     <div class="form-group mx-3 my-2">
                       <label for="">Task 11 Description</label>
-                      <input type="text" name="tdesc11" placeholder="Provide Complete description of the task" class="form-control form-control-sm border border-secondary w3-animate-zoom" required>
+                      <input type="text" name="tdesc11" placeholder="Provide Complete description of the task" class="form-control form-control-sm border border-secondary w3-animate-zoom" >
+                    </div>
+
+                    <div class="form-group mx-3 my-2">
+                      <label for="">Stipend</label>
+                      <input type="number" name="stipend11" placeholder="Enter stipend in rupees ₹" class="form-control form-control-sm border border-secondary w3-animate-zoom" >
                     </div>
 
                     <div class="form-group mx-3 my-2">
                       <label for="">Deadline for task 11</label>
-                        <input type="date" name="t11dead" placeholder="Provide Complete description of the task" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom" required>
+                        <input type="date" name="t11dead" placeholder="Provide Complete description of the task" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom" >
                     </div>
 
                     <hr>
@@ -361,24 +410,27 @@ Add New Project
 
                     <div class="form-group mx-3 my-2">
                       <label for="">Task 12 Name</label>
-                      <input type="text" name="task12" placeholder="e.g., UI/UX" class="form-control form-control-sm border border-secondary w3-animate-zoom" required>
+                      <input type="text" name="task12" placeholder="e.g., UI/UX" class="form-control form-control-sm border border-secondary w3-animate-zoom" >
                     </div>
 
                     <div class="form-group mx-3 my-2">
                       <label for="">Task 12 Description</label>
-                      <input type="text" name="tdesc12" placeholder="Provide Complete description of the task" class="form-control form-control-sm border border-secondary w3-animate-zoom" required>
+                      <input type="text" name="tdesc12" placeholder="Provide Complete description of the task" class="form-control form-control-sm border border-secondary w3-animate-zoom" >
+                    </div>
+
+                    <div class="form-group mx-3 my-2">
+                      <label for="">Stipend</label>
+                      <input type="number" name="stipend12" placeholder="Enter stipend in rupees ₹" class="form-control form-control-sm border border-secondary w3-animate-zoom" >
                     </div>
 
                     <div class="form-group mx-3 my-2">
                       <label for="">Deadline for task 12</label>
-                        <input type="date" name="t12dead" placeholder="Provide Complete description of the task" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom" required>
+                        <input type="date" name="t12dead" placeholder="Provide Complete description of the task" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom">
                     </div>
 
                     <hr>
                     
                     <input type="text" name="empid" value="{{employee.id}}" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom" hidden>
-
-
   
                   <div class="form-group mx-3 mt-5 mb-3 w3-animate-zoom">
                     <input class="btn btn-outline-dark border border-dark rounded-4" type="submit" value="Add Project">
