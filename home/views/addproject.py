@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from home.models.project import Project
 from home.models.company import Company
 from home.models.employe import Employe
+from datetime import datetime
 from django.views import View
 
 
@@ -32,10 +33,9 @@ class AddProject(View):
         detail = request.POST.get('detail')
         perk = request.POST.get('perk').lower()
         description = request.POST.get('description')
-        stipend = request.POST.get('stipend')
+        stipend = int(request.POST.get('stipend'))
         duration = request.POST.get('duration')
         comp = request.POST.get('company')
-
         error_message = None
 
         empid = request.session['employee']
@@ -52,6 +52,12 @@ class AddProject(View):
         
         if detail[-4:] != '.pdf':
             error_message = "Only .pdf files are accepted"
+
+        if(datetime.strptime(duration, "%Y-%m-%d")<datetime.today()):
+            error_message = "Enter Valid Deadline"
+        
+        if(datetime.strptime(duration, "%Y-%m-%d")==datetime.today()):
+            error_message = "Atleast one day is required to complete a task"
 
         if not error_message:
             project.save()

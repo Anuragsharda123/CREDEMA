@@ -6,84 +6,685 @@ Update Project
 
 {% block content %}
 <div class="container">
-        <div class="p-4 m-4">
+  <div id="carouselExample" class="carousel slide">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          
+          <div class="p-4 m-4">
+            <input type="button" class=" btn btn-outline-dark border border-dark rounded-4" data-bs-target="#carouselExample" data-bs-slide="next" style="margin-left: 27vw;" value="     Update Project Task-wise -->   ">
+            <br><br>
+              <div class="col-lg-5 mx-auto border rounded pt-4">
+                  <h3 class="alert alert-light border rounded mx-3 mt-2 mb-4">Update Project</h3>
+                  <form method="post" action="/update/">
+                      
+                      {% if error %}
+                      <div class="alert alert-danger mx-3 my-2" role="alert">
+                          {{error}}
+                      </div> 
+                      {% endif %}
+                        <input type="text" value="post" name="meth" hidden>
+      
+                      {% csrf_token %}  
+                                   
+                      <!-- Project Name -->
+                      <div class="form-group mx-3 my-2">
+                          <label for="">Project Name</label>
+                          <input type="button" value="{{project.Name}}" class="form-control form-control-sm btn btn-outline-dark w3-animate-zoom">
+                        </div>
+  
+                        
+                        <!-- Skill Req -->
+                        <div class="form-group mx-3 my-2">
+                          <label for="">Skill(s) Required</label>
+                          <input type="button" value="{{project.Skill_req}}"class="form-control form-control-sm btn btn-outline-dark w3-animate-zoom">
+                        </div>
+      
+                      
+                      <!-- Project Image -->
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Project Details</label>
+                        <input type="button" value="{{project.Project}}" class="form-control form-control-sm btn btn-outline-dark w3-animate-zoom">
+                      </div>
+                      
+                      <!-- Project Description -->
+                      <div class="form-group mx-3 my-2">
+                          <label for="">Project Description</label>
+                          <textarea name="description" value="{{project.Description}}" placeholder="Update Project description (maximum length 200 characters)" class="form-control form-control-sm border border-dark w3-animate-zoom" maxlength="200"></textarea>
+                        </div>
+  
+                      <!-- Perks -->
+                      <div class="form-group mx-3 my-2">
+                          <label for="">Perk(s)</label>
+                          <input type="button" value="{{project.Perks}}" class="form-control form-control-sm border border-dark btn btn-outline-secondary w3-animate-zoom">
+                        </div>
+  
+                      <!-- Stipend -->
+                      <div class="form-group mx-3 my-2">
+                          <label for="">Stipend</label>
+                          <input type="button" value="{{project.Stipend}}" class="form-control form-control-sm border border-secondary btn btn-outline-dark w3-animate-zoom">
+                        </div>
+  
+                        <!-- Project Duration -->
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Deadline</label>
+                        <input type="date" name="duration" placeholder="Enter deadline " class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom">
+                      </div>
+                      
+                      <div class="form-group mx-3 my-2">
+                          <label>Status</label><br>
+                          <br>
+                          <label>Submitted</label>
+                          <input class="form-check-input border border-dark" type="radio" name="status" id="radio" value="1" required>
+                          <br>
+                          <label>Pending</label>
+                          <input class="form-check-input border border-dark" type="radio" name="status" id="radio" value="0" required>
+                      </div>
+  
+                      <input type="text" name="pro_id" value="{{project.id}}" hidden>
+  
+      
+                      <div class="form-group mx-3 mt-5 mb-3 w3-animate-zoom">
+                        <input class="btn btn-outline-dark border border-dark rounded-3" type="submit" value="Update">
+                      </div>
+      
+                  </form>
+              </div>
+          </div>
+        
+        </div>
+  
+        <div class="carousel-item">
+  
+          <div class="p-4 m-4">
+            <input type="button" class=" btn btn-outline-dark border border-dark rounded-4" data-bs-target="#carouselExample" data-bs-slide="prev" style="margin-left: 27vw;" value="  <--  Update Complete Project     ">
+            <br><br>
             <div class="col-lg-5 mx-auto border rounded pt-4">
-                <h3 class="alert alert-light border rounded mx-3 mt-2 mb-4">Upload New Project</h3>
-                <form method="post">
-                    
-                    {% if error %}
-                    <div class="alert alert-danger mx-3 my-2" role="alert">
-                        {{error}}
-                    </div> 
-                    {% endif %}
-                      <input type="text" value="post" name="meth" hidden>
+                <h3 class="alert alert-light border rounded mx-3 mt-2 mb-4">Update Project</h3>
+                <form method="post" action="/update_project_taskwise/">
     
                     {% csrf_token %}  
                                  
                     <!-- Project Name -->
                     <div class="form-group mx-3 my-2">
                         <label for="">Project Name</label>
-                        <input type="text" value="{{project.Name}}" name="name" placeholder="Enter Project name" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom" required>
+                        <input type="button" value="{{project.Name}}" class="form-control form-control-sm btn btn-outline-dark w3-animate-zoom" required>
                       </div>
-
+  
                       
                       <!-- Skill Req -->
                       <div class="form-group mx-3 my-2">
                         <label for="">Skill(s) Required</label>
-                        <input type="text" value="{{project.Skill_req}}" name="skill" placeholder="Skills Required" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom" required>
+                        <input type="button" value="{{project.Skill_req}}" class="form-control form-control-sm btn btn-outline-dark w3-animate-zoom" >
                       </div>
     
                     
-                    <!-- Project Image -->
+                    <!-- Project Docs -->
                     <div class="form-group mx-3 my-2">
                       <label for="">Project Details</label>
-                      <input type="file" name="detail" value="{{project.Project}}" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom">
+                      <input type="button" value="{{project.Project}}" class="form-control form-control-sm btn btn-outline-dark w3-animate-zoom" >
                     </div>
                     
                     <!-- Project Description -->
                     <div class="form-group mx-3 my-2">
                         <label for="">Project Description</label>
-                        <textarea name="description" value="{{project.Description}}" placeholder="Enter Project description (maximum length 200 characters)" class="form-control form-control-sm border border-dark w3-animate-zoom" maxlength="200"></textarea>
+                        <textarea name="description" placeholder="Enter Project description (maximum length 200 characters)" class="form-control form-control-sm border border-dark w3-animate-zoom" maxlength="200"></textarea>
                       </div>
-
+  
                     <!-- Perks -->
                     <div class="form-group mx-3 my-2">
                         <label for="">Perk(s)</label>
-                        <input type="text" value="{{project.Perks}}" name="perk" placeholder="perks" class="form-control form-control-sm border border-secondary btn btn-outline-secondary w3-animate-zoom" required>
+                        <input type="button" value="{{project.Perks}}" class="form-control form-control-sm btn btn-outline-dark w3-animate-zoom" >
                       </div>
+  
+                      <hr>
 
-                    <!-- Stipend -->
-                    <div class="form-group mx-3 my-2">
+                      {% if project.Task_1 %}
+
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Task 1 Name</label>
+                        <input type="button" value="{{project.Task_1}}" class="form-control form-control-sm border border-secondary btn btn-outline-dark w3-animate-zoom">
+                      </div>
+  
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Task 1 Description</label>
+                        <textarea name="description_1" placeholder="Enter task description (maximum length 200 characters)" class="form-control form-control-sm border border-dark w3-animate-zoom" maxlength="200"></textarea>
+                      </div>
+                      
+                      <div class="form-group mx-3 my-2">
                         <label for="">Stipend</label>
-                        <input type="number" value="{{project.Stipend}}" name="stipend" placeholder="Enter stipend in rupees ₹" class="form-control form-control-sm border border-secondary btn btn-outline-secondary w3-animate-zoom" required>
+                        <input type="button" value="{{project.Stipend_1}}" class="form-control form-control-sm border border-secondary btn btn-outline-dark w3-animate-zoom">
+                      </div>
+                      
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Deadline for task 1</label>
+                        <input type="date" name="duration_1" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom">
+                      </div>
+                      {% else %}
+                      {% endif %}
+                      
+                      <hr>
+                      
+                      {% if project.Task_2 %}
+
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Task 2 Name</label>
+                        <input type="button" value="{{project.Task_2}}" class="form-control form-control-sm border border-secondary btn btn-outline-dark w3-animate-zoom">
+                      </div>
+  
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Task 2 Description</label>
+                        <textarea name="description_2" placeholder="Enter task description (maximum length 200 characters)" class="form-control form-control-sm border border-dark w3-animate-zoom" maxlength="200"></textarea>
+                      </div>
+                      
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Stipend</label>
+                        <input type="button" value="{{project.Stipend_2}}" class="form-control form-control-sm border border-secondary btn btn-outline-dark w3-animate-zoom">
+                      </div>
+                      
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Deadline for task 2</label>
+                        <input type="date" name="duration_2" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom">
+                      </div>
+                      {% else %}
+                      {% endif %}
+  
+                      <hr>
+
+                      {% if project.Task_3 %}
+
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Task 3 Name</label>
+                        <input type="button" value="{{project.Task_3}}" class="form-control form-control-sm border border-secondary btn btn-outline-dark w3-animate-zoom">
+                      </div>
+  
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Task 3 Description</label>
+                        <textarea name="description_3" placeholder="Enter task description (maximum length 200 characters)" class="form-control form-control-sm border border-dark w3-animate-zoom" maxlength="200"></textarea>
+                      </div>
+                      
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Stipend</label>
+                        <input type="button" value="{{project.Stipend_3}}" class="form-control form-control-sm border border-secondary btn btn-outline-dark w3-animate-zoom">
+                      </div>
+                      
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Deadline for task 3</label>
+                        <input type="date" name="duration_3" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom">
                       </div>
 
-                      <!-- Project Duration -->
-                    <div class="form-group mx-3 my-2">
-                      <label for="">Deadline</label>
-                      <input type="date" name="duration" placeholder="Enter deadline " class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom">
-                    </div>
-                    
-                    <div class="form-group mx-3 my-2">
-                        <label>Status</label><br>
-                        <br>
-                        <label>Submitted</label>
-                        <input class="form-check-input border border-dark" type="radio" name="status" id="radio" value="1" required>
-                        <br>
-                        <label>Pending</label>
-                        <input class="form-check-input border border-dark" type="radio" name="status" id="radio" value="0" required>
-                    </div>
+                      {% else %}
+                      
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Task 3 Name</label>
+                        <input type="text" name="task_3" placeholder="e.g., SEO" class="form-control form-control-sm border border-secondary btn btn-outline-secondary w3-animate-zoom" >
+                      </div>
+  
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Task 3 Description</label>
+                        <textarea name="description_3" placeholder="Enter task description (maximum length 200 characters)" class="form-control form-control-sm border border-dark w3-animate-zoom" maxlength="200"></textarea>
+                      </div>
+  
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Stipend</label>
+                        <input type="number" name="stipend_3" placeholder="Enter stipend in rupees ₹" class="form-control form-control-sm border border-secondary btn btn-outline-secondary w3-animate-zoom" >
+                      </div>
+  
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Deadline for task 3</label>
+                          <input type="date" name="duration_3" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom" >
+                      </div>
 
-                    <input type="text" name="pro_id" value="{{project.id}}" hidden>
+                      {% endif %}
+  
+                      <hr>                      
 
+                      {% if project.Task_4 %}
 
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Task 4 Name</label>
+                        <input type="button" value="{{project.Task_4}}" class="form-control form-control-sm border border-secondary btn btn-outline-dark w3-animate-zoom">
+                      </div>
+  
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Task 4 Description</label>
+                        <textarea name="description_4" placeholder="Enter task description (maximum length 200 characters)" class="form-control form-control-sm border border-dark w3-animate-zoom" maxlength="200"></textarea>
+                      </div>
+                      
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Stipend</label>
+                        <input type="button" value="{{project.Stipend_4}}" class="form-control form-control-sm border border-secondary btn btn-outline-dark w3-animate-zoom">
+                      </div>
+                      
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Deadline for task 4</label>
+                        <input type="date" name="duration_4" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom">
+                      </div>
+
+                      {% else %}
+                      
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Task 4 Name</label>
+                        <input type="text" name="task_4" placeholder="e.g., SEO" class="form-control form-control-sm border border-secondary btn btn-outline-secondary w3-animate-zoom" >
+                      </div>
+  
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Task 4 Description</label>
+                        <textarea name="description_4" placeholder="Enter task description (maximum length 200 characters)" class="form-control form-control-sm border border-dark w3-animate-zoom" maxlength="200"></textarea>
+                      </div>
+  
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Stipend</label>
+                        <input type="number" name="stipend_4" placeholder="Enter stipend in rupees ₹" class="form-control form-control-sm border border-secondary btn btn-outline-secondary w3-animate-zoom" >
+                      </div>
+  
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Deadline for task 4</label>
+                          <input type="date" name="duration_4" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom" >
+                      </div>
+
+                      {% endif %}
+  
+                      <hr>                      
+
+                      {% if project.Task_5 %}
+
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Task 5 Name</label>
+                        <input type="button" value="{{project.Task_5}}" class="form-control form-control-sm border border-secondary btn btn-outline-dark w3-animate-zoom">
+                      </div>
+  
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Task 5 Description</label>
+                        <textarea name="description_5" placeholder="Enter task description (maximum length 200 characters)" class="form-control form-control-sm border border-dark w3-animate-zoom" maxlength="200"></textarea>
+                      </div>
+                      
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Stipend</label>
+                        <input type="button" value="{{project.Stipend_5}}" class="form-control form-control-sm border border-secondary btn btn-outline-dark w3-animate-zoom">
+                      </div>
+                      
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Deadline for task 3</label>
+                        <input type="date" name="duration_5" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom">
+                      </div>
+
+                      {% else %}
+                      
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Task 5 Name</label>
+                        <input type="text" name="task_5" placeholder="e.g., SEO" class="form-control form-control-sm border border-secondary btn btn-outline-secondary w3-animate-zoom" >
+                      </div>
+  
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Task 5 Description</label>
+                        <textarea name="description_5" placeholder="Enter task description (maximum length 200 characters)" class="form-control form-control-sm border border-dark w3-animate-zoom" maxlength="200"></textarea>
+                      </div>
+  
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Stipend</label>
+                        <input type="number" name="stipend_5" placeholder="Enter stipend in rupees ₹" class="form-control form-control-sm border border-secondary btn btn-outline-secondary w3-animate-zoom" >
+                      </div>
+  
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Deadline for task 5</label>
+                          <input type="date" name="duration_5" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom" >
+                      </div>
+
+                      {% endif %}
+  
+                      <hr>                      
+
+                      {% if project.Task_6 %}
+
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Task 6 Name</label>
+                        <input type="button" value="{{project.Task_6}}" class="form-control form-control-sm border border-secondary btn btn-outline-dark w3-animate-zoom">
+                      </div>
+  
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Task 6 Description</label>
+                        <textarea name="description_6" placeholder="Enter task description (maximum length 200 characters)" class="form-control form-control-sm border border-dark w3-animate-zoom" maxlength="200"></textarea>
+                      </div>
+                      
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Stipend</label>
+                        <input type="button" value="{{project.Stipend_6}}" class="form-control form-control-sm border border-secondary btn btn-outline-dark w3-animate-zoom">
+                      </div>
+                      
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Deadline for task 6</label>
+                        <input type="date" name="duration_6" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom">
+                      </div>
+
+                      {% else %}
+                      
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Task 6 Name</label>
+                        <input type="text" name="task_6" placeholder="e.g., SEO" class="form-control form-control-sm border border-secondary btn btn-outline-secondary w3-animate-zoom" >
+                      </div>
+  
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Task 6 Description</label>
+                        <textarea name="description_6" placeholder="Enter task description (maximum length 200 characters)" class="form-control form-control-sm border border-dark w3-animate-zoom" maxlength="200"></textarea>
+                      </div>
+  
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Stipend</label>
+                        <input type="number" name="stipend_6" placeholder="Enter stipend in rupees ₹" class="form-control form-control-sm border border-secondary btn btn-outline-secondary w3-animate-zoom" >
+                      </div>
+  
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Deadline for task 6</label>
+                          <input type="date" name="duration_6" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom" >
+                      </div>
+
+                      {% endif %}
+  
+                      <hr>                      
+
+                      {% if project.Task_7 %}
+
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Task 7 Name</label>
+                        <input type="button" value="{{project.Task_7}}" class="form-control form-control-sm border border-secondary btn btn-outline-dark w3-animate-zoom">
+                      </div>
+  
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Task 7 Description</label>
+                        <textarea name="description_7" placeholder="Enter task description (maximum length 200 characters)" class="form-control form-control-sm border border-dark w3-animate-zoom" maxlength="200"></textarea>
+                      </div>
+                      
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Stipend</label>
+                        <input type="button" value="{{project.Stipend_7}}" class="form-control form-control-sm border border-secondary btn btn-outline-dark w3-animate-zoom">
+                      </div>
+                      
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Deadline for task 7</label>
+                        <input type="date" name="duration_7" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom">
+                      </div>
+
+                      {% else %}
+                      
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Task 7 Name</label>
+                        <input type="text" name="task_7" placeholder="e.g., SEO" class="form-control form-control-sm border border-secondary btn btn-outline-secondary w3-animate-zoom" >
+                      </div>
+  
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Task 7 Description</label>
+                        <textarea name="description_7" placeholder="Enter task description (maximum length 200 characters)" class="form-control form-control-sm border border-dark w3-animate-zoom" maxlength="200"></textarea>
+                      </div>
+  
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Stipend</label>
+                        <input type="number" name="stipend_7" placeholder="Enter stipend in rupees ₹" class="form-control form-control-sm border border-secondary btn btn-outline-secondary w3-animate-zoom" >
+                      </div>
+  
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Deadline for task 3</label>
+                          <input type="date" name="duration_7" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom" >
+                      </div>
+
+                      {% endif %}
+  
+                      <hr>                      
+
+                      {% if project.Task_8 %}
+
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Task 8 Name</label>
+                        <input type="button" value="{{project.Task_8}}" class="form-control form-control-sm border border-secondary btn btn-outline-dark w3-animate-zoom">
+                      </div>
+  
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Task 8 Description</label>
+                        <textarea name="description_8" placeholder="Enter task description (maximum length 200 characters)" class="form-control form-control-sm border border-dark w3-animate-zoom" maxlength="200"></textarea>
+                      </div>
+                      
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Stipend</label>
+                        <input type="button" value="{{project.Stipend_8}}" class="form-control form-control-sm border border-secondary btn btn-outline-dark w3-animate-zoom">
+                      </div>
+                      
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Deadline for task 8</label>
+                        <input type="date" name="duration_8" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom">
+                      </div>
+
+                      {% else %}
+                      
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Task 8 Name</label>
+                        <input type="text" name="task_8" placeholder="e.g., SEO" class="form-control form-control-sm border border-secondary btn btn-outline-secondary w3-animate-zoom" >
+                      </div>
+  
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Task 8 Description</label>
+                        <textarea name="description_8" placeholder="Enter task description (maximum length 200 characters)" class="form-control form-control-sm border border-dark w3-animate-zoom" maxlength="200"></textarea>
+                      </div>
+  
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Stipend</label>
+                        <input type="number" name="stipend_8" placeholder="Enter stipend in rupees ₹" class="form-control form-control-sm border border-secondary btn btn-outline-secondary w3-animate-zoom" >
+                      </div>
+  
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Deadline for task 8</label>
+                          <input type="date" name="duration_8" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom" >
+                      </div>
+
+                      {% endif %}
+  
+                      <hr>                      
+
+                      {% if project.Task_9 %}
+
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Task 9 Name</label>
+                        <input type="button" value="{{project.Task_9}}" class="form-control form-control-sm border border-secondary btn btn-outline-dark w3-animate-zoom">
+                      </div>
+  
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Task 9 Description</label>
+                        <textarea name="description_9" placeholder="Enter task description (maximum length 200 characters)" class="form-control form-control-sm border border-dark w3-animate-zoom" maxlength="200"></textarea>
+                      </div>
+                      
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Stipend</label>
+                        <input type="button" value="{{project.Stipend_9}}" class="form-control form-control-sm border border-secondary btn btn-outline-dark w3-animate-zoom">
+                      </div>
+                      
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Deadline for task 9</label>
+                        <input type="date" name="duration_9" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom">
+                      </div>
+
+                      {% else %}
+                      
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Task 9 Name</label>
+                        <input type="text" name="task_9" placeholder="e.g., SEO" class="form-control form-control-sm border border-secondary btn btn-outline-secondary w3-animate-zoom" >
+                      </div>
+  
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Task 9 Description</label>
+                        <textarea name="description_9" placeholder="Enter task description (maximum length 200 characters)" class="form-control form-control-sm border border-dark w3-animate-zoom" maxlength="200"></textarea>
+                      </div>
+  
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Stipend</label>
+                        <input type="number" name="stipend_9" placeholder="Enter stipend in rupees ₹" class="form-control form-control-sm border border-secondary btn btn-outline-secondary w3-animate-zoom" >
+                      </div>
+  
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Deadline for task 9</label>
+                          <input type="date" name="duration_9" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom" >
+                      </div>
+
+                      {% endif %}
+  
+                      <hr>                      
+
+                      {% if project.Task_10 %}
+
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Task 10 Name</label>
+                        <input type="button" value="{{project.Task_10}}" class="form-control form-control-sm border border-secondary btn btn-outline-dark w3-animate-zoom">
+                      </div>
+  
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Task 10 Description</label>
+                        <textarea name="description_10" placeholder="Enter task description (maximum length 200 characters)" class="form-control form-control-sm border border-dark w3-animate-zoom" maxlength="200"></textarea>
+                      </div>
+                      
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Stipend</label>
+                        <input type="button" value="{{project.Stipend_10}}" class="form-control form-control-sm border border-secondary btn btn-outline-dark w3-animate-zoom">
+                      </div>
+                      
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Deadline for task 10</label>
+                        <input type="date" name="duration_10" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom">
+                      </div>
+
+                      {% else %}
+                      
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Task 10 Name</label>
+                        <input type="text" name="task_10" placeholder="e.g., SEO" class="form-control form-control-sm border border-secondary btn btn-outline-secondary w3-animate-zoom" >
+                      </div>
+  
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Task 10 Description</label>
+                        <textarea name="description_10" placeholder="Enter task description (maximum length 200 characters)" class="form-control form-control-sm border border-dark w3-animate-zoom" maxlength="200"></textarea>
+                      </div>
+  
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Stipend</label>
+                        <input type="number" name="stipend_10" placeholder="Enter stipend in rupees ₹" class="form-control form-control-sm border border-secondary btn btn-outline-secondary w3-animate-zoom" >
+                      </div>
+  
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Deadline for task 10</label>
+                          <input type="date" name="duration_10" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom" >
+                      </div>
+
+                      {% endif %}
+  
+                      <hr>                      
+
+                      {% if project.Task_11 %}
+
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Task 11 Name</label>
+                        <input type="button" value="{{project.Task_11}}" class="form-control form-control-sm border border-secondary btn btn-outline-dark w3-animate-zoom">
+                      </div>
+  
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Task 11 Description</label>
+                        <textarea name="description_11" placeholder="Enter task description (maximum length 200 characters)" class="form-control form-control-sm border border-dark w3-animate-zoom" maxlength="200"></textarea>
+                      </div>
+                      
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Stipend</label>
+                        <input type="button" value="{{project.Stipend_11}}" class="form-control form-control-sm border border-secondary btn btn-outline-dark w3-animate-zoom">
+                      </div>
+                      
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Deadline for task 3</label>
+                        <input type="date" name="duration_11" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom">
+                      </div>
+
+                      {% else %}
+                      
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Task 11 Name</label>
+                        <input type="text" name="task_11" placeholder="e.g., SEO" class="form-control form-control-sm border border-secondary btn btn-outline-secondary w3-animate-zoom" >
+                      </div>
+  
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Task 3 Description</label>
+                        <textarea name="description_11" placeholder="Enter task description (maximum length 200 characters)" class="form-control form-control-sm border border-dark w3-animate-zoom" maxlength="200"></textarea>
+                      </div>
+  
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Stipend</label>
+                        <input type="number" name="stipend_11" placeholder="Enter stipend in rupees ₹" class="form-control form-control-sm border border-secondary btn btn-outline-secondary w3-animate-zoom" >
+                      </div>
+  
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Deadline for task 11</label>
+                          <input type="date" name="duration_11" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom" >
+                      </div>
+
+                      {% endif %}
+  
+                      <hr>                      
+
+                      {% if project.Task_12 %}
+
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Task 12 Name</label>
+                        <input type="button" value="{{project.Task_12}}" class="form-control form-control-sm border border-secondary btn btn-outline-dark w3-animate-zoom">
+                      </div>
+  
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Task 12 Description</label>
+                        <textarea name="description_12" placeholder="Enter task description (maximum length 200 characters)" class="form-control form-control-sm border border-dark w3-animate-zoom" maxlength="200"></textarea>
+                      </div>
+                      
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Stipend</label>
+                        <input type="button" value="{{project.Stipend_12}}" class="form-control form-control-sm border border-secondary btn btn-outline-dark w3-animate-zoom">
+                      </div>
+                      
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Deadline for task 12</label>
+                        <input type="date" name="duration_12" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom">
+                      </div>
+
+                      {% else %}
+                      
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Task 12 Name</label>
+                        <input type="text" name="task_12" placeholder="e.g., SEO" class="form-control form-control-sm border border-secondary btn btn-outline-secondary w3-animate-zoom" >
+                      </div>
+  
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Task 12 Description</label>
+                        <textarea name="description_12" placeholder="Enter task description (maximum length 200 characters)" class="form-control form-control-sm border border-dark w3-animate-zoom" maxlength="200"></textarea>
+                      </div>
+  
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Stipend</label>
+                        <input type="number" name="stipend_12" placeholder="Enter stipend in rupees ₹" class="form-control form-control-sm border border-secondary btn btn-outline-secondary w3-animate-zoom" >
+                      </div>
+  
+                      <div class="form-group mx-3 my-2">
+                        <label for="">Deadline for task 12</label>
+                          <input type="date" name="duration_12" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom" >
+                      </div>
+
+                      {% endif %}
+  
+                      <hr>                      
+                      
+                      <input type="text" name="empid" value="{{employee.id}}" class="form-control form-control-sm btn btn-outline-secondary w3-animate-zoom" hidden>
     
                     <div class="form-group mx-3 mt-5 mb-3 w3-animate-zoom">
-                      <input class="btn btn-outline-dark border border-dark rounded-3" type="submit" value="Update">
+                      <input class="btn btn-outline-dark border border-dark rounded-4" type="submit" value="Add Project">
                     </div>
     
                 </form>
             </div>
+          </div>
+        
         </div>
-    </div>
+      </div>
+  </div>
+</div>
 {% endblock content %}
+
+    
+  </div>
