@@ -11,7 +11,7 @@ from credma import settings
 
 class Updateproject(View):
     def get(self, request):
-        try: 
+        try:
             if request.session['employee']:
                 return redirect('e_project')
         except:
@@ -70,14 +70,14 @@ class Updateproject(View):
 
                         project.save()
 
-                        body = 'Project: '+project.Name + " is Updated. Check the project details again and if updations are suitable aren't to you than contact to your TPO or CREDEMA."
+                        body = 'Project: '+project.Name + " is Updated. Check the project details again and if updations are not suitable to you than contact to your TPO or CREDEMA."
                         subject = "CREDEMA Projects - Project Updation"
 
                         send_mail(subject, body, settings.EMAIL_HOST_USER, [student.Email])
 
                         return redirect('e_project')
                     except:
-                        return redirect('emp_profile')
+                        return redirect('e_project')
                 
         except:
             return redirect('e_login')
