@@ -4,7 +4,7 @@ from .project import Project
 
 
 
-class Applicant(models.Model):
+class TaskApplicant(models.Model):
     Student = models.ForeignKey(Student, on_delete=models.CASCADE)
     Project = models.ForeignKey(Project, on_delete=models.CASCADE)
     Task_1 = models.BooleanField(default=False)
