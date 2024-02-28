@@ -28,12 +28,14 @@ class AddProject(View):
     
 
     def post(self, request):
+        stipend = None
         name = request.POST.get('name')
         skill = request.POST.get('skill').lower()
         detail = request.POST.get('detail')
         perk = request.POST.get('perk').lower()
         description = request.POST.get('description')
-        stipend = int(request.POST.get('stipend'))
+        if(request.POST.get('stipend')):
+            stipend = int(request.POST.get('stipend'))
         duration = request.POST.get('duration')
         comp = request.POST.get('company')
         error_message = None
@@ -58,6 +60,10 @@ class AddProject(View):
         
         if(datetime.strptime(duration, "%Y-%m-%d")==datetime.today()):
             error_message = "Atleast one day is required to complete a task"
+
+        if(stipend):
+            if(stipend<5000):
+                error_message = "Stipend should be more then or equal to ₹5000"
 
         if not error_message:
             project.save()

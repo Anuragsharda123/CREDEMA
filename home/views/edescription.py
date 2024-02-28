@@ -24,8 +24,7 @@ class Description(View):
                 description = project.Description.split('.')
                 emp_id = request.session['employee']
                 employe = Employe.objects.get(id=emp_id)
-                
-
+                 
 
                 for i in range(0,len(skill)):
                     w = skill[i].lstrip(" ")

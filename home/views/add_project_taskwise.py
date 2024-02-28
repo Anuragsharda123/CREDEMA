@@ -28,16 +28,16 @@ class AddProjectTask(View):
     
 
     def post(self, request):
-        stipend_3 = 0
-        stipend_4 = 0
-        stipend_5 = 0
-        stipend_6 = 0
-        stipend_7 = 0
-        stipend_8 = 0
-        stipend_9 = 0
-        stipend_10 = 0
-        stipend_11 = 0
-        stipend_12 = 0
+        stipend_3 = 1000
+        stipend_4 = 1000
+        stipend_5 = 1000
+        stipend_6 = 1000
+        stipend_7 = 1000
+        stipend_8 = 1000
+        stipend_9 = 1000
+        stipend_10 = 1000
+        stipend_11 = 1000
+        stipend_12 = 1000
 
         duration_3 = None
         duration_4 = None
@@ -165,6 +165,42 @@ class AddProjectTask(View):
         
         if detail[-4:] != '.pdf':
             error_message = "Only .pdf files are accepted"
+
+        if (stipend_1<1000):
+            error_message = "Task 1 stipend should be ₹1000 or more"
+
+        if (stipend_2<1000):
+            error_message = "Task 2 stipend should be ₹1000 or more"
+
+        if (stipend_3<1000):
+            error_message = "Task 3 stipend should be ₹1000 or more"
+
+        if (stipend_4<1000):
+            error_message = "Task 4 stipend should be ₹1000 or more"
+
+        if (stipend_5<1000):
+            error_message = "Task 5 stipend should be ₹1000 or more"
+
+        if (stipend_6<1000):
+            error_message = "Task 6 stipend should be ₹1000 or more"
+
+        if (stipend_7<1000):
+            error_message = "Task 7 stipend should be ₹1000 or more"
+
+        if (stipend_8<1000):
+            error_message = "Task 8 stipend should be ₹1000 or more"
+
+        if (stipend_9<1000):
+            error_message = "Task 9 stipend should be ₹1000 or more"
+
+        if (stipend_10<1000):
+            error_message = "Task 10 stipend should be ₹1000 or more"
+
+        if (stipend_11<1000):
+            error_message = "Task 11 stipend should be ₹1000 or more"
+
+        if (stipend_12<1000):
+            error_message = "Task 12 stipend should be ₹1000 or more"
 
         if((datetime.strptime(duration_1, "%Y-%m-%d")<datetime.today()) or (datetime.strptime(duration_2, "%Y-%m-%d")<datetime.today())):
             error_message = "Enter Valid Deadline"

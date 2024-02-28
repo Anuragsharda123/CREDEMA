@@ -51,13 +51,16 @@ Project Description
                 <a href="/docu/download/{{project.Project}}" download><img src="/docu/download/static/images/pdflogo.webp" alt="pdf" height="110vh"></a>
             </div>
     <br>
+        {% if not project.Task_1 %}
             <div id="deadline" style="margin-left: 45vw; position: absolute;">
                 <strong>Deadline</strong><br><br>
                 {{project.Duration}}
             </div>
+        {% endif %}
         </div>
 <br>
 <br>
+        {% if not project.Task_1 %}
         <div id="detail_dead" style="display: flex;">
             <div style="margin-left:3vw;">
                 <strong>Allocated to</strong><br><br>
@@ -70,8 +73,514 @@ Project Description
                 ₹ {{project.Stipend}}
             </div>
         </div>
-
 <br><br>
+        {% endif %}
+
+        {% if project.Task_1 %}
+            <div class="border border-3 rounded-5 p-4 m-2">
+                <strong>Task 1 </strong><br>
+                {{project.Task_1}}
+                <br><br>
+                
+                <strong>Description of Task 1 </strong><br>
+                {{project.Description_1}}
+                <br><br>
+
+                <div style="display: flex;">
+                    <div>
+                        <strong>Stipend for Task 1 </strong><br>
+                        ₹{{project.Stipend_1}}
+                    </div>
+                    
+                    <div style="margin-left: 45vw; position: absolute;">
+                        <strong>Deadline for Task 1 </strong><br>
+                        {{project.Duration_1}}
+                    </div>
+                </div>
+<br>
+                <div style="display: flex;">
+                    <div>
+                        <strong>Allocated to</strong><br>
+                        {{project.Student_1}}<br>
+                    </div>
+
+                    <div style="margin-left: 45vw; position: absolute;">
+                        <strong>Status of Task 1</strong><br>
+                        {% if project.Status_1 %}
+                            <b style="color: rgb(6, 204, 6);">Completed</b>                        
+                        {% else %}
+                            <b style="color:rgb(255, 23, 23);">Pending</b>                        
+                        {% endif %}
+                    </div>
+                    <br><br>
+                </div>
+            </div>
+        {% endif %}
+
+
+        {% if project.Task_2 %}
+            <div class="border border-3 rounded-5 p-4 m-2">
+                <strong>Task 2 </strong><br>
+                {{project.Task_2}}
+                <br><br>
+                
+                <strong>Description of Task 2 </strong><br>
+                {{project.Description_2}}
+                <br><br>
+
+                <div style="display: flex;">
+                    <div>
+                        <strong>Stipend for Task 2 </strong><br>
+                        ₹{{project.Stipend_2}}
+                    </div>
+                    
+                    <div style="margin-left: 45vw; position: absolute;">
+                        <strong>Deadline for Task 2 </strong><br>
+                        {{project.Duration_2}}
+                    </div>
+                </div>
+<br>
+                <div style="display: flex;">
+                    <div>
+                        <strong>Allocated to</strong><br>
+                        {{project.Student_2}}<br>
+                    </div>
+
+                    <div style="margin-left: 45vw; position: absolute;">
+                        <strong>Status of Task 2</strong><br>
+                        {% if project.Status_2 %}
+                            <b style="color: rgb(6, 204, 6);">Completed</b>                        
+                        {% else %}
+                            <b style="color:rgb(255, 23, 23);">Pending</b>                        
+                        {% endif %}
+                    </div>
+                    <br><br>
+                </div>
+            </div>
+        {% endif %}
+
+
+        {% if project.Task_3 %}
+            <div class="border border-3 rounded-5 p-4 m-2">
+                <strong>Task 3 </strong><br>
+                {{project.Task_3}}
+                <br><br>
+                
+                <strong>Description of Task 3 </strong><br>
+                {{project.Description_3}}
+                <br><br>
+
+                <div style="display: flex;">
+                    <div>
+                        <strong>Stipend for Task 3 </strong><br>
+                        ₹{{project.Stipend_3}}
+                    </div>
+                    
+                    <div style="margin-left: 45vw; position: absolute;">
+                        <strong>Deadline for Task 3 </strong><br>
+                        {{project.Duration_3}}
+                    </div>
+                </div>
+<br>
+                <div style="display: flex;">
+                    <div>
+                        <strong>Allocated to</strong><br>
+                        {{project.Student_3}}<br>
+                    </div>
+
+                    <div style="margin-left: 45vw; position: absolute;">
+                        <strong>Status of Task 3</strong><br>
+                        {% if project.Status_3 %}
+                            <b style="color: rgb(6, 204, 6);">Completed</b>                        
+                        {% else %}
+                            <b style="color:rgb(255, 23, 23);">Pending</b>                        
+                        {% endif %}
+                    </div>
+                    <br><br>
+                </div>
+            </div>
+        {% endif %}
+
+
+        {% if project.Task_4 %}
+            <div class="border border-3 rounded-5 p-4 m-2">
+                <strong>Task 4 </strong><br>
+                {{project.Task_4}}
+                <br><br>
+                
+                <strong>Description of Task 4 </strong><br>
+                {{project.Description_4}}
+                <br><br>
+
+                <div style="display: flex;">
+                    <div>
+                        <strong>Stipend for Task 4 </strong><br>
+                        ₹{{project.Stipend_4}}
+                    </div>
+                    
+                    <div style="margin-left: 45vw; position: absolute;">
+                        <strong>Deadline for Task 4 </strong><br>
+                        {{project.Duration_4}}
+                    </div>
+                </div>
+<br>
+                <div style="display: flex;">
+                    <div>
+                        <strong>Allocated to</strong><br>
+                        {{project.Student_4}}<br>
+                    </div>
+
+                    <div style="margin-left: 45vw; position: absolute;">
+                        <strong>Status of Task 4</strong><br>
+                        {% if project.Status_4 %}
+                            <b style="color: rgb(6, 204, 6);">Completed</b>                        
+                        {% else %}
+                            <b style="color:rgb(255, 23, 23);">Pending</b>                        
+                        {% endif %}
+                    </div>
+                    <br><br>
+                </div>
+            </div>
+        {% endif %}
+
+
+        {% if project.Task_5 %}
+            <div class="border border-3 rounded-5 p-4 m-2">
+                <strong>Task 5 </strong><br>
+                {{project.Task_5}}
+                <br><br>
+                
+                <strong>Description of Task 5 </strong><br>
+                {{project.Description_5}}
+                <br><br>
+
+                <div style="display: flex;">
+                    <div>
+                        <strong>Stipend for Task 5 </strong><br>
+                        ₹{{project.Stipend_5}}
+                    </div>
+                    
+                    <div style="margin-left: 45vw; position: absolute;">
+                        <strong>Deadline for Task 5 </strong><br>
+                        {{project.Duration_5}}
+                    </div>
+                </div>
+<br>
+                <div style="display: flex;">
+                    <div>
+                        <strong>Allocated to</strong><br>
+                        {{project.Student_5}}<br>
+                    </div>
+
+                    <div style="margin-left: 45vw; position: absolute;">
+                        <strong>Status of Task 5</strong><br>
+                        {% if project.Status_5 %}
+                            <b style="color: rgb(6, 204, 6);">Completed</b>                        
+                        {% else %}
+                            <b style="color:rgb(255, 23, 23);">Pending</b>                        
+                        {% endif %}
+                    </div>
+                    <br><br>
+                </div>
+            </div>
+        {% endif %}
+
+
+        {% if project.Task_6 %}
+            <div class="border border-3 rounded-5 p-4 m-2">
+                <strong>Task 6 </strong><br>
+                {{project.Task_6}}
+                <br><br>
+                
+                <strong>Description of Task 6 </strong><br>
+                {{project.Description_6}}
+                <br><br>
+
+                <div style="display: flex;">
+                    <div>
+                        <strong>Stipend for Task 6 </strong><br>
+                        ₹{{project.Stipend_6}}
+                    </div>
+                    
+                    <div style="margin-left: 45vw; position: absolute;">
+                        <strong>Deadline for Task 6 </strong><br>
+                        {{project.Duration_6}}
+                    </div>
+                </div>
+<br>
+                <div style="display: flex;">
+                    <div>
+                        <strong>Allocated to</strong><br>
+                        {{project.Student_6}}<br>
+                    </div>
+
+                    <div style="margin-left: 45vw; position: absolute;">
+                        <strong>Status of Task 6</strong><br>
+                        {% if project.Status_6 %}
+                            <b style="color: rgb(6, 204, 6);">Completed</b>                        
+                        {% else %}
+                            <b style="color:rgb(255, 23, 23);">Pending</b>                        
+                        {% endif %}
+                    </div>
+                    <br><br>
+                </div>
+            </div>
+        {% endif %}
+
+
+        {% if project.Task_7 %}
+            <div class="border border-3 rounded-5 p-4 m-2">
+                <strong>Task 7 </strong><br>
+                {{project.Task_7}}
+                <br><br>
+                
+                <strong>Description of Task 7 </strong><br>
+                {{project.Description_7}}
+                <br><br>
+
+                <div style="display: flex;">
+                    <div>
+                        <strong>Stipend for Task 7 </strong><br>
+                        ₹{{project.Stipend_7}}
+                    </div>
+                    
+                    <div style="margin-left: 45vw; position: absolute;">
+                        <strong>Deadline for Task 7 </strong><br>
+                        {{project.Duration_7}}
+                    </div>
+                </div>
+<br>
+                <div style="display: flex;">
+                    <div>
+                        <strong>Allocated to</strong><br>
+                        {{project.Student_7}}<br>
+                    </div>
+
+                    <div style="margin-left: 45vw; position: absolute;">
+                        <strong>Status of Task 7</strong><br>
+                        {% if project.Status_7 %}
+                            <b style="color: rgb(6, 204, 6);">Completed</b>                        
+                        {% else %}
+                            <b style="color:rgb(255, 23, 23);">Pending</b>                        
+                        {% endif %}
+                    </div>
+                    <br><br>
+                </div>
+            </div>
+        {% endif %}
+
+
+        {% if project.Task_8 %}
+            <div class="border border-3 rounded-5 p-4 m-2">
+                <strong>Task 8 </strong><br>
+                {{project.Task_8}}
+                <br><br>
+                
+                <strong>Description of Task 8 </strong><br>
+                {{project.Description_8}}
+                <br><br>
+
+                <div style="display: flex;">
+                    <div>
+                        <strong>Stipend for Task 8 </strong><br>
+                        ₹{{project.Stipend_8}}
+                    </div>
+                    
+                    <div style="margin-left: 45vw; position: absolute;">
+                        <strong>Deadline for Task 8 </strong><br>
+                        {{project.Duration_8}}
+                    </div>
+                </div>
+<br>
+                <div style="display: flex;">
+                    <div>
+                        <strong>Allocated to</strong><br>
+                        {{project.Student_8}}<br>
+                    </div>
+
+                    <div style="margin-left: 45vw; position: absolute;">
+                        <strong>Status of Task 8</strong><br>
+                        {% if project.Status_8 %}
+                            <b style="color: rgb(6, 204, 6);">Completed</b>                        
+                        {% else %}
+                            <b style="color:rgb(255, 23, 23);">Pending</b>                        
+                        {% endif %}
+                    </div>
+                    <br><br>
+                </div>
+            </div>
+        {% endif %}
+
+
+        {% if project.Task_9 %}
+            <div class="border border-3 rounded-5 p-4 m-2">
+                <strong>Task 9 </strong><br>
+                {{project.Task_9}}
+                <br><br>
+                
+                <strong>Description of Task 9 </strong><br>
+                {{project.Description_9}}
+                <br><br>
+
+                <div style="display: flex;">
+                    <div>
+                        <strong>Stipend for Task 9 </strong><br>
+                        ₹{{project.Stipend_9}}
+                    </div>
+                    
+                    <div style="margin-left: 45vw; position: absolute;">
+                        <strong>Deadline for Task 9 </strong><br>
+                        {{project.Duration_9}}
+                    </div>
+                </div>
+<br>
+                <div style="display: flex;">
+                    <div>
+                        <strong>Allocated to</strong><br>
+                        {{project.Student_9}}<br>
+                    </div>
+
+                    <div style="margin-left: 45vw; position: absolute;">
+                        <strong>Status of Task 9</strong><br>
+                        {% if project.Status_9 %}
+                            <b style="color: rgb(6, 204, 6);">Completed</b>                        
+                        {% else %}
+                            <b style="color:rgb(255, 23, 23);">Pending</b>                        
+                        {% endif %}
+                    </div>
+                    <br><br>
+                </div>
+            </div>
+        {% endif %}
+
+
+        {% if project.Task_10 %}
+            <div class="border border-3 rounded-5 p-4 m-2">
+                <strong>Task 10 </strong><br>
+                {{project.Task_10}}
+                <br><br>
+                
+                <strong>Description of Task 10 </strong><br>
+                {{project.Description_10}}
+                <br><br>
+
+                <div style="display: flex;">
+                    <div>
+                        <strong>Stipend for Task 10 </strong><br>
+                        ₹{{project.Stipend_10}}
+                    </div>
+                    
+                    <div style="margin-left: 45vw; position: absolute;">
+                        <strong>Deadline for Task 10 </strong><br>
+                        {{project.Duration_10}}
+                    </div>
+                </div>
+<br>
+                <div style="display: flex;">
+                    <div>
+                        <strong>Allocated to</strong><br>
+                        {{project.Student_10}}<br>
+                    </div>
+
+                    <div style="margin-left: 45vw; position: absolute;">
+                        <strong>Status of Task 10</strong><br>
+                        {% if project.Status_10 %}
+                            <b style="color: rgb(6, 204, 6);">Completed</b>                        
+                        {% else %}
+                            <b style="color:rgb(255, 23, 23);">Pending</b>                        
+                        {% endif %}
+                    </div>
+                    <br><br>
+                </div>
+            </div>
+        {% endif %}
+
+
+        {% if project.Task_11 %}
+            <div class="border border-3 rounded-5 p-4 m-2">
+                <strong>Task 11 </strong><br>
+                {{project.Task_11}}
+                <br><br>
+                
+                <strong>Description of Task 11 </strong><br>
+                {{project.Description_11}}
+                <br><br>
+
+                <div style="display: flex;">
+                    <div>
+                        <strong>Stipend for Task 11 </strong><br>
+                        ₹{{project.Stipend_11}}
+                    </div>
+                    
+                    <div style="margin-left: 45vw; position: absolute;">
+                        <strong>Deadline for Task 11 </strong><br>
+                        {{project.Duration_11}}
+                    </div>
+                </div>
+<br>
+                <div style="display: flex;">
+                    <div>
+                        <strong>Allocated to</strong><br>
+                        {{project.Student_11}}<br>
+                    </div>
+
+                    <div style="margin-left: 45vw; position: absolute;">
+                        <strong>Status of Task 11</strong><br>
+                        {% if project.Status_11 %}
+                            <b style="color: rgb(6, 204, 6);">Completed</b>                        
+                        {% else %}
+                            <b style="color:rgb(255, 23, 23);">Pending</b>                        
+                        {% endif %}
+                    </div>
+                    <br><br>
+                </div>
+            </div>
+        {% endif %}
+
+
+        {% if project.Task_12 %}
+            <div class="border border-3 rounded-5 p-4 m-2">
+                <strong>Task 12 </strong><br>
+                {{project.Task_12}}
+                <br><br>
+                
+                <strong>Description of Task 12 </strong><br>
+                {{project.Description_12}}
+                <br><br>
+
+                <div style="display: flex;">
+                    <div>
+                        <strong>Stipend for Task 12 </strong><br>
+                        ₹{{project.Stipend_12}}
+                    </div>
+                    
+                    <div style="margin-left: 45vw; position: absolute;">
+                        <strong>Deadline for Task 12 </strong><br>
+                        {{project.Duration_12}}
+                    </div>
+                </div>
+<br>
+                <div style="display: flex;">
+                    <div>
+                        <strong>Allocated to</strong><br>
+                        {{project.Student_12}}<br>
+                    </div>
+
+                    <div style="margin-left: 45vw; position: absolute;">
+                        <strong>Status of Task 12</strong><br>
+                        {% if project.Status_12 %}
+                            <b style="color: rgb(6, 204, 6);">Completed</b>                        
+                        {% else %}
+                            <b style="color:rgb(255, 23, 23);">Pending</b>                        
+                        {% endif %}
+                    </div>
+                    <br><br>
+                </div>
+            </div>
+        {% endif %}
+
+<br>
+
             <div id="deadline" style="margin-left: 3vw;">
                 <strong>Last Updated</strong><br><br>
                 {{project.Last_update}}

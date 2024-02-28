@@ -18,6 +18,7 @@ class Employe(models.Model):
     Social1 = models.CharField(max_length=50, blank=True)
     Social2 = models.CharField(max_length=50, blank=True)
     Social3 = models.CharField(max_length=50, blank=True)
+    Terms_and_conditions = models.BooleanField(default=True)
 
     def __str__(self):
         return str(self.Email)

@@ -28,6 +28,7 @@ class Student(models.Model):
     Skills = models.CharField(max_length=1000)
     is_Suspended = models.BooleanField(default=False)
     Suspend_till = models.DateField(default=timezone.now())
+    Terms_and_conditions = models.BooleanField(default=True)
 
     def __str__(self):
         return str(self.Email)

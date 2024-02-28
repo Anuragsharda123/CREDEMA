@@ -15,15 +15,9 @@ Update Project
               <div class="col-lg-5 mx-auto border rounded pt-4">
                   <h3 class="alert alert-light border rounded mx-3 mt-2 mb-4">Update Project</h3>
                   <form method="post" action="/update/">
-                      
-                      {% if error %}
-                      <div class="alert alert-danger mx-3 my-2" role="alert">
-                          {{error}}
-                      </div> 
-                      {% endif %}
-                        <input type="text" value="post" name="meth" hidden>
-      
+                    
                       {% csrf_token %}  
+                      <input type="text" value="post" name="meth" hidden>
                                    
                       <!-- Project Name -->
                       <div class="form-group mx-3 my-2">
@@ -100,11 +94,6 @@ Update Project
     
                     {% csrf_token %}
 
-                    {% if error %}
-                      <div class="alert alert-danger mx-3 my-2" role="alert">
-                      {{error}}
-                      </div> 
-                    {% endif %}
                                  
                     <!-- Project Name -->
                     <div class="form-group mx-3 my-2">

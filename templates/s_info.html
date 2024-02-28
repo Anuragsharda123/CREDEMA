@@ -112,11 +112,11 @@ Student Profile
                 {% if project %}
                     <div style="margin-left: 40vw; position: absolute;">
                         <strong>Projects: </strong><br>
-                            {% for projects in stuprojects %}
-                                <ul>
+                            <ul>
+                                {% for projects in stuprojects %}
                                     <li>{{projects}}</li>
-                                </ul>
-                            {% endfor %}
+                                {% endfor %}
+                            </ul>
                     </div>
                 {% endif %}
             </div>
