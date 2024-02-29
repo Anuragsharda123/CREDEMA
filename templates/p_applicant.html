@@ -6,22 +6,23 @@ Applicants
 
 {% block content %}
 
-   <div class="border border-2 rounded-5 m-4 p-4" id="centa">
+{% if not project.Task_1 %}
+
+<div class="border border-2 rounded-5 m-4 p-4" id="centa">
     <form action="/edescription/" method="post" class="btn-block">
         {% csrf_token %}
         <input type="text" name="pro_id" value="{{project.id}}" hidden>
         <button type="submit" class="btn btn-outline-primary"><strong style="font-size: large;">{{project.Name}}</strong></button>
     </form>
 
-        
-   <br>
-   <br>
-   <br>
+   <br><br><br>
+
       {% if error %}
       <div class="alert alert-danger mx-3 my-2" role="alert">
       {{error}}
       </div> 
       {% endif %}
+
         <table class="table">
           <thead>
              <tr class="w3-animate-zoom">
@@ -57,6 +58,758 @@ Applicants
           
           </tbody>
        </table>
-      </div>
+</div>
 
+{% else %}
+<div class="m-4">
+
+   <form action="/edescription/" method="post" class="btn-block">
+      {% csrf_token %}
+      <input type="text" name="pro_id" value="{{project.id}}" hidden>
+      <button type="submit" class="btn btn-outline-primary"><strong style="font-size: large;">{{project.Name}}</strong></button>
+   </form>
+
+</div>
+
+<div class="border border-2 rounded-5 m-4 p-4" id="centa">
+   <div class="m-4">
+
+      <form action="/edescription/" method="post" class="btn-block">
+         {% csrf_token %}
+         <input type="text" name="pro_id" value="{{project.id}}" hidden>
+         <button type="submit" class="btn btn-outline-primary"><strong style="font-size: large;">{{project.Task_1}}</strong></button>
+      </form>
+   
+   </div>
+
+   <br>
+
+      {% if error %}
+      <div class="alert alert-danger mx-3 my-2" role="alert">
+      {{error}}
+      </div> 
+      {% endif %}
+
+        <table class="table">
+          <thead>
+             <tr class="w3-animate-zoom">
+                <th >S no.</th>
+                <th>Student Name</th>
+                <th colspan="2">Student Email</th>
+                <th colspan="2">Skills</th>
+                <th></th>
+                <th></th>
+             </tr>
+          </thead>
+          <tbody>
+             {% for student_1 in students_1 %}
+             <tr class="w3-animate-zoom">
+                <td>{{forloop.counter}}</td>
+                <td>{{student_1.Name}}</td>
+                <td colspan="2">{{student_1.Email}}</td>
+                <td colspan="2">{{student_1.Skills}}</td>
+               
+               <td>
+               <form action="/studentinfo/" method="post" class="btn-block">
+                  {% csrf_token %}
+                  
+                  <input type="text" name="stu_id" value="{{student_1.id}}" hidden>
+                  <input type="text" name="pro_id" value="{{project.id}}" hidden>
+                  <input type="text" name="task_1" value="1" hidden>
+                  <button type="submit" class="btn btn-outline-dark">See Profile</button>
+                  
+                </form>
+             </td>
+          </tr>
+               
+             {% endfor %}
+          
+          </tbody>
+       </table>
+</div>
+
+<div class="border border-2 rounded-5 m-4 p-4" id="centa">
+   <div class="m-4">
+
+      <form action="/edescription/" method="post" class="btn-block">
+         {% csrf_token %}
+         <input type="text" name="pro_id" value="{{project.id}}" hidden>
+         <button type="submit" class="btn btn-outline-primary"><strong style="font-size: large;">{{project.Task_2}}</strong></button>
+      </form>
+   
+   </div>
+   <br>
+
+      {% if error %}
+      <div class="alert alert-danger mx-3 my-2" role="alert">
+      {{error}}
+      </div> 
+      {% endif %}
+
+        <table class="table">
+          <thead>
+             <tr class="w3-animate-zoom">
+                <th >S no.</th>
+                <th>Student Name</th>
+                <th colspan="2">Student Email</th>
+                <th colspan="2">Skills</th>
+                <th></th>
+                <th></th>
+             </tr>
+          </thead>
+          <tbody>
+             {% for student_2 in students_2 %}
+             <tr class="w3-animate-zoom">
+                <td>{{forloop.counter}}</td>
+                <td>{{student_2.Name}}</td>
+                <td colspan="2">{{student_2.Email}}</td>
+                <td colspan="2">{{student_2.Skills}}</td>
+               
+               <td>
+               <form action="/studentinfo/" method="post" class="btn-block">
+                  {% csrf_token %}
+                  
+                  <input type="text" name="stu_id" value="{{student_2.id}}" hidden>
+                  <input type="text" name="pro_id" value="{{project.id}}" hidden>
+                  <input type="text" name="task_2" value="2" hidden>
+                  <button type="submit" class="btn btn-outline-dark">See Profile</button>
+                  
+                </form>
+             </td>
+          </tr>
+               
+             {% endfor %}
+          
+          </tbody>
+       </table>
+</div>
+
+
+{% if project.Task_3 %}
+
+<div class="border border-2 rounded-5 m-4 p-4" id="centa">
+   <div class="m-4">
+
+      <form action="/edescription/" method="post" class="btn-block">
+         {% csrf_token %}
+         <input type="text" name="pro_id" value="{{project.id}}" hidden>
+         <button type="submit" class="btn btn-outline-primary"><strong style="font-size: large;">{{project.Task_3}}</strong></button>
+      </form>
+   
+   </div>
+
+   <br>
+
+      {% if error %}
+      <div class="alert alert-danger mx-3 my-2" role="alert">
+      {{error}}
+      </div> 
+      {% endif %}
+
+        <table class="table">
+          <thead>
+             <tr class="w3-animate-zoom">
+                <th >S no.</th>
+                <th>Student Name</th>
+                <th colspan="2">Student Email</th>
+                <th colspan="2">Skills</th>
+                <th></th>
+                <th></th>
+             </tr>
+          </thead>
+          <tbody>
+             {% for student_3 in students_3 %}
+             <tr class="w3-animate-zoom">
+                <td>{{forloop.counter}}</td>
+                <td>{{student_3.Name}}</td>
+                <td colspan="2">{{student_3.Email}}</td>
+                <td colspan="2">{{student_3.Skills}}</td>
+               
+               <td>
+               <form action="/studentinfo/" method="post" class="btn-block">
+                  {% csrf_token %}
+                  
+                  <input type="text" name="stu_id" value="{{student_3.id}}" hidden>
+                  <input type="text" name="pro_id" value="{{project.id}}" hidden>
+                  <input type="text" name="task_3" value="3" hidden>
+                  <button type="submit" class="btn btn-outline-dark">See Profile</button>
+                  
+                </form>
+             </td>
+          </tr>
+               
+             {% endfor %}
+          
+          </tbody>
+       </table>
+</div>
+
+{% endif %}
+
+
+{% if project.Task_4 %}
+
+<div class="border border-2 rounded-5 m-4 p-4" id="centa">
+   <div class="m-4">
+
+      <form action="/edescription/" method="post" class="btn-block">
+         {% csrf_token %}
+         <input type="text" name="pro_id" value="{{project.id}}" hidden>
+         <button type="submit" class="btn btn-outline-primary"><strong style="font-size: large;">{{project.Task_4}}</strong></button>
+      </form>
+   
+   </div>
+
+   <br>
+
+      {% if error %}
+      <div class="alert alert-danger mx-3 my-2" role="alert">
+      {{error}}
+      </div> 
+      {% endif %}
+
+        <table class="table">
+          <thead>
+             <tr class="w3-animate-zoom">
+                <th >S no.</th>
+                <th>Student Name</th>
+                <th colspan="2">Student Email</th>
+                <th colspan="2">Skills</th>
+                <th></th>
+                <th></th>
+             </tr>
+          </thead>
+          <tbody>
+             {% for student_4 in students_4 %}
+             <tr class="w3-animate-zoom">
+                <td>{{forloop.counter}}</td>
+                <td>{{student_4.Name}}</td>
+                <td colspan="2">{{student_4.Email}}</td>
+                <td colspan="2">{{student_4.Skills}}</td>
+               
+               <td>
+               <form action="/studentinfo/" method="post" class="btn-block">
+                  {% csrf_token %}
+                  
+                  <input type="text" name="stu_id" value="{{student_4.id}}" hidden>
+                  <input type="text" name="pro_id" value="{{project.id}}" hidden>
+                  <input type="text" name="task_4" value="4" hidden>
+                  <button type="submit" class="btn btn-outline-dark">See Profile</button>
+                  
+                </form>
+             </td>
+          </tr>
+               
+             {% endfor %}
+          
+          </tbody>
+       </table>
+</div>
+
+{% endif %}
+
+
+{% if project.Task_5 %}
+
+<div class="border border-2 rounded-5 m-4 p-4" id="centa">
+   <div class="m-4">
+
+      <form action="/edescription/" method="post" class="btn-block">
+         {% csrf_token %}
+         <input type="text" name="pro_id" value="{{project.id}}" hidden>
+         <button type="submit" class="btn btn-outline-primary"><strong style="font-size: large;">{{project.Task_5}}</strong></button>
+      </form>
+   
+   </div>
+
+   <br>
+
+      {% if error %}
+      <div class="alert alert-danger mx-3 my-2" role="alert">
+      {{error}}
+      </div> 
+      {% endif %}
+
+        <table class="table">
+          <thead>
+             <tr class="w3-animate-zoom">
+                <th >S no.</th>
+                <th>Student Name</th>
+                <th colspan="2">Student Email</th>
+                <th colspan="2">Skills</th>
+                <th></th>
+                <th></th>
+             </tr>
+          </thead>
+          <tbody>
+             {% for student_5 in students_5 %}
+             <tr class="w3-animate-zoom">
+                <td>{{forloop.counter}}</td>
+                <td>{{student_5.Name}}</td>
+                <td colspan="2">{{student_5.Email}}</td>
+                <td colspan="2">{{student_5.Skills}}</td>
+               
+               <td>
+               <form action="/studentinfo/" method="post" class="btn-block">
+                  {% csrf_token %}
+                  
+                  <input type="text" name="stu_id" value="{{student_5.id}}" hidden>
+                  <input type="text" name="pro_id" value="{{project.id}}" hidden>
+                  <input type="text" name="task_5" value="5" hidden>
+                  <button type="submit" class="btn btn-outline-dark">See Profile</button>
+                  
+                </form>
+             </td>
+          </tr>
+               
+             {% endfor %}
+          
+          </tbody>
+       </table>
+</div>
+
+{% endif %}
+
+
+{% if project.Task_6 %}
+
+<div class="border border-2 rounded-5 m-4 p-4" id="centa">
+   <div class="m-4">
+
+      <form action="/edescription/" method="post" class="btn-block">
+         {% csrf_token %}
+         <input type="text" name="pro_id" value="{{project.id}}" hidden>
+         <button type="submit" class="btn btn-outline-primary"><strong style="font-size: large;">{{project.Task_6}}</strong></button>
+      </form>
+   
+   </div>
+
+   <br>
+
+      {% if error %}
+      <div class="alert alert-danger mx-3 my-2" role="alert">
+      {{error}}
+      </div> 
+      {% endif %}
+
+        <table class="table">
+          <thead>
+             <tr class="w3-animate-zoom">
+                <th >S no.</th>
+                <th>Student Name</th>
+                <th colspan="2">Student Email</th>
+                <th colspan="2">Skills</th>
+                <th></th>
+                <th></th>
+             </tr>
+          </thead>
+          <tbody>
+             {% for student_6 in students_6 %}
+             <tr class="w3-animate-zoom">
+                <td>{{forloop.counter}}</td>
+                <td>{{student_6.Name}}</td>
+                <td colspan="2">{{student_6.Email}}</td>
+                <td colspan="2">{{student_6.Skills}}</td>
+               
+               <td>
+               <form action="/studentinfo/" method="post" class="btn-block">
+                  {% csrf_token %}
+                  
+                  <input type="text" name="stu_id" value="{{student_6.id}}" hidden>
+                  <input type="text" name="pro_id" value="{{project.id}}" hidden>
+                  <input type="text" name="task_6" value="6" hidden>
+                  <button type="submit" class="btn btn-outline-dark">See Profile</button>
+                  
+                </form>
+             </td>
+          </tr>
+               
+             {% endfor %}
+          
+          </tbody>
+       </table>
+</div>
+
+{% endif %}
+
+
+{% if project.Task_7 %}
+
+<div class="border border-2 rounded-5 m-4 p-4" id="centa">
+   <div class="m-4">
+
+      <form action="/edescription/" method="post" class="btn-block">
+         {% csrf_token %}
+         <input type="text" name="pro_id" value="{{project.id}}" hidden>
+         <button type="submit" class="btn btn-outline-primary"><strong style="font-size: large;">{{project.Task_7}}</strong></button>
+      </form>
+   
+   </div>
+
+   <br>
+
+      {% if error %}
+      <div class="alert alert-danger mx-3 my-2" role="alert">
+      {{error}}
+      </div> 
+      {% endif %}
+
+        <table class="table">
+          <thead>
+             <tr class="w3-animate-zoom">
+                <th >S no.</th>
+                <th>Student Name</th>
+                <th colspan="2">Student Email</th>
+                <th colspan="2">Skills</th>
+                <th></th>
+                <th></th>
+             </tr>
+          </thead>
+          <tbody>
+             {% for student_7 in students_7 %}
+             <tr class="w3-animate-zoom">
+                <td>{{forloop.counter}}</td>
+                <td>{{student_7.Name}}</td>
+                <td colspan="2">{{student_7.Email}}</td>
+                <td colspan="2">{{student_7.Skills}}</td>
+               
+               <td>
+               <form action="/studentinfo/" method="post" class="btn-block">
+                  {% csrf_token %}
+                  
+                  <input type="text" name="stu_id" value="{{student_7.id}}" hidden>
+                  <input type="text" name="pro_id" value="{{project.id}}" hidden>
+                  <input type="text" name="task_7" value="7" hidden>
+                  <button type="submit" class="btn btn-outline-dark">See Profile</button>
+                  
+                </form>
+             </td>
+          </tr>
+               
+             {% endfor %}
+          
+          </tbody>
+       </table>
+</div>
+
+{% endif %}
+
+
+{% if project.Task_8 %}
+
+<div class="border border-2 rounded-5 m-4 p-4" id="centa">
+   <div class="m-4">
+
+      <form action="/edescription/" method="post" class="btn-block">
+         {% csrf_token %}
+         <input type="text" name="pro_id" value="{{project.id}}" hidden>
+         <button type="submit" class="btn btn-outline-primary"><strong style="font-size: large;">{{project.Task_8}}</strong></button>
+      </form>
+   
+   </div>
+
+   <br>
+
+      {% if error %}
+      <div class="alert alert-danger mx-3 my-2" role="alert">
+      {{error}}
+      </div> 
+      {% endif %}
+
+        <table class="table">
+          <thead>
+             <tr class="w3-animate-zoom">
+                <th >S no.</th>
+                <th>Student Name</th>
+                <th colspan="2">Student Email</th>
+                <th colspan="2">Skills</th>
+                <th></th>
+                <th></th>
+             </tr>
+          </thead>
+          <tbody>
+             {% for student_8 in students_8 %}
+             <tr class="w3-animate-zoom">
+                <td>{{forloop.counter}}</td>
+                <td>{{student_8.Name}}</td>
+                <td colspan="2">{{student_8.Email}}</td>
+                <td colspan="2">{{student_8.Skills}}</td>
+               
+               <td>
+               <form action="/studentinfo/" method="post" class="btn-block">
+                  {% csrf_token %}
+                  
+                  <input type="text" name="stu_id" value="{{student_8.id}}" hidden>
+                  <input type="text" name="pro_id" value="{{project.id}}" hidden>
+                  <input type="text" name="task_8" value="8" hidden>
+                  <button type="submit" class="btn btn-outline-dark">See Profile</button>
+                  
+                </form>
+             </td>
+          </tr>
+               
+             {% endfor %}
+          
+          </tbody>
+       </table>
+</div>
+
+{% endif %}
+
+
+{% if project.Task_9 %}
+
+<div class="border border-2 rounded-5 m-4 p-4" id="centa">
+   <div class="m-4">
+
+      <form action="/edescription/" method="post" class="btn-block">
+         {% csrf_token %}
+         <input type="text" name="pro_id" value="{{project.id}}" hidden>
+         <button type="submit" class="btn btn-outline-primary"><strong style="font-size: large;">{{project.Task_9}}</strong></button>
+      </form>
+   
+   </div>
+
+   <br>
+
+      {% if error %}
+      <div class="alert alert-danger mx-3 my-2" role="alert">
+      {{error}}
+      </div> 
+      {% endif %}
+
+        <table class="table">
+          <thead>
+             <tr class="w3-animate-zoom">
+                <th >S no.</th>
+                <th>Student Name</th>
+                <th colspan="2">Student Email</th>
+                <th colspan="2">Skills</th>
+                <th></th>
+                <th></th>
+             </tr>
+          </thead>
+          <tbody>
+             {% for student_9 in students_9 %}
+             <tr class="w3-animate-zoom">
+                <td>{{forloop.counter}}</td>
+                <td>{{student_9.Name}}</td>
+                <td colspan="2">{{student_9.Email}}</td>
+                <td colspan="2">{{student_9.Skills}}</td>
+               
+               <td>
+               <form action="/studentinfo/" method="post" class="btn-block">
+                  {% csrf_token %}
+                  
+                  <input type="text" name="stu_id" value="{{student_9.id}}" hidden>
+                  <input type="text" name="pro_id" value="{{project.id}}" hidden>
+                  <input type="text" name="task_9" value="9" hidden>
+                  <button type="submit" class="btn btn-outline-dark">See Profile</button>
+                  
+                </form>
+             </td>
+          </tr>
+               
+             {% endfor %}
+          
+          </tbody>
+       </table>
+</div>
+
+{% endif %}
+
+
+{% if project.Task_10 %}
+
+<div class="border border-2 rounded-5 m-4 p-4" id="centa">
+   <div class="m-4">
+
+      <form action="/edescription/" method="post" class="btn-block">
+         {% csrf_token %}
+         <input type="text" name="pro_id" value="{{project.id}}" hidden>
+         <button type="submit" class="btn btn-outline-primary"><strong style="font-size: large;">{{project.Task_10}}</strong></button>
+      </form>
+   
+   </div>
+
+   <br>
+
+      {% if error %}
+      <div class="alert alert-danger mx-3 my-2" role="alert">
+      {{error}}
+      </div> 
+      {% endif %}
+
+        <table class="table">
+          <thead>
+             <tr class="w3-animate-zoom">
+                <th >S no.</th>
+                <th>Student Name</th>
+                <th colspan="2">Student Email</th>
+                <th colspan="2">Skills</th>
+                <th></th>
+                <th></th>
+             </tr>
+          </thead>
+          <tbody>
+             {% for student_10 in students_10 %}
+             <tr class="w3-animate-zoom">
+                <td>{{forloop_10.counter}}</td>
+                <td>{{student_10.Name}}</td>
+                <td colspan="2">{{student_10.Email}}</td>
+                <td colspan="2">{{student_10.Skills}}</td>
+               
+               <td>
+               <form action="/studentinfo/" method="post" class="btn-block">
+                  {% csrf_token %}
+                  
+                  <input type="text" name="stu_id" value="{{student_10.id}}" hidden>
+                  <input type="text" name="pro_id" value="{{project.id}}" hidden>
+                  <input type="text" name="task_10" value="10" hidden>
+                  <button type="submit" class="btn btn-outline-dark">See Profile</button>
+                  
+                </form>
+             </td>
+          </tr>
+               
+             {% endfor %}
+          
+          </tbody>
+       </table>
+</div>
+
+{% endif %}
+
+
+{% if project.Task_11 %}
+
+<div class="border border-2 rounded-5 m-4 p-4" id="centa">
+   <div class="m-4">
+
+      <form action="/edescription/" method="post" class="btn-block">
+         {% csrf_token %}
+         <input type="text" name="pro_id" value="{{project.id}}" hidden>
+         <button type="submit" class="btn btn-outline-primary"><strong style="font-size: large;">{{project.Task_11}}</strong></button>
+      </form>
+   
+   </div>
+
+   <br>
+
+      {% if error %}
+      <div class="alert alert-danger mx-3 my-2" role="alert">
+      {{error}}
+      </div> 
+      {% endif %}
+
+        <table class="table">
+          <thead>
+             <tr class="w3-animate-zoom">
+                <th >S no.</th>
+                <th>Student Name</th>
+                <th colspan="2">Student Email</th>
+                <th colspan="2">Skills</th>
+                <th></th>
+                <th></th>
+             </tr>
+          </thead>
+          <tbody>
+             {% for student_11 in students_11 %}
+             <tr class="w3-animate-zoom">
+                <td>{{forloop_11.counter}}</td>
+                <td>{{student_11.Name}}</td>
+                <td colspan="2">{{student_11.Email}}</td>
+                <td colspan="2">{{student_11.Skills}}</td>
+               
+               <td>
+               <form action="/studentinfo/" method="post" class="btn-block">
+                  {% csrf_token %}
+                  
+                  <input type="text" name="stu_id" value="{{student_11.id}}" hidden>
+                  <input type="text" name="pro_id" value="{{project.id}}" hidden>
+                  <input type="text" name="task_11" value="111" hidden>
+                  <button type="submit" class="btn btn-outline-dark">See Profile</button>
+                  
+                </form>
+             </td>
+          </tr>
+               
+             {% endfor %}
+          
+          </tbody>
+       </table>
+</div>
+
+{% endif %}
+
+
+{% if project.Task_12 %}
+
+<div class="border border-2 rounded-5 m-4 p-4" id="centa">
+   <div class="m-4">
+
+      <form action="/edescription/" method="post" class="btn-block">
+         {% csrf_token %}
+         <input type="text" name="pro_id" value="{{project.id}}" hidden>
+         <button type="submit" class="btn btn-outline-primary"><strong style="font-size: large;">{{project.Task_12}}</strong></button>
+      </form>
+   
+   </div>
+
+   <br>
+
+      {% if error %}
+      <div class="alert alert-danger mx-3 my-2" role="alert">
+      {{error}}
+      </div> 
+      {% endif %}
+
+        <table class="table">
+          <thead>
+             <tr class="w3-animate-zoom">
+                <th >S no.</th>
+                <th>Student Name</th>
+                <th colspan="2">Student Email</th>
+                <th colspan="2">Skills</th>
+                <th></th>
+                <th></th>
+             </tr>
+          </thead>
+          <tbody>
+             {% for student_12 in students_12 %}
+             <tr class="w3-animate-zoom">
+                <td>{{forloop.counter}}</td>
+                <td>{{student_12.Name}}</td>
+                <td colspan="2">{{student_12.Email}}</td>
+                <td colspan="2">{{student_12.Skills}}</td>
+               
+               <td>
+               <form action="/studentinfo/" method="post" class="btn-block">
+                  {% csrf_token %}
+                  
+                  <input type="text" name="stu_id" value="{{student_12.id}}" hidden>
+                  <input type="text" name="pro_id" value="{{project.id}}" hidden>
+                  <input type="text" name="task_12" value="12" hidden>
+                  <button type="submit" class="btn btn-outline-dark">See Profile</button>
+                  
+                </form>
+             </td>
+          </tr>
+               
+             {% endfor %}
+          
+          </tbody>
+       </table>
+</div>
+
+{% endif %}
+
+
+
+
+
+
+
+{% endif %}
+<br><br><br>
 {% endblock content %}
