@@ -33,8 +33,7 @@ Student Profile
                     {{student.Gender}}
             </div>
         </div>
-<br>
-<br>
+ <br><br>
 
         <div id="detail_dead" style="display: flex;">
             <div id="detail" style="margin-left: 3vw;">
@@ -46,8 +45,7 @@ Student Profile
                 {{student.Phone}}
             </div>
         </div>
-<br>
-<br>
+ <br><br>
 
         <div id="detail_dead" style="display: flex;">
             <div style="margin-left:3vw;">
@@ -62,13 +60,13 @@ Student Profile
             </div>
         </div>
 
-<br><br>
+ <br><br>
             <div style="margin-left:3vw;">
                 <strong>Address: </strong>
                 {{student.Address}}
             </div>
 
-<br><br><br><br>
+ <br><br><br><br>
             <div style="margin-left:3vw;">
                 <strong>University Name: </strong>
                 {{student.University_name}}
@@ -79,26 +77,26 @@ Student Profile
                 </div>
             </div>
 
-<br><br>
+ <br><br>
             <div style="margin-left:3vw;">
                 <strong>University Roll no: </strong>
                 {{student.Roll_no}}
             </div>
 
-<br><br>
+ <br><br>
             <div style="margin-left:3vw;">
                 <strong>Course Name: </strong>
                 {{student.Course}}
             </div>
 
-<br><br>
+ <br><br>
             
             <div style="margin-left:3vw;">
                 <strong>Pursuing/Completed: </strong>
                 {{student.Passed}}
             </div>
 
-<br><br><br><br>
+ <br><br><br><br>
             <div id="detail_dead" style="display: flex;">
                 <div style="margin-left:3vw; width: 30vw;">
                     <strong>Skills:</strong><br>
@@ -121,7 +119,7 @@ Student Profile
                 {% endif %}
             </div>
 
-<br><br><br>
+ <br><br><br>
             {% if student.Exp1 %}
             <div style="margin-left:3vw;">
                 <strong>Experience: </strong>
@@ -145,7 +143,7 @@ Student Profile
             </div>
             {% endif %}
 
-<br><br><br>
+ <br><br><br>
             {% if student.Social1 %}
             <div style="margin-left:3vw;">
                 <strong>Social profile: </strong>
@@ -182,7 +180,7 @@ Student Profile
                 Allocate
             </button>
             {% endif %}
-      </div>
+</div>
 
 <!-- Modal -->
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -192,20 +190,280 @@ Student Profile
         <h1 class="modal-title fs-5" id="staticBackdropLabel">Confirm Allocation</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
-        Are you Sure you want to allocate this Project:<b><i>{{project.Name}}</i></b> to <b>{{student.Name}}</b>
-      </div>
-        <form action="/allocate/" method="post" class="btn-block">
-      <div class="modal-footer flex-row">
-                  {% csrf_token %}
-                  
-                  <input type="text" name="allocate" value="{{student.id}}" hidden>
-                  <input type="text" name="pro_id" value="{{project.id}}" hidden>
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button type="submit" class="btn btn-outline-primary"> Confirm </button>
-                  
-      </div>
-                </form>
+      {% if not project.Task_1 %}
+      
+        <div class="modal-body">
+            Are you Sure you want to allocate this Project:<b><i>{{project.Name}}</i></b> to <b>{{student.Name}}</b>
+        </div>
+            <form action="/allocate/" method="post" class="btn-block">
+        <div class="modal-footer flex-row">
+                    {% csrf_token %}
+                    
+                    <input type="text" name="allocate" value="{{student.id}}" hidden>
+                    <input type="text" name="pro_id" value="{{project.id}}" hidden>
+                    
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-outline-primary"> Confirm </button>
+                    
+        </div>
+            </form>
+
+      {% else %}
+
+        {% if task_1 %}
+      
+            <div class="modal-body">
+                Are you Sure you want to allocate this task:<b><i>{{project.Task_1}}</i></b> of Project <b><i>{{project.Name}}</i></b> to <b>{{student.Name}}</b>
+            </div>
+                <form action="/allocate/" method="post" class="btn-block">
+                    <div class="modal-footer flex-row">
+                        {% csrf_token %}
+                        
+                        <input type="text" name="allocate" value="{{student.id}}" hidden>
+                        <input type="text" name="pro_id" value="{{project.id}}" hidden>
+                        <input type="text" name="task_1" value="1" hidden>
+                        
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-outline-primary"> Confirm </button>
+                        
+                    </div>
+                </form>      
+        {% endif %}
+
+
+        {% if task_2 %}
+      
+            <div class="modal-body">
+                Are you Sure you want to allocate this task:<b><i>{{project.Task_2}}</i></b> of Project <b><i>{{project.Name}}</i></b> to <b>{{student.Name}}</b>
+            </div>
+                <form action="/allocate/" method="post" class="btn-block">
+                    <div class="modal-footer flex-row">
+                        {% csrf_token %}
+                        
+                        <input type="text" name="allocate" value="{{student.id}}" hidden>
+                        <input type="text" name="pro_id" value="{{project.id}}" hidden>
+                        <input type="text" name="task_2" value="2" hidden>
+                        
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-outline-primary"> Confirm </button>
+                        
+                    </div>
+                </form>      
+        {% endif %}
+
+
+        {% if task_3 %}
+      
+            <div class="modal-body">
+                Are you Sure you want to allocate this task:<b><i>{{project.Task_3}}</i></b> of Project <b><i>{{project.Name}}</i></b> to <b>{{student.Name}}</b>
+            </div>
+                <form action="/allocate/" method="post" class="btn-block">
+                    <div class="modal-footer flex-row">
+                        {% csrf_token %}
+                        
+                        <input type="text" name="allocate" value="{{student.id}}" hidden>
+                        <input type="text" name="pro_id" value="{{project.id}}" hidden>
+                        <input type="text" name="task_3" value="3" hidden>
+                        
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-outline-primary"> Confirm </button>
+                        
+                    </div>
+                </form>      
+        {% endif %}
+
+
+        {% if task_4 %}
+      
+            <div class="modal-body">
+                Are you Sure you want to allocate this task:<b><i>{{project.Task_4}}</i></b> of Project <b><i>{{project.Name}}</i></b> to <b>{{student.Name}}</b>
+            </div>
+                <form action="/allocate/" method="post" class="btn-block">
+                    <div class="modal-footer flex-row">
+                        {% csrf_token %}
+                        
+                        <input type="text" name="allocate" value="{{student.id}}" hidden>
+                        <input type="text" name="pro_id" value="{{project.id}}" hidden>
+                        <input type="text" name="task_4" value="4" hidden>
+                        
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-outline-primary"> Confirm </button>
+                        
+                    </div>
+                </form>      
+        {% endif %}
+
+
+        {% if task_5 %}
+      
+            <div class="modal-body">
+                Are you Sure you want to allocate this task:<b><i>{{project.Task_5}}</i></b> of Project <b><i>{{project.Name}}</i></b> to <b>{{student.Name}}</b>
+            </div>
+                <form action="/allocate/" method="post" class="btn-block">
+                    <div class="modal-footer flex-row">
+                        {% csrf_token %}
+                        
+                        <input type="text" name="allocate" value="{{student.id}}" hidden>
+                        <input type="text" name="pro_id" value="{{project.id}}" hidden>
+                        <input type="text" name="task_5" value="5" hidden>
+                        
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-outline-primary"> Confirm </button>
+                        
+                    </div>
+                </form>      
+        {% endif %}
+
+
+        {% if task_6 %}
+      
+            <div class="modal-body">
+                Are you Sure you want to allocate this task:<b><i>{{project.Task_6}}</i></b> of Project <b><i>{{project.Name}}</i></b> to <b>{{student.Name}}</b>
+            </div>
+                <form action="/allocate/" method="post" class="btn-block">
+                    <div class="modal-footer flex-row">
+                        {% csrf_token %}
+                        
+                        <input type="text" name="allocate" value="{{student.id}}" hidden>
+                        <input type="text" name="pro_id" value="{{project.id}}" hidden>
+                        <input type="text" name="task_6" value="6" hidden>
+                        
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-outline-primary"> Confirm </button>
+                        
+                    </div>
+                </form>      
+        {% endif %}
+
+
+        {% if task_7 %}
+      
+            <div class="modal-body">
+                Are you Sure you want to allocate this task:<b><i>{{project.Task_7}}</i></b> of Project <b><i>{{project.Name}}</i></b> to <b>{{student.Name}}</b>
+            </div>
+                <form action="/allocate/" method="post" class="btn-block">
+                    <div class="modal-footer flex-row">
+                        {% csrf_token %}
+                        
+                        <input type="text" name="allocate" value="{{student.id}}" hidden>
+                        <input type="text" name="pro_id" value="{{project.id}}" hidden>
+                        <input type="text" name="task_7" value="7" hidden>
+                        
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-outline-primary"> Confirm </button>
+                        
+                    </div>
+                </form>      
+        {% endif %}
+
+
+        {% if task_8 %}
+      
+            <div class="modal-body">
+                Are you Sure you want to allocate this task:<b><i>{{project.Task_8}}</i></b> of Project <b><i>{{project.Name}}</i></b> to <b>{{student.Name}}</b>
+            </div>
+                <form action="/allocate/" method="post" class="btn-block">
+                    <div class="modal-footer flex-row">
+                        {% csrf_token %}
+                        
+                        <input type="text" name="allocate" value="{{student.id}}" hidden>
+                        <input type="text" name="pro_id" value="{{project.id}}" hidden>
+                        <input type="text" name="task_8" value="8" hidden>
+                        
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-outline-primary"> Confirm </button>
+                        
+                    </div>
+                </form>      
+        {% endif %}
+
+
+        {% if task_9 %}
+      
+            <div class="modal-body">
+                Are you Sure you want to allocate this task:<b><i>{{project.Task_9}}</i></b> of Project <b><i>{{project.Name}}</i></b> to <b>{{student.Name}}</b>
+            </div>
+                <form action="/allocate/" method="post" class="btn-block">
+                    <div class="modal-footer flex-row">
+                        {% csrf_token %}
+                        
+                        <input type="text" name="allocate" value="{{student.id}}" hidden>
+                        <input type="text" name="pro_id" value="{{project.id}}" hidden>
+                        <input type="text" name="task_9" value="9" hidden>
+                        
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-outline-primary"> Confirm </button>
+                        
+                    </div>
+                </form>      
+        {% endif %}
+
+
+        {% if task_10 %}
+      
+            <div class="modal-body">
+                Are you Sure you want to allocate this task:<b><i>{{project.Task_10}}</i></b> of Project <b><i>{{project.Name}}</i></b> to <b>{{student.Name}}</b>
+            </div>
+                <form action="/allocate/" method="post" class="btn-block">
+                    <div class="modal-footer flex-row">
+                        {% csrf_token %}
+                        
+                        <input type="text" name="allocate" value="{{student.id}}" hidden>
+                        <input type="text" name="pro_id" value="{{project.id}}" hidden>
+                        <input type="text" name="task_10" value="10" hidden>
+                        
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-outline-primary"> Confirm </button>
+                        
+                    </div>
+                </form>      
+        {% endif %}
+
+
+        {% if task_11 %}
+      
+            <div class="modal-body">
+                Are you Sure you want to allocate this task:<b><i>{{project.Task_11}}</i></b> of Project <b><i>{{project.Name}}</i></b> to <b>{{student.Name}}</b>
+            </div>
+                <form action="/allocate/" method="post" class="btn-block">
+                    <div class="modal-footer flex-row">
+                        {% csrf_token %}
+                        
+                        <input type="text" name="allocate" value="{{student.id}}" hidden>
+                        <input type="text" name="pro_id" value="{{project.id}}" hidden>
+                        <input type="text" name="task_11" value="11" hidden>
+                        
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-outline-primary"> Confirm </button>
+                        
+                    </div>
+                </form>      
+        {% endif %}
+
+
+        {% if task_12 %}
+      
+            <div class="modal-body">
+                Are you Sure you want to allocate this task:<b><i>{{project.Task_12}}</i></b> of Project <b><i>{{project.Name}}</i></b> to <b>{{student.Name}}</b>
+            </div>
+                <form action="/allocate/" method="post" class="btn-block">
+                    <div class="modal-footer flex-row">
+                        {% csrf_token %}
+                        
+                        <input type="text" name="allocate" value="{{student.id}}" hidden>
+                        <input type="text" name="pro_id" value="{{project.id}}" hidden>
+                        <input type="text" name="task_12" value="12" hidden>
+                        
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-outline-primary"> Confirm </button>
+                        
+                    </div>
+                </form>      
+        {% endif %}
+
+
+      {% endif %}
+    
     </div>
   </div>
 </div>

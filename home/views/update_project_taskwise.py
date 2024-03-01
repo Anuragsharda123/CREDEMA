@@ -479,21 +479,21 @@ class UpdateProjectTaskwise(View):
                 return redirect('e_project')
 
             project.save()
-            try:
-                if(project.Student):
-                    stu = project.Student
-                    student = Student.objects.get(Email=stu)
+            # try:
+            #     if(project.Student):
+            #         stu = project.Student
+            #         student = Student.objects.get(Email=stu)
                             
 
-                    body = 'Project: '+project.Name + " is Updated. Check the project details again and if updations are not suitable to you than contact to your TPO or CREDEMA."
-                    subject = "CREDEMA Projects - Project Updation"
+            #         body = 'Project: '+project.Name + " is Updated. Check the project details again and if updations are not suitable to you than contact to your TPO or CREDEMA."
+            #         subject = "CREDEMA Projects - Project Updation"
 
-                    send_mail(subject, body, settings.EMAIL_HOST_USER, [student.Email])
+            #         send_mail(subject, body, settings.EMAIL_HOST_USER, [student.Email])
 
-                    return redirect('e_project')
+            #         return redirect('e_project')
                 
-            except:
-                return redirect('e_project')    
+            # except:
+            #     return redirect('e_project')    
             
             return redirect('e_project')
         except:
