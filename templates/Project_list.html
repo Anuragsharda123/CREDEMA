@@ -32,13 +32,17 @@ Projects
              <td colspan="2">{{project.Perks}}</td>
              <td>
                 <form action="/apply/" method="post" class="btn-block">
-                {% csrf_token %}
-                <input type="text" name="apply" value="{{project.id}}" hidden>
-                {% if request.session.student %}
-                <button type="submit" class="btn btn-outline-primary">Apply</button>
-                {% else %}
-                <a href="/login" class="btn btn-outline-primary">Apply</a>
-                {% endif %}
+                  {% csrf_token %}
+                  <input type="text" name="apply" value="{{project.id}}" hidden>
+                  {% if request.session.student %}
+                     {% if not project.Task_1 %}
+                        <button type="submit" class="btn btn-outline-primary">Apply</button>
+                     {% else %}
+                        <a href="/" class="btn btn-outline-primary">Apply</a>
+                     {% endif %}
+                  {% else %}
+                  <a href="/login" class="btn btn-outline-primary">Apply</a>
+                  {% endif %}
               </form>
              </td>
              <td>
