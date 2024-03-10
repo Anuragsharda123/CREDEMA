@@ -10,18 +10,19 @@ class AddTaskApplicant(View):
 
 
     def post(self, request):
-        if request.session['student']:
-            stu_id = request.session['student']
-            pro_id = request.POST.get('pro_id')
-            pro = Project.objects.get(id = pro_id)
-            stu = Student.objects.get(id=stu_id)
-            task = TaskApplicant.objects.get(Student=stu, Project=pro)
-            
-            data = {}
-            data['project'] = pro
-            data['student'] = stu
-            data['task'] = task
+        try:
+            if request.session['student']:
+                stu_id = request.session['student']
+                pro_id = request.POST.get('pro_id')
+                pro = Project.objects.get(id = pro_id)
+                stu = Student.objects.get(id=stu_id)
+                task = TaskApplicant.objects.get(Student=stu, Project=pro)
+                
+                data = {}
+                data['project'] = pro
+                data['student'] = stu
+                data['task'] = task
 
-            return render(request, 'task_application.html', data)
-        # except:
-        #     return redirect('home')
+                return render(request, 'task_application.html', data)
+        except:
+            return redirect('home')
