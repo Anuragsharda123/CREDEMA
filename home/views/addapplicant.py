@@ -35,7 +35,7 @@ class AddApplicant(View):
                     apply.save()
 
                 body = student.Name + ' have applied to Project: ' + project.Name
-                subject = "Project Application"
+                subject = "CREDEMA Projects - Project Application"
 
                 send_mail(subject, body, settings.EMAIL_HOST_USER, [employ.Email])
 

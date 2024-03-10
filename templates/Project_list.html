@@ -31,19 +31,25 @@ Projects
                 <td >{{project.Skill_req}}</td>
              <td colspan="2">{{project.Perks}}</td>
              <td>
-                <form action="/apply/" method="post" class="btn-block">
-                  {% csrf_token %}
-                  <input type="text" name="apply" value="{{project.id}}" hidden>
                   {% if request.session.student %}
                      {% if not project.Task_1 %}
+                     <form action="/apply/" method="post" class="btn-block">
+                        {% csrf_token %}
+                        <input type="text" name="apply" value="{{project.id}}" hidden>
                         <button type="submit" class="btn btn-outline-primary">Apply</button>
+                     </form>
                      {% else %}
-                        <a href="/" class="btn btn-outline-primary">Apply</a>
+
+                        <form action="/task_application/" method="post" class="btn-block">
+                           {% csrf_token %}
+                           <input type="text" name="pro_id" value="{{project.id}}" hidden>
+                           <button type="submit" class="btn btn-outline-primary">Apply</button>
+                        </form>
+                     
                      {% endif %}
                   {% else %}
-                  <a href="/login" class="btn btn-outline-primary">Apply</a>
+                     <a href="/login" class="btn btn-outline-primary">Apply</a>
                   {% endif %}
-              </form>
              </td>
              <td>
                <form action="/description/" method="post" class="btn-block">

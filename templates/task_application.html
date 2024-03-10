@@ -1,0 +1,630 @@
+{% extends "base.html" %}
+
+{% block title %}
+Apply Tasks
+{% endblock title %}
+
+{% block content %}
+    <div class="p-4 m-2" style="display: flex;">
+        <div>
+            <form action="/description/" method="post" class="btn-block">
+                {% csrf_token %}
+                <input type="text" name="pro_id" value="{{project.id}}" hidden>
+                <button type="submit" class="btn btn-outline-dark"><strong style="font-size: large;">{{project.Name}}</strong></button>
+            </form>
+        </div>
+        <div style="margin-left: 85vw; position: absolute;">
+        {% if task.Task_1 or task.Task_2 or task.Task_3 or task.Task_3 or task.Task_4 or task.Task_4%}
+            <button type="submit" class="btn btn-outline-primary" disabled><strong style="font-size: large;">Apply to all</strong></button>
+        {% else %}
+            <form action="/task_apply/" method="post" class="btn-block">
+                {% csrf_token %}
+                <input type="text" name="pro_id" value="{{project.id}}" hidden>
+                <input type="text" name="task_all" value="13" hidden>
+                <button type="submit" class="btn btn-outline-primary"><strong style="font-size: large;">Apply to all</strong></button>
+            </form>
+        {% endif %}
+
+        </div>
+    </div>
+
+
+    <div class="border border-3 rounded-5 p-4 m-2">
+        <strong>Task 1 </strong><br>
+        <div style="font-family:Georgia; font-size: xx-large;">
+            <form action="/description/" method="post" class="btn-block">
+                {% csrf_token %}
+                <input type="text" name="pro_id" value="{{project.id}}" hidden>
+                <button type="submit" class="btn btn-outline-dark"><strong style="font-size: large;">{{project.Task_1}}</strong></button>
+            </form>    
+        </div>
+        <br><br>
+        
+        <div style="display: flex;">
+            <div style="margin-left: 45vw; position: absolute;">
+                <strong>Description of Task 1 </strong><br>
+                {{project.Description_1}}
+            </div>
+            <div>
+                <strong>Stipend for Task 1 </strong><br>
+                ₹{{project.Stipend_1}}
+            </div>
+        </div>
+        <br><br>
+        <div style=" display: flex;">
+            <div>
+                <strong>Deadline for Task 1 </strong><br>
+                {{project.Duration_1}}
+            </div>
+            <div style="margin-left: 45vw; position: absolute;">
+            {% if project.Student_1 %}
+                <button type="submit" class="px-5 btn btn-outline-primary" disabled>Application closed for <i><b>{{project.Task_1}}</b></i></button>
+            {% else %}
+                {% if task.Task_1 %}
+                    <button type="submit" class="px-5 btn btn-outline-primary" disabled>Applied</button>
+                {% else %}
+                    <form action="/task_apply/" method="post" class="btn-block">
+                        {% csrf_token %}
+                        <input type="text" name="pro_id" value="{{project.id}}" hidden>
+                        <input type="text" name="task_1" value="1" hidden>
+                        <button type="submit" class="px-5 btn btn-outline-primary">Apply</button>
+                    </form>
+                {% endif %}
+            {% endif %}
+            </div>
+        </div>
+        <br>
+    </div>
+
+
+    <div class="border border-3 rounded-5 p-4 m-2">
+        <strong>Task 2 </strong><br>
+        <div style="font-family:Georgia; font-size: xx-large;">
+            <form action="/description/" method="post" class="btn-block">
+                {% csrf_token %}
+                <input type="text" name="pro_id" value="{{project.id}}" hidden>
+                <button type="submit" class="btn btn-outline-dark"><strong style="font-size: large;">{{project.Task_2}}</strong></button>
+            </form>    
+        </div>
+        <br><br>
+        
+        <div style="display: flex;">
+            <div style="margin-left: 45vw; position: absolute;">
+                <strong>Description of Task 2 </strong><br>
+                {{project.Description_2}}
+            </div>
+            <div>
+                <strong>Stipend for Task 2 </strong><br>
+                ₹{{project.Stipend_2}}
+            </div>
+        </div>
+        <br><br>
+        <div style=" display: flex;">
+            <div>
+                <strong>Deadline for Task 2 </strong><br>
+                {{project.Duration_2}}
+            </div>
+            <div style="margin-left: 45vw; position: absolute;">
+                {% if project.Student_2 %}
+                    <button type="submit" class="px-5 btn btn-outline-primary" disabled>Application closed for <i><b>{{project.Task_2}}</b></i></button>
+                {% else %}
+                    {% if task.Task_2 %}
+                        <button type="submit" class="px-5 btn btn-outline-primary" disabled>Applied</button>
+                    {% else %}
+                        <form action="/task_apply/" method="post" class="btn-block">
+                            {% csrf_token %}
+                            <input type="text" name="pro_id" value="{{project.id}}" hidden>
+                            <input type="text" name="task_2" value="2" hidden>
+                            <button type="submit" class="px-5 btn btn-outline-primary">Apply</button>
+                        </form>
+                    {% endif %}
+                {% endif %}
+            </div>
+        </div>
+        <br>
+    </div>
+
+
+    {% if project.Task_3 %}
+        <div class="border border-3 rounded-5 p-4 m-2">
+            <strong>Task 3 </strong><br>
+            <div style="font-family:Georgia; font-size: xx-large;">
+                <form action="/description/" method="post" class="btn-block">
+                    {% csrf_token %}
+                    <input type="text" name="pro_id" value="{{project.id}}" hidden>
+                    <button type="submit" class="btn btn-outline-dark"><strong style="font-size: large;">{{project.Task_3}}</strong></button>
+                </form>    
+            </div>
+            <br><br>
+            
+            <div style="display: flex;">
+                <div style="margin-left: 45vw; position: absolute;">
+                    <strong>Description of Task 3 </strong><br>
+                    {{project.Description_3}}
+                </div>
+                <div>
+                    <strong>Stipend for Task 3 </strong><br>
+                    ₹{{project.Stipend_3}}
+                </div>
+            </div>
+            <br><br>
+            <div style=" display: flex;">
+                <div>
+                    <strong>Deadline for Task 3 </strong><br>
+                    {{project.Duration_3}}
+                </div>
+                <div style="margin-left: 45vw; position: absolute;">
+                    {% if project.Student_3 %}
+                        <button type="submit" class="px-5 btn btn-outline-primary" disabled>Application closed for <i><b>{{project.Task_3}}</b></i></button>
+                    {% else %}
+                        {% if task.Task_3 %}
+                            <button type="submit" class="px-5 btn btn-outline-primary" disabled>Applied</button>
+                        {% else %}
+                            <form action="/task_apply/" method="post" class="btn-block">
+                                {% csrf_token %}
+                                <input type="text" name="pro_id" value="{{project.id}}" hidden>
+                                <input type="text" name="task_3" value="3" hidden>
+                                <button type="submit" class="px-5 btn btn-outline-primary">Apply</button>
+                            </form>
+                        {% endif %}
+                    {% endif %}
+                </div>
+            </div>
+            <br>
+        </div>
+    {% endif %}
+
+
+    {% if project.Task_4 %}
+        <div class="border border-3 rounded-5 p-4 m-2">
+            <strong>Task 4 </strong><br>
+            <div style="font-family:Georgia; font-size: xx-large;">
+                <form action="/description/" method="post" class="btn-block">
+                    {% csrf_token %}
+                    <input type="text" name="pro_id" value="{{project.id}}" hidden>
+                    <button type="submit" class="btn btn-outline-dark"><strong style="font-size: large;">{{project.Task_4}}</strong></button>
+                </form>    
+            </div>
+            <br><br>
+            
+            <div style="display: flex;">
+                <div style="margin-left: 45vw; position: absolute;">
+                    <strong>Description of Task 4 </strong><br>
+                    {{project.Description_4}}
+                </div>
+                <div>
+                    <strong>Stipend for Task 4 </strong><br>
+                    ₹{{project.Stipend_4}}
+                </div>
+            </div>
+            <br><br>
+            <div style=" display: flex;">
+                <div>
+                    <strong>Deadline for Task 4 </strong><br>
+                    {{project.Duration_4}}
+                </div>
+                <div style="margin-left: 45vw; position: absolute;">
+                    {% if project.Student_4 %}
+                        <button type="submit" class="px-5 btn btn-outline-primary" disabled>Application closed for <i><b>{{project.Task_4}}</b></i></button>
+                    {% else %}
+                        {% if task.Task_4 %}
+                            <button type="submit" class="px-5 btn btn-outline-primary" disabled>Applied</button>
+                        {% else %}
+                            <form action="/task_apply/" method="post" class="btn-block">
+                                {% csrf_token %}
+                                <input type="text" name="pro_id" value="{{project.id}}" hidden>
+                                <input type="text" name="task_4" value="4" hidden>
+                                <button type="submit" class="px-5 btn btn-outline-primary">Apply</button>
+                            </form>
+                        {% endif %}
+                    {% endif %}
+                </div>
+            </div>
+            <br>
+        </div>
+    {% endif %}
+
+
+    {% if project.Task_5 %}
+        <div class="border border-3 rounded-5 p-4 m-2">
+            <strong>Task 5</strong><br>
+            <div style="font-family:Georgia; font-size: xx-large;">
+                <form action="/description/" method="post" class="btn-block">
+                    {% csrf_token %}
+                    <input type="text" name="pro_id" value="{{project.id}}" hidden>
+                    <button type="submit" class="btn btn-outline-dark"><strong style="font-size: large;">{{project.Task_5}}</strong></button>
+                </form>    
+            </div>
+            <br><br>
+            
+            <div style="display: flex;">
+                <div style="margin-left: 45vw; position: absolute;">
+                    <strong>Description of Task 5 </strong><br>
+                    {{project.Description_5}}
+                </div>
+                <div>
+                    <strong>Stipend for Task 5 </strong><br>
+                    ₹{{project.Stipend_5}}
+                </div>
+            </div>
+            <br><br>
+            <div style=" display: flex;">
+                <div>
+                    <strong>Deadline for Task 5 </strong><br>
+                    {{project.Duration_5}}
+                </div>
+                <div style="margin-left: 45vw; position: absolute;">
+                    {% if project.Student_5 %}
+                        <button type="submit" class="px-5 btn btn-outline-primary" disabled>Application closed for <i><b>{{project.Task_5}}</b></i></button>
+                    {% else %}
+                        {% if task.Task_5 %}
+                            <button type="submit" class="px-5 btn btn-outline-primary" disabled>Applied</button>
+                        {% else %}
+                            <form action="/task_apply/" method="post" class="btn-block">
+                                {% csrf_token %}
+                                <input type="text" name="pro_id" value="{{project.id}}" hidden>
+                                <input type="text" name="task_5" value="5" hidden>
+                                <button type="submit" class="px-5 btn btn-outline-primary">Apply</button>
+                            </form>
+                        {% endif %}
+                    {% endif %}
+                </div>
+            </div>
+            <br>
+        </div>
+    {% endif %}
+
+
+    {% if project.Task_6 %}
+        <div class="border border-3 rounded-5 p-4 m-2">
+            <strong>Task 6 </strong><br>
+            <div style="font-family:Georgia; font-size: xx-large;">
+                <form action="/description/" method="post" class="btn-block">
+                    {% csrf_token %}
+                    <input type="text" name="pro_id" value="{{project.id}}" hidden>
+                    <button type="submit" class="btn btn-outline-dark"><strong style="font-size: large;">{{project.Task_6}}</strong></button>
+                </form>    
+            </div>
+            <br><br>
+            
+            <div style="display: flex;">
+                <div style="margin-left: 45vw; position: absolute;">
+                    <strong>Description of Task 6 </strong><br>
+                    {{project.Description_6}}
+                </div>
+                <div>
+                    <strong>Stipend for Task 6 </strong><br>
+                    ₹{{project.Stipend_6}}
+                </div>
+            </div>
+            <br><br>
+            <div style=" display: flex;">
+                <div>
+                    <strong>Deadline for Task 6 </strong><br>
+                    {{project.Duration_6}}
+                </div>
+                <div style="margin-left: 45vw; position: absolute;">
+                    {% if project.Student_6 %}
+                        <button type="submit" class="px-5 btn btn-outline-primary" disabled>Application closed for <i><b>{{project.Task_6}}</b></i></button>
+                    {% else %}
+                        {% if task.Task_6 %}
+                            <button type="submit" class="px-5 btn btn-outline-primary" disabled>Applied</button>
+                        {% else %}
+                            <form action="/task_apply/" method="post" class="btn-block">
+                                {% csrf_token %}
+                                <input type="text" name="pro_id" value="{{project.id}}" hidden>
+                                <input type="text" name="task_6" value="6" hidden>
+                                <button type="submit" class="px-5 btn btn-outline-primary">Apply</button>
+                            </form>
+                        {% endif %}
+                    {% endif %}
+                </div>
+            </div>
+            <br>
+        </div>
+    {% endif %}
+
+
+    {% if project.Task_7 %}
+        <div class="border border-3 rounded-5 p-4 m-2">
+            <strong>Task 7 </strong><br>
+            <div style="font-family:Georgia; font-size: xx-large;">
+                <form action="/description/" method="post" class="btn-block">
+                    {% csrf_token %}
+                    <input type="text" name="pro_id" value="{{project.id}}" hidden>
+                    <button type="submit" class="btn btn-outline-dark"><strong style="font-size: large;">{{project.Task_7}}</strong></button>
+                </form>    
+            </div>
+            <br><br>
+            
+            <div style="display: flex;">
+                <div style="margin-left: 45vw; position: absolute;">
+                    <strong>Description of Task 7 </strong><br>
+                    {{project.Description_7}}
+                </div>
+                <div>
+                    <strong>Stipend for Task 7 </strong><br>
+                    ₹{{project.Stipend_7}}
+                </div>
+            </div>
+            <br><br>
+            <div style=" display: flex;">
+                <div>
+                    <strong>Deadline for Task 7 </strong><br>
+                    {{project.Duration_7}}
+                </div>
+                <div style="margin-left: 45vw; position: absolute;">
+                    {% if project.Student_7 %}
+                        <button type="submit" class="px-5 btn btn-outline-primary" disabled>Application closed for <i><b>{{project.Task_7}}</b></i></button>
+                    {% else %}
+                        {% if task.Task_7 %}
+                            <button type="submit" class="px-5 btn btn-outline-primary" disabled>Applied</button>
+                        {% else %}
+                            <form action="/task_apply/" method="post" class="btn-block">
+                                {% csrf_token %}
+                                <input type="text" name="pro_id" value="{{project.id}}" hidden>
+                                <input type="text" name="task_7" value="7" hidden>
+                                <button type="submit" class="px-5 btn btn-outline-primary">Apply</button>
+                            </form>
+                        {% endif %}
+                    {% endif %}
+                </div>
+            </div>
+            <br>
+        </div>
+    {% endif %}
+
+
+    {% if project.Task_8 %}
+        <div class="border border-3 rounded-5 p-4 m-2">
+            <strong>Task 8</strong><br>
+            <div style="font-family:Georgia; font-size: xx-large;">
+                <form action="/description/" method="post" class="btn-block">
+                    {% csrf_token %}
+                    <input type="text" name="pro_id" value="{{project.id}}" hidden>
+                    <button type="submit" class="btn btn-outline-dark"><strong style="font-size: large;">{{project.Task_8}}</strong></button>
+                </form>    
+            </div>
+            <br><br>
+            
+            <div style="display: flex;">
+                <div style="margin-left: 45vw; position: absolute;">
+                    <strong>Description of Task 8 </strong><br>
+                    {{project.Description_8}}
+                </div>
+                <div>
+                    <strong>Stipend for Task 8 </strong><br>
+                    ₹{{project.Stipend_8}}
+                </div>
+            </div>
+            <br><br>
+            <div style=" display: flex;">
+                <div>
+                    <strong>Deadline for Task 8 </strong><br>
+                    {{project.Duration_8}}
+                </div>
+                <div style="margin-left: 45vw; position: absolute;">
+                    {% if project.Student_8 %}
+                        <button type="submit" class="px-5 btn btn-outline-primary" disabled>Application closed for <i><b>{{project.Task_8}}</b></i></button>
+                    {% else %}
+                        {% if task.Task_8 %}
+                            <button type="submit" class="px-5 btn btn-outline-primary" disabled>Applied</button>
+                        {% else %}
+                            <form action="/task_apply/" method="post" class="btn-block">
+                                {% csrf_token %}
+                                <input type="text" name="pro_id" value="{{project.id}}" hidden>
+                                <input type="text" name="task_8" value="8" hidden>
+                                <button type="submit" class="px-5 btn btn-outline-primary">Apply</button>
+                            </form>
+                        {% endif %}
+                    {% endif %}
+                </div>
+            </div>
+            <br>
+        </div>
+    {% endif %}
+
+
+    {% if project.Task_9 %}
+        <div class="border border-3 rounded-5 p-4 m-2">
+            <strong>Task 9 </strong><br>
+            <div style="font-family:Georgia; font-size: xx-large;">
+                <form action="/description/" method="post" class="btn-block">
+                    {% csrf_token %}
+                    <input type="text" name="pro_id" value="{{project.id}}" hidden>
+                    <button type="submit" class="btn btn-outline-dark"><strong style="font-size: large;">{{project.Task_9}}</strong></button>
+                </form>    
+            </div>
+            <br><br>
+            
+            <div style="display: flex;">
+                <div style="margin-left: 45vw; position: absolute;">
+                    <strong>Description of Task 9 </strong><br>
+                    {{project.Description_9}}
+                </div>
+                <div>
+                    <strong>Stipend for Task 9 </strong><br>
+                    ₹{{project.Stipend_9}}
+                </div>
+            </div>
+            <br><br>
+            <div style=" display: flex;">
+                <div>
+                    <strong>Deadline for Task 9 </strong><br>
+                    {{project.Duration_9}}
+                </div>
+                <div style="margin-left: 45vw; position: absolute;">
+                    {% if project.Student_9 %}
+                        <button type="submit" class="px-5 btn btn-outline-primary" disabled>Application closed for <i><b>{{project.Task_9}}</b></i></button>
+                    {% else %}
+                        {% if task.Task_9 %}
+                            <button type="submit" class="px-5 btn btn-outline-primary" disabled>Applied</button>
+                        {% else %}
+                            <form action="/task_apply/" method="post" class="btn-block">
+                                {% csrf_token %}
+                                <input type="text" name="pro_id" value="{{project.id}}" hidden>
+                                <input type="text" name="task_9" value="9" hidden>
+                                <button type="submit" class="px-5 btn btn-outline-primary">Apply</button>
+                            </form>
+                        {% endif %}
+                    {% endif %}
+                </div>
+            </div>
+            <br>
+        </div>
+    {% endif %}
+
+
+    {% if project.Task_10 %}
+        <div class="border border-3 rounded-5 p-4 m-2">
+            <strong>Task 10 </strong><br>
+            <div style="font-family:Georgia; font-size: xx-large;">
+                <form action="/description/" method="post" class="btn-block">
+                    {% csrf_token %}
+                    <input type="text" name="pro_id" value="{{project.id}}" hidden>
+                    <button type="submit" class="btn btn-outline-dark"><strong style="font-size: large;">
+                    {{project.Task_10}}
+                    </strong></button>
+                </form>    
+            </div>
+            <br><br>
+            
+            <div style="display: flex;">
+                <div style="margin-left: 45vw; position: absolute;">
+                    <strong>Description of Task 10 </strong><br>
+                    {{project.Description_10}}
+                </div>
+                <div>
+                    <strong>Stipend for Task 10 </strong><br>
+                    ₹{{project.Stipend_10}}
+                </div>
+            </div>
+            <br><br>
+            <div style=" display: flex;">
+                <div>
+                    <strong>Deadline for Task 10 </strong><br>
+                    {{project.Duration_10}}
+                </div>
+                <div style="margin-left: 45vw; position: absolute;">
+                    {% if project.Student_10 %}
+                    <button type="submit" class="px-5 btn btn-outline-primary" disabled>Application closed for <i><b>{{project.Task_10}}</b></i></button>
+                {% else %}
+                    {% if task.Task_10 %}
+                        <button type="submit" class="px-5 btn btn-outline-primary" disabled>Applied</button>
+                    {% else %}
+                        <form action="/task_apply/" method="post" class="btn-block">
+                            {% csrf_token %}
+                            <input type="text" name="pro_id" value="{{project.id}}" hidden>
+                            <input type="text" name="task_10" value="10" hidden>
+                            <button type="submit" class="px-5 btn btn-outline-primary">Apply</button>
+                        </form>
+                    {% endif %}
+                {% endif %}
+                </div>
+            </div>
+            <br>
+        </div>
+    {% endif %}
+
+
+    {% if project.Task_11 %}
+        <div class="border border-3 rounded-5 p-4 m-2">
+            <strong>Task 11 </strong><br>
+            <div style="font-family:Georgia; font-size: xx-large;">
+                <form action="/description/" method="post" class="btn-block">
+                    {% csrf_token %}
+                    <input type="text" name="pro_id" value="{{project.id}}" hidden>
+                    <button type="submit" class="btn btn-outline-dark"><strong style="font-size: large;">{{project.Task_11}}</strong></button>
+                </form>    
+            </div>
+            <br><br>
+            
+            <div style="display: flex;">
+                <div style="margin-left: 45vw; position: absolute;">
+                    <strong>Description of Task 11 </strong><br>
+                    {{project.Description_11}}
+                </div>
+                <div>
+                    <strong>Stipend for Task 11 </strong><br>
+                    ₹{{project.Stipend_11}}
+                </div>
+            </div>
+            <br><br>
+            <div style=" display: flex;">
+                <div>
+                    <strong>Deadline for Task 11 </strong><br>
+                    {{project.Duration_11}}
+                </div>
+                <div style="margin-left: 45vw; position: absolute;">
+                    {% if project.Student_11 %}
+                        <button type="submit" class="px-5 btn btn-outline-primary" disabled>Application closed for <i><b>{{project.Task_11}}</b></i></button>
+                    {% else %}
+                        {% if task.Task_11 %}
+                            <button type="submit" class="px-5 btn btn-outline-primary" disabled>Applied</button>
+                        {% else %}
+                            <form action="/task_apply/" method="post" class="btn-block">
+                                {% csrf_token %}
+                                <input type="text" name="pro_id" value="{{project.id}}" hidden>
+                                <input type="text" name="task_11" value="11" hidden>
+                                <button type="submit" class="px-5 btn btn-outline-primary">Apply</button>
+                            </form>
+                        {% endif %}
+                    {% endif %}
+                </div>
+            </div>
+            <br>
+        </div>
+    {% endif %}
+
+
+    {% if project.Task_12 %}
+        <div class="border border-3 rounded-5 p-4 m-2">
+            <strong>Task 12 </strong><br>
+            <div style="font-family:Georgia; font-size: xx-large;">
+                <form action="/description/" method="post" class="btn-block">
+                    {% csrf_token %}
+                    <input type="text" name="pro_id" value="{{project.id}}" hidden>
+                    <button type="submit" class="btn btn-outline-dark"><strong style="font-size: large;">{{project.Task_12}}</strong></button>
+                </form>    
+            </div>
+            <br><br>
+            
+            <div style="display: flex;">
+                <div style="margin-left: 45vw; position: absolute;">
+                    <strong>Description of Task 12 </strong><br>
+                    {{project.Description_12}}
+                </div>
+                <div>
+                    <strong>Stipend for Task 12 </strong><br>
+                    ₹{{project.Stipend_12}}
+                </div>
+            </div>
+            <br><br>
+            <div style=" display: flex;">
+                <div>
+                    <strong>Deadline for Task 12 </strong><br>
+                    {{project.Duration_12}}
+                </div>
+                <div style="margin-left: 45vw; position: absolute;">
+                    {% if project.Student_12 %}
+                        <button type="submit" class="px-5 btn btn-outline-primary" disabled>Application closed for <i><b>{{project.Task_12}}</b></i></button>
+                    {% else %}
+                        {% if task.Task_12 %}
+                            <button type="submit" class="px-5 btn btn-outline-primary" disabled>Applied</button>
+                        {% else %}
+                            <form action="/task_apply/" method="post" class="btn-block">
+                                {% csrf_token %}
+                                <input type="text" name="pro_id" value="{{project.id}}" hidden>
+                                <input type="text" name="task_12" value="12" hidden>
+                                <button type="submit" class="px-5 btn btn-outline-primary">Apply</button>
+                            </form>
+                        {% endif %}
+                    {% endif %}
+                </div>
+            </div>
+            <br>
+        </div>
+    {% endif %}
+
+
+{% endblock content %}
