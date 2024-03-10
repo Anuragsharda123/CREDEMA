@@ -166,40 +166,40 @@ class AddProjectTask(View):
         if detail[-4:] != '.pdf':
             error_message = "Only .pdf files are accepted"
 
-        if (stipend_1<1000):
+        if (int(stipend_1)<1000):
             error_message = "Task 1 stipend should be ₹1000 or more"
 
-        if (stipend_2<1000):
+        if (int(stipend_2)<1000):
             error_message = "Task 2 stipend should be ₹1000 or more"
 
-        if (stipend_3<1000):
+        if (int(stipend_3)<1000):
             error_message = "Task 3 stipend should be ₹1000 or more"
 
-        if (stipend_4<1000):
+        if (int(stipend_4)<1000):
             error_message = "Task 4 stipend should be ₹1000 or more"
 
-        if (stipend_5<1000):
+        if (int(stipend_5)<1000):
             error_message = "Task 5 stipend should be ₹1000 or more"
 
-        if (stipend_6<1000):
+        if (int(stipend_6)<1000):
             error_message = "Task 6 stipend should be ₹1000 or more"
 
-        if (stipend_7<1000):
+        if (int(stipend_7)<1000):
             error_message = "Task 7 stipend should be ₹1000 or more"
 
-        if (stipend_8<1000):
+        if (int(stipend_8)<1000):
             error_message = "Task 8 stipend should be ₹1000 or more"
 
-        if (stipend_9<1000):
+        if (int(stipend_9)<1000):
             error_message = "Task 9 stipend should be ₹1000 or more"
 
-        if (stipend_10<1000):
+        if (int(stipend_10)<1000):
             error_message = "Task 10 stipend should be ₹1000 or more"
 
-        if (stipend_11<1000):
+        if (int(stipend_11)<1000):
             error_message = "Task 11 stipend should be ₹1000 or more"
 
-        if (stipend_12<1000):
+        if (int(stipend_12)<1000):
             error_message = "Task 12 stipend should be ₹1000 or more"
 
         if((datetime.strptime(duration_1, "%Y-%m-%d")<datetime.today()) or (datetime.strptime(duration_2, "%Y-%m-%d")<datetime.today())):
@@ -208,12 +208,12 @@ class AddProjectTask(View):
         if((datetime.strptime(duration_1, "%Y-%m-%d")==datetime.today()) or (datetime.strptime(duration_2, "%Y-%m-%d")==datetime.today())):
             error_message = "Atleast one day is required to complete a task"
 
-        if((duration_3) or (duration_4) or (duration_5) or (duration_6) or (duration_7) or (duration_8) or (duration_9) or (duration_10) or (duration_11) or (duration_12)):
-            if((datetime.strptime(duration_3, "%Y-%m-%d")<datetime.today()) or (datetime.strptime(duration_4, "%Y-%m-%d")<datetime.today()) or (datetime.strptime(duration_5, "%Y-%m-%d")<datetime.today()) or (datetime.strptime(duration_6, "%Y-%m-%d")<datetime.today()) or (datetime.strptime(duration_7, "%Y-%m-%d")<datetime.today()) or (datetime.strptime(duration_8, "%Y-%m-%d")<datetime.today()) or (datetime.strptime(duration_9, "%Y-%m-%d")<datetime.today()) or (datetime.strptime(duration_10, "%Y-%m-%d")<datetime.today()) or (datetime.strptime(duration_11, "%Y-%m-%d")<datetime.today()) or (datetime.strptime(duration_12, "%Y-%m-%d")<datetime.today())):
-                error_message = "Enter Valid Deadline"
+        # if((duration_3) or (duration_4) or (duration_5) or (duration_6) or (duration_7) or (duration_8) or (duration_9) or (duration_10) or (duration_11) or (duration_12)):
+        #     if((datetime.strptime(duration_3, "%Y-%m-%d")<datetime.today()) or (datetime.strptime(duration_4, "%Y-%m-%d")<datetime.today()) or (datetime.strptime(duration_5, "%Y-%m-%d")<datetime.today()) or (datetime.strptime(duration_6, "%Y-%m-%d")<datetime.today()) or (datetime.strptime(duration_7, "%Y-%m-%d")<datetime.today()) or (datetime.strptime(duration_8, "%Y-%m-%d")<datetime.today()) or (datetime.strptime(duration_9, "%Y-%m-%d")<datetime.today()) or (datetime.strptime(duration_10, "%Y-%m-%d")<datetime.today()) or (datetime.strptime(duration_11, "%Y-%m-%d")<datetime.today()) or (datetime.strptime(duration_12, "%Y-%m-%d")<datetime.today())):
+        #         error_message = "Enter Valid Deadline"
             
-            if((datetime.strptime(duration_3, "%Y-%m-%d")==datetime.today()) or (datetime.strptime(duration_4, "%Y-%m-%d")==datetime.today()) or (datetime.strptime(duration_5, "%Y-%m-%d")==datetime.today()) or (datetime.strptime(duration_6, "%Y-%m-%d")==datetime.today()) or (datetime.strptime(duration_7, "%Y-%m-%d")==datetime.today()) or (datetime.strptime(duration_8, "%Y-%m-%d")==datetime.today()) or (datetime.strptime(duration_9, "%Y-%m-%d")==datetime.today()) or (datetime.strptime(duration_10, "%Y-%m-%d")==datetime.today()) or (datetime.strptime(duration_11, "%Y-%m-%d")==datetime.today()) or (datetime.strptime(duration_12, "%Y-%m-%d")==datetime.today())):
-                error_message = "Atleast one day is required to complete a task"
+        #     if((datetime.strptime(duration_3, "%Y-%m-%d")==datetime.today()) or (datetime.strptime(duration_4, "%Y-%m-%d")==datetime.today()) or (datetime.strptime(duration_5, "%Y-%m-%d")==datetime.today()) or (datetime.strptime(duration_6, "%Y-%m-%d")==datetime.today()) or (datetime.strptime(duration_7, "%Y-%m-%d")==datetime.today()) or (datetime.strptime(duration_8, "%Y-%m-%d")==datetime.today()) or (datetime.strptime(duration_9, "%Y-%m-%d")==datetime.today()) or (datetime.strptime(duration_10, "%Y-%m-%d")==datetime.today()) or (datetime.strptime(duration_11, "%Y-%m-%d")==datetime.today()) or (datetime.strptime(duration_12, "%Y-%m-%d")==datetime.today())):
+        #         error_message = "Atleast one day is required to complete a task"
 
 
         if not error_message:

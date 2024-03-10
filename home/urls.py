@@ -1,6 +1,5 @@
-from django.contrib import admin
 from django.urls import path
-from .views import home, login, signup, description, addproject, esignup, elogin, addapplicant, sapplication, sproject, eproject, forget, otp, eforget, eotp, edescription, updatepro, applicants, studentinfo, updatestu, student_profile, emp_profile, updateemp, submitted, allocate, add_project_taskwise, update_project_taskwise, taskapplicant, taskapply
+from .views import home, login, signup, description, addproject, esignup, elogin, addapplicant, sapplication, sproject, eproject, forget, otp, eforget, eotp, edescription, updatepro, applicants, studentinfo, updatestu, student_profile, emp_profile, updateemp, submitted, allocate, add_project_taskwise, update_project_taskwise, taskapplicant, taskapply, teams, s_profile
 
 
 urlpatterns = [
@@ -12,11 +11,15 @@ urlpatterns = [
     path('logout/', login.Logout, name='s_logout'),
     path('description/', description.Description.as_view(), name='description'),
     path('profile/', student_profile.Studentprofile.as_view(), name='s_profile'),
+    path('s_profile/', s_profile.S_profile.as_view(), name='stu_profile'),
     path('editprofile', updatestu.Updatestudent.as_view(), name='update_student'),
     path('apply/', addapplicant.AddApplicant.as_view(), name='apply'),
     path('application/', sapplication.StudentApplication.as_view(), name='s_application'),
     path('task_application/', taskapplicant.AddTaskApplicant.as_view(), name='t_application'),
     path('task_apply/', taskapply.TaskApply.as_view(), name='t_apply'),
+    
+    path('teams/', teams.Teams.as_view(), name='teams'),
+    
     path('sproject/', sproject.StudentProject.as_view(), name='s_project'),
     path('ereset/', forget.EmailReset.as_view(), name='email_reset'),
     path('sendotp/', otp.OTP.as_view(), name='send_otp'),

@@ -1,0 +1,173 @@
+{% extends "base.html" %}
+
+{% block title %}
+Team Profile
+{% endblock title %}
+
+{% block content %}
+
+<div class="border border-2 rounded-5 p-4 col-lg-8" id="centa">
+        <div id="main-head" style="display: flex;">
+            <h2>{{Name}}</h2>
+            <img class="border border-2 border-dark rounded-circle" src="{{p_student.Photo.url}}" alt="Profile_Photo" height="200vh" style="margin-left: 45vw; position: absolute;">
+        </div>
+
+        <br><br><br><br><br><br>
+
+        <div id="about">
+            <b>Email: </b>
+            <span class="about">{{p_student.Email}}</span>
+        </div>
+
+        <br><br><br>
+        
+        <div id="skill_perk" style="display: flex;">
+            
+            <div id="age" style="margin-left:3vw; width:30;">
+            <b>Age:</b>
+            {{p_student.Age}} yrs
+            </div>
+
+            <div id="perk" style="margin-left: 40vw; position: absolute;">
+                <b>Gender: </b>
+                    {{p_student.Gender}}
+            </div>
+        </div>
+ <br><br>
+
+        <div id="detail_dead" style="display: flex;">
+            <div id="detail" style="margin-left: 3vw;">
+                <strong>Country: </strong>
+                {{p_student.Country}}
+            </div>
+            <div id="deadline" style="margin-left: 40vw; position: absolute;">
+                <strong>Contact no: </strong>
+                {{p_student.Phone}}
+            </div>
+        </div>
+ <br><br>
+
+        <div id="detail_dead" style="display: flex;">
+            <div style="margin-left:3vw;">
+                <strong>State: </strong>
+                {{p_student.State}}
+            </div>
+
+    <br>
+            <div id="deadline" style="margin-left: 40vw; position: absolute;">
+                <strong>City: </strong>
+                {{p_student.City}}
+            </div>
+        </div>
+
+ <br><br>
+            <div style="margin-left:3vw;">
+                <strong>Address: </strong>
+                {{p_student.Address}}
+            </div>
+
+ <br><br><br><br>
+            <div style="margin-left:3vw;">
+                <strong>University Name: </strong>
+                {{p_student.University_name}}
+
+                <div style="margin-left: 40vw; position: absolute;">
+                    <strong>Resume: </strong><br>
+                <a href="/docu/download/{{p_student.Resume}}" download><img src="/docu/download/static/images/pdflogo.webp" alt="pdf" height="110vh"></a>  
+                </div>
+            </div>
+
+ <br><br>
+            <div style="margin-left:3vw;">
+                <strong>University Roll no: </strong>
+                {{p_student.Roll_no}}
+            </div>
+
+ <br><br>
+            <div style="margin-left:3vw;">
+                <strong>Course Name: </strong>
+                {{p_student.Course}}
+            </div>
+
+ <br><br>
+            
+            <div style="margin-left:3vw;">
+                <strong>Pursuing/Completed: </strong>
+                {{p_student.Passed}}
+            </div>
+
+ <br><br><br>
+            <div id="detail_dead" style="display: flex;">
+                <div style="margin-left:3vw; width: 30vw;">
+                    <strong>Skills:</strong><br>
+                    <ul>
+                    {% for skill in skill %}
+                        <li>{{skill}}</li>
+                    {% endfor %}
+                    </ul>
+                </div>
+
+                {% if p_student.Projects %}
+                    <div style="margin-left: 40vw; position: absolute;">
+                        <strong>Projects: </strong><br>
+                            <ul>
+                                {% for projects in projects %}
+                                    <li>{{projects}}</li>
+                                {% endfor %}
+                            </ul>
+                    </div>
+                {% endif %}
+            </div>
+
+ <br>
+            {% if p_student.Exp1 %}
+            <div style="margin-left:3vw;">
+                <strong>Experience: </strong>
+                <i>{{p_student.Exp1}}</i>
+            </div>
+            {% endif %}
+            
+            {% if p_student.Exp2 %}
+            <br><br>
+            <div style="margin-left:3vw;">
+                <strong>Experience: </strong>
+                <i>{{p_student.Exp2}}</i>
+            </div>
+            {% endif %}
+            
+            {% if p_student.Exp3 %}
+            <br><br>
+            <div id="deadline" style="margin-left:3vw;">
+                <strong>Experience: </strong>
+                <i>{{p_student.Exp3}}</i>
+            </div>
+            {% endif %}
+
+ <br><br><br>
+            {% if p_student.Social1 %}
+            <div style="margin-left:3vw;">
+                <strong>Social profile: </strong>
+                <a href="http://{{p_student.Social1}}" style="text-decoration: none; color: blue;" target="_blank"><i>{{p_student.Social1}}</i></a>
+            </div>
+            {% endif %}
+            
+            {% if p_student.Social2 %}
+            <br><br>
+            <div style="margin-left:3vw;">
+                <strong>Social profile: </strong>
+                <a href="http://{{p_student.Social2}}" style="text-decoration: none; color: blue;" target="_blank"><i>{{p_student.Social2}}</i></a>
+            </div>
+            {% endif %}
+            
+            {% if p_student.Social3 %}
+            <br><br>
+            <div id="deadline" style="margin-left:3vw;">
+                <strong>Social profile: </strong>
+                <a href="http://{{p_student.Social3}}" style="text-decoration: none; color: blue;" target="_blank"><i>{{p_student.Social3}}</i></a>
+
+            </div>
+
+            {% endif %}
+</div>
+
+{% endblock content %}

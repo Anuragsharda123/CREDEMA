@@ -16,13 +16,16 @@ class AddTaskApplicant(View):
                 pro_id = request.POST.get('pro_id')
                 pro = Project.objects.get(id = pro_id)
                 stu = Student.objects.get(id=stu_id)
-                task = TaskApplicant.objects.get(Student=stu, Project=pro)
-                
+                try:
+                    task = TaskApplicant.objects.get(Student=stu, Project=pro)
+                except:
+                    task=None
+
                 data = {}
                 data['project'] = pro
                 data['student'] = stu
                 data['task'] = task
-
+                
                 return render(request, 'task_application.html', data)
         except:
             return redirect('home')

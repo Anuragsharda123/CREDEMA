@@ -14,7 +14,7 @@ Apply Tasks
             </form>
         </div>
         <div style="margin-left: 85vw; position: absolute;">
-        {% if task.Task_1 or task.Task_2 or task.Task_3 or task.Task_3 or task.Task_4 or task.Task_4%}
+        {% if project.Student_1 or project.Student_2 or project.Student_3 or project.Student_4 or project.Student_5 or project.Student_6%}
             <button type="submit" class="btn btn-outline-primary" disabled><strong style="font-size: large;">Apply to all</strong></button>
         {% else %}
             <form action="/task_apply/" method="post" class="btn-block">

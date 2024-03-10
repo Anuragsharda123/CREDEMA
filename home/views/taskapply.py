@@ -88,7 +88,10 @@ class TaskApply(View):
                     if(pro.Task_12):
                         task_12 = True
 
-                is_Exist = TaskApplicant.objects.get(Student=stu, Project = pro)
+                try:
+                    is_Exist = TaskApplicant.objects.get(Student=stu, Project = pro)
+                except:
+                    is_Exist = False
                 if(not is_Exist):
                     task = TaskApplicant(Student=stu, Project = pro, Task_1 = task_1, Task_2 = task_2,
                                         Task_3 = task_3, Task_4 = task_4, Task_5 = task_5, Task_6 = task_6,
