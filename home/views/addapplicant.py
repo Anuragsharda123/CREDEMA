@@ -20,7 +20,7 @@ class AddApplicant(View):
                 stu = request.session['student']
                 project = Project.objects.get(id=proj)
                 emp = project.Employe
-                print("booooo:     ", emp)
+                # print("booooo:     ", emp)
                 employ = Employe.objects.get(Email=emp)
                 student = Student.objects.get(id=stu)
 
