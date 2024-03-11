@@ -9,9 +9,8 @@ class StudentProject(View):
         try:
             stu = request.session['student']
             student = Student.objects.get(id=stu)
-            projects = Project.objects.filter(Student=student)
+            projects = Project.objects.filter(Student=student)|Project.objects.filter(Student_1=student)|Project.objects.filter(Student_2=student)|Project.objects.filter(Student_3=student)|Project.objects.filter(Student_4=student)|Project.objects.filter(Student_5=student)|Project.objects.filter(Student_6=student)|Project.objects.filter(Student_7=student)|Project.objects.filter(Student_8=student)|Project.objects.filter(Student_9=student)|Project.objects.filter(Student_10=student)|Project.objects.filter(Student_11=student)|Project.objects.filter(Student_12=student)
             data = {}
-            
             
             data['projects'] = projects
             data['student'] = student

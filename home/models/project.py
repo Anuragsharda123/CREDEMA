@@ -14,8 +14,9 @@ class Project(models.Model):
     Stipend = models.IntegerField(blank=True, null=True, default=5000)
     Student = models.ForeignKey(Stu, on_delete=models.CASCADE, null=True, blank=True, default=None)
     Description = models.CharField(max_length=1000)
-    Duration = models.DateField(null=True)
+    Duration = models.DateField(null=True, blank=True, default=None)
     Status = models.BooleanField(default=False)
+    Progress = models.IntegerField(default=0)
 
     Task_1 = models.CharField(max_length=50, blank=True)
     Description_1 = models.CharField(max_length=50, blank=True)

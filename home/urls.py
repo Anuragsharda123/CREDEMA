@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import home, login, signup, description, addproject, esignup, elogin, addapplicant, sapplication, sproject, eproject, forget, otp, eforget, eotp, edescription, updatepro, applicants, studentinfo, updatestu, student_profile, emp_profile, updateemp, submitted, allocate, add_project_taskwise, update_project_taskwise, taskapplicant, taskapply, teams, s_profile
+from .views import home, login, signup, description, addproject, esignup, elogin, addapplicant, sapplication, sproject, eproject, forget, otp, eforget, eotp, edescription, updatepro, applicants, studentinfo, updatestu, student_profile, emp_profile, updateemp, submitted, allocate, add_project_taskwise, update_project_taskwise, taskapplicant, taskapply, teams, s_profile, s_t_description, p_s_update
 
 
 urlpatterns = [
@@ -10,6 +10,8 @@ urlpatterns = [
     path('signup/', signup.Signup.as_view(), name='s_signup'),
     path('logout/', login.Logout, name='s_logout'),
     path('description/', description.Description.as_view(), name='description'),
+    path('s_t_description/', s_t_description.S_T_Description.as_view(), name='s_t_description'),
+    path('p_s_update/',p_s_update.P_S_Update.as_view(), name='p_s_update'),
     path('profile/', student_profile.Studentprofile.as_view(), name='s_profile'),
     path('s_profile/', s_profile.S_profile.as_view(), name='stu_profile'),
     path('editprofile', updatestu.Updatestudent.as_view(), name='update_student'),
@@ -17,9 +19,7 @@ urlpatterns = [
     path('application/', sapplication.StudentApplication.as_view(), name='s_application'),
     path('task_application/', taskapplicant.AddTaskApplicant.as_view(), name='t_application'),
     path('task_apply/', taskapply.TaskApply.as_view(), name='t_apply'),
-    
     path('teams/', teams.Teams.as_view(), name='teams'),
-    
     path('sproject/', sproject.StudentProject.as_view(), name='s_project'),
     path('ereset/', forget.EmailReset.as_view(), name='email_reset'),
     path('sendotp/', otp.OTP.as_view(), name='send_otp'),

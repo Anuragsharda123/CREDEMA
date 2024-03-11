@@ -10,7 +10,7 @@ Projects
         <table class="table">
           <thead>
              <tr class="w3-animate-zoom">
-                <th >Sno.</th>
+                <th >S no.</th>
                 <th colspan="2">Project Name</th>
                 <th >skills required</th>
                 
@@ -31,10 +31,12 @@ Projects
                 <td >{{project.Skill_req}}</td>
                 
                 <td>
-                {% if project.Status %}
-                 <b style="color: green;">Submitted</b> 
+                {% if project.Task_1 %}
+                  <b style="color: green;">{{project.Progress}}%</b> 
                 {% else %}
-                 <b style="color: red;">Pending</b>
+                  {% if not project.Status %}
+                  <b style="color: red;">Pending</b>
+                  {% endif %}
                 {% endif %}
                </td>
 

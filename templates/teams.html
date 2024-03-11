@@ -9,7 +9,7 @@ Teams
         {% if project.Task_1 %}
             <div class="border border-3 rounded-5 p-4 m-4" style="display: flex;">
                 <div>
-                    <form action="/description/" method="post" class="btn-block">
+                    <form action="/s_t_description/" method="post" class="btn-block">
                         {% csrf_token %}
                         <input type="text" name="pro_id" value="{{project.id}}" hidden>
                         <button type="submit" class="btn btn-outline-dark"><strong style="font-size: large;">{{project.Name}}</strong></button>
