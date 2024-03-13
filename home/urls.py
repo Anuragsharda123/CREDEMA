@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import home, login, signup, description, addproject, esignup, elogin, addapplicant, sapplication, sproject, eproject, forget, otp, eforget, eotp, edescription, updatepro, applicants, studentinfo, updatestu, student_profile, emp_profile, updateemp, submitted, allocate, add_project_taskwise, update_project_taskwise, taskapplicant, taskapply, teams, s_profile, s_t_description, p_s_update
+from .views import e_chat, home, login, signup, description, addproject, esignup, elogin, addapplicant, sapplication, sproject, eproject, forget, otp, eforget, eotp, edescription, updatepro, applicants, studentinfo, updatestu, student_profile, emp_profile, updateemp, submitted, allocate, add_project_taskwise, update_project_taskwise, taskapplicant, taskapply, teams, s_profile, s_t_description, p_s_update, s_chat, e_chat
 
 
 urlpatterns = [
@@ -24,6 +24,8 @@ urlpatterns = [
     path('ereset/', forget.EmailReset.as_view(), name='email_reset'),
     path('sendotp/', otp.OTP.as_view(), name='send_otp'),
     path('resetpassword/', otp.ResetPassword.as_view(), name='reset_password'),
+
+    path('student-chat', s_chat.S_Chat.as_view(), name="s_chat"),
     
 
     # Employee Side URLs
@@ -45,6 +47,8 @@ urlpatterns = [
     path('studentinfo/', studentinfo.Studentinfo.as_view(), name='s_info'),
     path('Submitted/', submitted.SubmittedProject.as_view(), name='c_pro'),
     path('allocate/', allocate.Allocate.as_view(), name='allocate'),
+    
+    path('employe-chat', e_chat.E_Chat.as_view(), name="e_chat"),
 
     
 

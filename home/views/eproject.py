@@ -623,7 +623,6 @@ class EmployeProject(View):
                                 pass
 
 
-
                             
                 data['projects'] = projects
                 data['employe'] = employe
