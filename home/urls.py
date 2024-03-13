@@ -25,7 +25,7 @@ urlpatterns = [
     path('sendotp/', otp.OTP.as_view(), name='send_otp'),
     path('resetpassword/', otp.ResetPassword.as_view(), name='reset_password'),
 
-    path('student-chat', s_chat.S_Chat.as_view(), name="s_chat"),
+    path('student-chat/', s_chat.S_Chat.as_view(), name="s_chat"),
     
 
     # Employee Side URLs
@@ -48,7 +48,7 @@ urlpatterns = [
     path('Submitted/', submitted.SubmittedProject.as_view(), name='c_pro'),
     path('allocate/', allocate.Allocate.as_view(), name='allocate'),
     
-    path('employe-chat', e_chat.E_Chat.as_view(), name="e_chat"),
+    path('employe-chat/', e_chat.E_Chat.as_view(), name="e_chat"),
 
     
 
