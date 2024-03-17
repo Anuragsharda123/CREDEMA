@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views import View
+from home.models.employe import Employe
 from home.models.student import Student
 from home.models.project import Project
 
@@ -24,6 +25,7 @@ class S_T_Description(View):
                 description = project.Description.split('.')
                 stu_id = request.session['student']
                 student = Student.objects.get(id=stu_id)
+                employe = Employe.objects.get(Email=project.Employe)
                 stu = []
 
                 for i in range(0,len(skill)):
@@ -94,6 +96,7 @@ class S_T_Description(View):
                 data['applied'] = applied
                 data['student'] = student
                 data['stu'] = stu
+                data['employe'] = employe
 
                 return render(request, 's_t_description.html', data)
             

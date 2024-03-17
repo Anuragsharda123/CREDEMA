@@ -52,30 +52,35 @@ Project Description
             </div>
             <br>
             {% if not project.Task_1 %}
-            <div id="deadline" style="margin-left: 45vw; position: absolute;">
-                <strong>Deadline</strong><br><br>
-                {{project.Duration}}
-            </div>
-            {% endif %}
+                <div id="deadline" style="margin-left: 45vw; position: absolute;">
+                    <strong>Deadline</strong><br><br>
+                    {{project.Duration}}
+                </div>
+                {% endif %}
         </div>
-        <br>
-        <br>
-        {% if not project.Task_1 %}
-        <div id="detail_dead" style="display: flex;">
-            <div style="margin-left:3vw;">
-                <strong>Allocated to</strong><br><br>
-                {{project.Student}}
-            </div>
+            <br>
+            <br>
+            {% if not project.Task_1 %}
+                <div id="detail_dead" style="display: flex;">
+                    <div style="margin-left:3vw;">
+                        <strong>Allocated to</strong><br><br>
+                        {{project.Student}}
+                    </div>
 
-               <br>
-            <div id="deadline" style="margin-left: 45vw; position: absolute;">
-                <strong>Stipend</strong><br><br>
-                ₹ {{project.Stipend}}
+                <br>
+                <div id="deadline" style="margin-left: 45vw; position: absolute;">
+                    <strong>Stipend</strong><br><br>
+                    ₹ {{project.Stipend}}
+                </div>
             </div>
-        </div>
-        <br><br>
+        <br>
         {% endif %}
-
+                    {% if project.Student %}
+                        <a href="https://wa.me/{{student.Phone}}" target="_blank" style="margin-left:4%;">
+                            <img class="border border-dark border-1 rounded-5" src="/docu/download/static/images/chat_on_whatsapp.webp" alt="Chat on Whatsapp" width="25%">
+                        </a>
+                    {% endif %}
+<br><br>
         {% if project.Task_1 %}
             <div class="border border-3 rounded-5 p-4 m-2">
                 <strong>Task 1 </strong><br>
@@ -97,7 +102,7 @@ Project Description
                         {{project.Duration_1}}
                     </div>
                 </div>
-            <br>
+                <br>
                 <div style="display: flex;">
                     <div>
                         <strong>Allocated to</strong><br>
@@ -115,16 +120,13 @@ Project Description
                     <br><br>
                 </div>
                 <br>
+
                 {% if project.Student_1 %}
-                    <form action="/employe-chat/" method="post">
-                        {% csrf_token %}
-                        <input type="text" name="task_id" value="1" hidden>
-                        <input type="text" name="student_mail" value="{{project.Student_1}}" hidden>
-                        <input type="text" name="employee_mail" value="{{project.Employe}}" hidden>
-                        <input type="text" name="pro_id" value="{{project.id}}" hidden>
-                        <input class="btn btn-outline-dark" type="submit" value="      Message      ">                    
-                    </form>
+                    <a href="https://wa.me/{{student_1.Phone}}" target="_blank">
+                        <img class="border border-dark border-1 rounded-5" src="/docu/download/static/images/chat_on_whatsapp.webp" alt="Chat on Whatsapp" width="30%">
+                    </a>
                 {% endif %}
+
             </div>
         {% endif %}
 
@@ -150,7 +152,7 @@ Project Description
                         {{project.Duration_2}}
                     </div>
                 </div>
-            <br>
+                <br>
                 <div style="display: flex;">
                     <div>
                         <strong>Allocated to</strong><br>
@@ -169,14 +171,9 @@ Project Description
                 </div>
                 <br>
                 {% if project.Student_2 %}
-                    <form action="/employe-chat/" method="post">
-                        {% csrf_token %}
-                        <input type="text" name="task_id" value="2" hidden>
-                        <input type="text" name="student_mail" value="{{project.Student_2}}" hidden>
-                        <input type="text" name="employee_mail" value="{{project.Employe}}" hidden>
-                        <input type="text" name="pro_id" value="{{project.id}}" hidden>
-                        <input class="btn btn-outline-dark" type="submit" value="      Message      ">                    
-                    </form>
+                    <a href="https://wa.me/{{student_2.Phone}}" target="_blank">
+                        <img class="border border-dark border-1 rounded-5" src="/docu/download/static/images/chat_on_whatsapp.webp" alt="Chat on Whatsapp" width="30%">
+                    </a>
                 {% endif %}
             </div>
         {% endif %}
@@ -222,14 +219,9 @@ Project Description
                 </div>
                 <br>
                 {% if project.Student_3 %}
-                    <form action="/employe-chat/" method="post">
-                        {% csrf_token %}
-                        <input type="text" name="task_id" value="3" hidden>
-                        <input type="text" name="student_mail" value="{{project.Student_3}}" hidden>
-                        <input type="text" name="employee_mail" value="{{project.Employe}}" hidden>
-                        <input type="text" name="pro_id" value="{{project.id}}" hidden>
-                        <input class="btn btn-outline-dark" type="submit" value="      Message      ">                    
-                    </form>
+                    <a href="https://wa.me/{{student_3.Phone}}" target="_blank">
+                        <img class="border border-dark border-1 rounded-5" src="/docu/download/static/images/chat_on_whatsapp.webp" alt="Chat on Whatsapp" width="30%">
+                    </a>
                 {% endif %}
             </div>
         {% endif %}
@@ -275,14 +267,9 @@ Project Description
                 </div>
                 <br>
                 {% if project.Student_4 %}
-                    <form action="/employe-chat/" method="post">
-                        {% csrf_token %}
-                        <input type="text" name="task_id" value="4" hidden>
-                        <input type="text" name="student_mail" value="{{project.Student_4}}" hidden>
-                        <input type="text" name="employee_mail" value="{{project.Employe}}" hidden>
-                        <input type="text" name="pro_id" value="{{project.id}}" hidden>
-                        <input class="btn btn-outline-dark" type="submit" value="      Message      ">                    
-                    </form>
+                    <a href="https://wa.me/{{student_4.Phone}}" target="_blank">
+                        <img class="border border-dark border-1 rounded-5" src="/docu/download/static/images/chat_on_whatsapp.webp" alt="Chat on Whatsapp" width="30%">
+                    </a>
                 {% endif %}
             </div>
         {% endif %}
@@ -309,7 +296,7 @@ Project Description
                         {{project.Duration_5}}
                     </div>
                 </div>
-            <br>
+                <br>
                 <div style="display: flex;">
                     <div>
                         <strong>Allocated to</strong><br>
@@ -328,14 +315,9 @@ Project Description
                 </div>
                 <br>
                 {% if project.Student_5 %}
-                    <form action="/employe-chat/" method="post">
-                        {% csrf_token %}
-                        <input type="text" name="task_id" value="5" hidden>
-                        <input type="text" name="student_mail" value="{{project.Student_5}}" hidden>
-                        <input type="text" name="employee_mail" value="{{project.Employe}}" hidden>
-                        <input type="text" name="pro_id" value="{{project.id}}" hidden>
-                        <input class="btn btn-outline-dark" type="submit" value="      Message      ">                    
-                    </form>
+                    <a href="https://wa.me/{{student_5.Phone}}" target="_blank">
+                        <img class="border border-dark border-1 rounded-5" src="/docu/download/static/images/chat_on_whatsapp.webp" alt="Chat on Whatsapp" width="30%">
+                    </a>
                 {% endif %}
             </div>
         {% endif %}
@@ -362,7 +344,7 @@ Project Description
                         {{project.Duration_6}}
                     </div>
                 </div>
-            <br>
+                    <br>
                 <div style="display: flex;">
                     <div>
                         <strong>Allocated to</strong><br>
@@ -381,14 +363,9 @@ Project Description
                 </div>
                 <br>
                 {% if project.Student_6 %}
-                    <form action="/employe-chat/" method="post">
-                        {% csrf_token %}
-                        <input type="text" name="task_id" value="6" hidden>
-                        <input type="text" name="student_mail" value="{{project.Student_6}}" hidden>
-                        <input type="text" name="employee_mail" value="{{project.Employe}}" hidden>
-                        <input type="text" name="pro_id" value="{{project.id}}" hidden>
-                        <input class="btn btn-outline-dark" type="submit" value="      Message      ">                    
-                    </form>
+                    <a href="https://wa.me/{{student_6.Phone}}" target="_blank">
+                        <img class="border border-dark border-1 rounded-5" src="/docu/download/static/images/chat_on_whatsapp.webp" alt="Chat on Whatsapp" width="30%">
+                    </a>
                 {% endif %}
             </div>
         {% endif %}
@@ -434,14 +411,9 @@ Project Description
                 </div>
                 <br>
                 {% if project.Student_7 %}
-                    <form action="/employe-chat/" method="post">
-                        {% csrf_token %}
-                        <input type="text" name="task_id" value="7" hidden>
-                        <input type="text" name="student_mail" value="{{project.Student_7}}" hidden>
-                        <input type="text" name="employee_mail" value="{{project.Employe}}" hidden>
-                        <input type="text" name="pro_id" value="{{project.id}}" hidden>
-                        <input class="btn btn-outline-dark" type="submit" value="      Message      ">                    
-                    </form>
+                    <a href="https://wa.me/{{student_7.Phone}}" target="_blank">
+                        <img class="border border-dark border-1 rounded-5" src="/docu/download/static/images/chat_on_whatsapp.webp" alt="Chat on Whatsapp" width="30%">
+                    </a>
                 {% endif %}
             </div>
         {% endif %}
@@ -487,14 +459,9 @@ Project Description
                 </div>
                 <br>
                 {% if project.Student_8 %}
-                    <form action="/employe-chat/" method="post">
-                        {% csrf_token %}
-                        <input type="text" name="task_id" value="8" hidden>
-                        <input type="text" name="student_mail" value="{{project.Student_8}}" hidden>
-                        <input type="text" name="employee_mail" value="{{project.Employe}}" hidden>
-                        <input type="text" name="pro_id" value="{{project.id}}" hidden>
-                        <input class="btn btn-outline-dark" type="submit" value="      Message      ">                    
-                    </form>
+                    <a href="https://wa.me/{{student_8.Phone}}" target="_blank">
+                        <img class="border border-dark border-1 rounded-5" src="/docu/download/static/images/chat_on_whatsapp.webp" alt="Chat on Whatsapp" width="30%">
+                    </a>
                 {% endif %}
             </div>
         {% endif %}
@@ -540,14 +507,9 @@ Project Description
                 </div>
                 <br>
                 {% if project.Student_9 %}
-                    <form action="/employe-chat/" method="post">
-                        {% csrf_token %}
-                        <input type="text" name="task_id" value="9" hidden>
-                        <input type="text" name="student_mail" value="{{project.Student_9}}" hidden>
-                        <input type="text" name="employee_mail" value="{{project.Employe}}" hidden>
-                        <input type="text" name="pro_id" value="{{project.id}}" hidden>
-                        <input class="btn btn-outline-dark" type="submit" value="      Message      ">                    
-                    </form>
+                    <a href="https://wa.me/{{student_9.Phone}}" target="_blank">
+                        <img class="border border-dark border-1 rounded-5" src="/docu/download/static/images/chat_on_whatsapp.webp" alt="Chat on Whatsapp" width="30%">
+                    </a>
                 {% endif %}
             </div>
         {% endif %}
@@ -593,14 +555,9 @@ Project Description
                 </div>
                 <br>
                 {% if project.Student_10 %}
-                    <form action="/employe-chat/" method="post">
-                        {% csrf_token %}
-                        <input type="text" name="task_id" value="10" hidden>
-                        <input type="text" name="student_mail" value="{{project.Student_10}}" hidden>
-                        <input type="text" name="employee_mail" value="{{project.Employe}}" hidden>
-                        <input type="text" name="pro_id" value="{{project.id}}" hidden>
-                        <input class="btn btn-outline-dark" type="submit" value="      Message      ">                    
-                    </form>
+                    <a href="https://wa.me/{{student_10.Phone}}" target="_blank">
+                        <img class="border border-dark border-1 rounded-5" src="/docu/download/static/images/chat_on_whatsapp.webp" alt="Chat on Whatsapp" width="30%">
+                    </a>
                 {% endif %}
             </div>
         {% endif %}
@@ -646,14 +603,9 @@ Project Description
                 </div>
                 <br>
                 {% if project.Student_11 %}
-                    <form action="/employe-chat/" method="post">
-                        {% csrf_token %}
-                        <input type="text" name="task_id" value="11" hidden>
-                        <input type="text" name="student_mail" value="{{project.Student_11}}" hidden>
-                        <input type="text" name="employee_mail" value="{{project.Employe}}" hidden>
-                        <input type="text" name="pro_id" value="{{project.id}}" hidden>
-                        <input class="btn btn-outline-dark" type="submit" value="      Message      ">                    
-                    </form>
+                    <a href="https://wa.me/{{student_11.Phone}}" target="_blank">
+                        <img class="border border-dark border-1 rounded-5" src="/docu/download/static/images/chat_on_whatsapp.webp" alt="Chat on Whatsapp" width="30%">
+                    </a>
                 {% endif %}
             </div>
         {% endif %}
@@ -699,14 +651,9 @@ Project Description
                 </div>
                 <br>
                 {% if project.Student_12 %}
-                    <form action="/employe-chat/" method="post">
-                        {% csrf_token %}
-                        <input type="text" name="task_id" value="12" hidden>
-                        <input type="text" name="student_mail" value="{{project.Student_12}}" hidden>
-                        <input type="text" name="employee_mail" value="{{project.Employe}}" hidden>
-                        <input type="text" name="pro_id" value="{{project.id}}" hidden>
-                        <input class="btn btn-outline-dark" type="submit" value="      Message      ">                    
-                    </form>
+                    <a href="https://wa.me/{{student_12.Phone}}" target="_blank">
+                        <img class="border border-dark border-1 rounded-5" src="/docu/download/static/images/chat_on_whatsapp.webp" alt="Chat on Whatsapp" width="30%">
+                    </a>
                 {% endif %}
             </div>
         {% endif %}
