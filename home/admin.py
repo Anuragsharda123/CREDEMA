@@ -1,5 +1,4 @@
 from django.contrib import admin
-from .models.chat import Chat
 from .models.company import Company
 from .models.student import Student
 from .models.employe import Employe
@@ -26,9 +25,6 @@ class AdminApplicant(admin.ModelAdmin):
 class AdminTaskApplicant(admin.ModelAdmin):
     list_display = ['Project', 'Student', 'Task_1', 'Task_2', 'Task_3', 'Task_4', 'Task_5', 'Task_6', 'Task_7', 'Task_8', 'Task_9', 'Task_10', 'Task_11', 'Task_12', ]
 
-class AdminChats(admin.ModelAdmin):
-    list_display = ['Project', 'Employe', 'Student']
-
 
 
 admin.site.register(Company, AdminCompany)
@@ -37,4 +33,3 @@ admin.site.register(Project, AdminProject)
 admin.site.register(Student, AdminStudent)
 admin.site.register(Applicant, AdminApplicant)
 admin.site.register(TaskApplicant, AdminTaskApplicant)
-admin.site.register(Chat, AdminChats)
