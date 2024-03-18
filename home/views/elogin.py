@@ -32,7 +32,7 @@ class EmployeeLogin(View):
                 request.session['name'] = employee.Name
                 # Name = customer.first_name
                 # print("Name: ",request.session['customer'])
-                return redirect('addpro')
+                return redirect('e_project')
             else:
                 error_message = "Invalid Credentials"
         else:
