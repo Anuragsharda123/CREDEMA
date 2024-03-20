@@ -30,7 +30,6 @@ class AddProject(View):
     def post(self, request):
         stipend = None
         name = request.POST.get('name')
-        skill = request.POST.get('skill').lower()
         detail = request.POST.get('detail')
         perk = request.POST.get('perk').lower()
         description = request.POST.get('description')
@@ -39,6 +38,17 @@ class AddProject(View):
         duration = request.POST.get('duration')
         comp = request.POST.get('company')
         error_message = None
+
+        skills = request.POST.getlist('skill')
+        sk = ""
+
+        for i in skills:
+            if(not len(sk)):
+                sk = sk+i
+            else:
+                sk = sk + ", " + i
+        
+        skill = sk.lower()
 
         empid = request.session['employee']
         emp = Employe.objects.get(id=empid)

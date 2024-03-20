@@ -51,11 +51,21 @@ class AddProjectTask(View):
         duration_12 = None
 
         name = request.POST.get('name')
-        skill = request.POST.get('skill').lower()
         comp = request.POST.get('company')
         detail = request.POST.get('detail')
         description = request.POST.get('description')
         perk = request.POST.get('perk').lower()
+
+        skills = request.POST.getlist('skill')
+        sk = ""
+
+        for i in skills:
+            if(not len(sk)):
+                sk = sk+i
+            else:
+                sk = sk + ", " + i
+        
+        skill = sk.lower()
         
         task_1 = request.POST.get('task_1')
         description_1 = request.POST.get('description_1')

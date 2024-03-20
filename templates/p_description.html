@@ -51,7 +51,6 @@ Project Description
                 <a href="/docu/download/{{project.Project}}" download><img src="/docu/download/static/images/pdflogo.webp" alt="pdf" height="110vh"></a>
             </div>
             <br>
-    
             {% if not project.Task_1 %}
             <div id="deadline" style="margin-left: 45vw; position: absolute;">
                 <strong>Deadline</strong><br><br>
@@ -59,14 +58,25 @@ Project Description
             </div>
             {% endif %}
         </div>
+
             <br>
+
             {% if not project.Task_1 %}
-                <div id="deadline" style="margin-left: 3vw;">
-                    <strong>Stipend</strong><br><br>
-                    ₹ {{project.Stipend}}
+                <div id="detail_dead" style="display: flex;">
+                    <div id="deadline" style="margin-left: 3vw;">
+                        <strong>Stipend</strong><br><br>
+                        ₹ {{project.Stipend}}
+                    </div>
+                    {% if flag %}
+                    <div id="deadline" style="margin-left: 42vw; position: absolute;">
+                        <a href="https://wa.me/{{employe.Phone}}" target="_blank">
+                            <img class="border border-dark border-1 rounded-5" src="/docu/download/static/images/chat_on_whatsapp.webp" alt="Chat on Whatsapp" width="60%">
+                        </a>
+                    </div>
+                    {% endif %}
                 </div>
+                <br>
             {% endif %}
-            <br>
 
         {% if project.Task_1 %}
             <div class="border border-3 rounded-5 p-4 m-2">
@@ -385,12 +395,14 @@ Project Description
             {% csrf_token %}
 
             {% if not project.Task_1 %}
-                {% if applied %}
-                        <button class="btn btn-outline-primary px-5" id="apply" disabled>Applied</button>
-                {% else %}
-                        <button type="submit" class="btn btn-outline-primary px-5" id="apply">Apply</button>
-                        <input type="text" name="apply" value="{{project.id}}" hidden>
-                {% endif %}    
+                {% if not flag %}
+                    {% if applied %}
+                            <button class="btn btn-outline-primary px-5" id="apply" disabled>Applied</button>
+                    {% else %}
+                            <button type="submit" class="btn btn-outline-primary px-5" id="apply">Apply</button>
+                            <input type="text" name="apply" value="{{project.id}}" hidden>
+                    {% endif %}    
+                {% endif %}
             {% endif %}
 
         </form>

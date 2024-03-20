@@ -12,6 +12,7 @@ class Updatestudent(View):
                 data = {}
 
                 data['student'] = student
+
                 return render(request, 'updatestu.html', data)
         except:
             return redirect('s_login')
@@ -35,11 +36,26 @@ class Updatestudent(View):
         social1 = request.POST.get('social1')
         social2 = request.POST.get('social2')
         social3 = request.POST.get('social3')
-        skill = request.POST.get('skill')
-        skill = skill.lower()
+        skills = request.POST.getlist('skill')
+
+        for i in range(0, len(skills)):
+            skills[i] = skills[i].lower()
 
         stu_id = request.session['student']
         student = Student.objects.get(id=stu_id)
+
+        sk = student.Skills
+        
+        b = sk.split(", ")
+        print(b)
+        for i in b:
+            if(i in skills):
+                skills.remove(i)
+
+        for i in skills:
+            sk = sk + ", " +i
+            
+        sk = sk.lower()
 
         if (len(name)<3):
             error_message = "Enter a valid first name!"
@@ -74,7 +90,7 @@ class Updatestudent(View):
             student.University_name = university
             student.Course = course
             student.Roll_no = rollno
-            student.Skills = skill
+            student.Skills = sk
             
             if request.POST.get('photo'):
                 student.Photo = photo
