@@ -37,10 +37,16 @@ class Signup(View):
         exp1 = request.POST.get('exp1')
         exp2 = request.POST.get('exp2')
         exp3 = request.POST.get('exp3')
-        skill = request.POST.get('skill')
-        skill = skill.lower()
+        skills = request.POST.getlist('skill')
+        sk = ""
 
-
+        for i in skills:
+            if(not len(sk)):
+                sk = sk+i
+            else:
+                sk = sk + ", " + i
+        
+        skill = sk.lower()
 
         value = {
             'name': name,
