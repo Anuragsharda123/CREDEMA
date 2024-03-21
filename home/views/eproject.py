@@ -15,7 +15,7 @@ class EmployeProject(View):
                 employe = Employe.objects.get(id=emp)
                 projects = Project.objects.filter(Employe=employe, Status='False')|Project.objects.filter(Employe=employe, Status_1=False).exclude(Student_1=None)|Project.objects.filter(Employe=employe, Status_2=False).exclude(Student_2=None)|Project.objects.filter(Employe=employe, Status_3=False).exclude(Student_3=None)|Project.objects.filter(Employe=employe, Status_4=False).exclude(Student_4=None)|Project.objects.filter(Employe=employe, Status_5=False).exclude(Student_5=None)|Project.objects.filter(Employe=employe, Status_6=False).exclude(Student_6=None)|Project.objects.filter(Employe=employe, Status_7=False).exclude(Student_7=None)|Project.objects.filter(Employe=employe, Status_8=False).exclude(Student_8=None)|Project.objects.filter(Employe=employe, Status_9=False).exclude(Student_9=None)|Project.objects.filter(Employe=employe, Status_10=False).exclude(Student_10=None)|Project.objects.filter(Employe=employe, Status_11=False).exclude(Student_11=None)|Project.objects.filter(Employe=employe, Status_12=False).exclude(Student_12=None)
                 t_pro = Project.objects.filter(Status_1=False).exclude(Student_1=None)|Project.objects.filter(Status_2=False).exclude(Student_2=None)|Project.objects.filter(Status_3=False).exclude(Student_3=None)|Project.objects.filter(Status_4=False).exclude(Student_4=None)|Project.objects.filter(Status_5=False).exclude(Student_5=None)|Project.objects.filter(Status_6=False).exclude(Student_6=None)|Project.objects.filter(Status_7=False).exclude(Student_7=None)|Project.objects.filter(Status_8=False).exclude(Student_8=None)|Project.objects.filter(Status_9=False).exclude(Student_9=None)|Project.objects.filter(Status_10=False).exclude(Student_10=None)|Project.objects.filter(Status_11=False).exclude(Student_11=None)|Project.objects.filter(Status_12=False).exclude(Student_12=None)
-
+                t_project = Project.objects.all()
                 data = {}
                 
                 pro = Project.objects.all().exclude(Student=None)
@@ -623,7 +623,80 @@ class EmployeProject(View):
                                 pass
 
 
-                            
+                for i in t_project:
+                    if(i.Task_1):
+                        count = 0
+                        complete = 0
+                        if i.Task_1:
+                            count = count+ 1
+                            if i.Status_1:
+                                complete =complete + 1
+
+                        if i.Task_2:
+                            count = count+ 1
+                            if i.Status_2:
+                                complete =complete + 1
+
+                        if i.Task_3:
+                            count = count+ 1
+                            if i.Status_3:
+                                complete =complete + 1
+
+                        if i.Task_4:
+                            count = count+ 1
+                            if i.Status_4:
+                                complete =complete + 1
+
+                        if i.Task_5:
+                            count = count+ 1
+                            if i.Status_5:
+                                complete =complete + 1
+
+                        if i.Task_6:
+                            count = count+ 1
+                            if i.Status_6:
+                                complete =complete + 1
+
+                        if i.Task_7:
+                            count = count+ 1
+                            if i.Status_7:
+                                complete =complete + 1
+
+                        if i.Task_8:
+                            count = count+ 1
+                            if i.Status_8:
+                                complete =complete + 1
+
+                        if i.Task_9:
+                            count = count+ 1
+                            if i.Status_9:
+                                complete =complete + 1
+
+                        if i.Task_10:
+                            count = count+ 1
+                            if i.Status_10:
+                                complete =complete + 1
+
+                        if i.Task_11:
+                            count = count+ 1
+                            if i.Status_11:
+                                complete =complete + 1
+
+                        if i.Task_12:
+                            count = count+ 1
+                            if i.Status_12:
+                                complete =complete + 1
+
+                        progress = round((complete/count)*100)
+                        print(progress)
+                        print(count)
+                        print(complete)
+                        i.Progress = progress
+                        i.save()
+                    else:
+                        continue
+
+                
                 data['projects'] = projects
                 data['employe'] = employe
 
