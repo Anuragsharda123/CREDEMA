@@ -30,7 +30,7 @@ class AddProject(View):
     def post(self, request):
         stipend = None
         name = request.POST.get('name')
-        detail = request.POST.get('detail')
+        detail = request.FILES['detail']
         perk = request.POST.get('perk').lower()
         description = request.POST.get('description')
         if(request.POST.get('stipend')):
@@ -62,8 +62,8 @@ class AddProject(View):
         if isExist:
             error_message = "Project Already Exists"
         
-        if detail[-4:] != '.pdf':
-            error_message = "Only .pdf files are accepted"
+        # if detail[-4:] != '.pdf':
+        #     error_message = "Only .pdf files are accepted"
 
         if(datetime.strptime(duration, "%Y-%m-%d")<datetime.today()):
             error_message = "Enter Valid Deadline"

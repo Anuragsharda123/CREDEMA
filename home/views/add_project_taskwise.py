@@ -52,7 +52,7 @@ class AddProjectTask(View):
 
         name = request.POST.get('name')
         comp = request.POST.get('company')
-        detail = request.POST.get('detail')
+        detail = request.FILES['detail']
         description = request.POST.get('description')
         perk = request.POST.get('perk').lower()
 

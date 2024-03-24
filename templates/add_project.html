@@ -16,7 +16,7 @@ Add New Project
            <br><br>
                   <div class="col-lg-5 mx-auto border rounded pt-4">
                       <h3 class="alert alert-light border rounded mx-3 mt-2 mb-4">Upload New Project</h3>
-                      <form method="post" action="/add_project/">
+                      <form method="post" action="/add_project/" enctype="multipart/form-data">
                           
                           {% if error %}
                           <div class="alert alert-danger mx-3 my-2" role="alert">
@@ -327,7 +327,7 @@ Add New Project
           <br><br>
           <div class="col-lg-5 mx-auto border rounded pt-4">
               <h3 class="alert alert-light border rounded mx-3 mt-2 mb-4">Upload New Project</h3>
-              <form method="post" action="/add_project_taskwise/">
+              <form method="post" action="/add_project_taskwise/" enctype="multipart/form-data">
   
                   {% csrf_token %}  
                                

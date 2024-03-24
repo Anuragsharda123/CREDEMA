@@ -18,7 +18,8 @@ class Signup(View):
         confirmpassword = request.POST.get('confirmpassword')
         name = request.POST.get('name')
         age = int(request.POST.get('age'))
-        photo = request.POST.get('photo')
+        photo = request.FILES['photo']
+        # photo = 'Documents/Student/Profile_Image/'+p_photo
         phone = request.POST.get('phone')
         gender = request.POST.get('gender')
         country = request.POST.get('country')
@@ -30,7 +31,8 @@ class Signup(View):
         rollno = int(request.POST.get('rollno'))
         course = request.POST.get('course')
         project = request.POST.get('project')
-        resume = request.POST.get('resume')
+        resume = request.FILES['resume']
+        # resume = 'Documents/Student/'+resume
         social1 = request.POST.get('social1')
         social2 = request.POST.get('social2')
         social3 = request.POST.get('social3')
@@ -86,8 +88,8 @@ class Signup(View):
         if (password != confirmpassword):
             error_message = "Password mismatch"
         
-        if resume[-4:] != '.pdf':
-            error_message = "Only .pdf files are accepted"
+        # if resume[-4:] != '.pdf':
+            # error_message = "Only .pdf files are accepted"
 
         isExist = Student.objects.filter(Email=email)
         if isExist:
