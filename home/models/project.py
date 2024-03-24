@@ -7,7 +7,7 @@ from django.utils import timezone
 class Project(models.Model):
     Name = models.CharField(max_length=100)
     Employe = models.ForeignKey(Employe, on_delete=models.CASCADE)
-    Project = models.FileField(upload_to='Documents/Projects/')
+    Project = models.FileField(upload_to='static/Documents/Projects/')
     Perks = models.CharField(max_length=100)
     Skill_req = models.CharField(max_length=100)
     Company = models.ForeignKey(Company, on_delete=models.CASCADE)
@@ -102,7 +102,7 @@ class Project(models.Model):
     Student_12 = models.ForeignKey(Stu, on_delete=models.CASCADE, null=True, blank=True, default=None, related_name='Student_12')
     Status_12 = models.BooleanField(default=False)
     
-    Last_update = models.DateField(default=timezone.now())
+    Last_update = models.DateField(default=timezone.now)
     
     
     def __str__(self):
