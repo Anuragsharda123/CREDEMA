@@ -7,7 +7,7 @@ from django.utils import timezone
 class Project(models.Model):
     Name = models.CharField(max_length=100)
     Employe = models.ForeignKey(Employe, on_delete=models.CASCADE)
-    Project = models.FileField(upload_to='static/Documents/Projects/')
+    Project = models.FileField(upload_to='Documents/Projects/')
     Perks = models.CharField(max_length=100)
     Skill_req = models.CharField(max_length=100)
     Company = models.ForeignKey(Company, on_delete=models.CASCADE)
