@@ -9,15 +9,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-SECRET_KEY = 'django-insecure-qr)w^0mg3va_ci6al!u!%!zn5ufx)z%)fdj=zdnddmr9)ypxqw'
-# SECRET_KEY = '52weq0vse@$sa-*55bex=opoc9*jij_l$3k&^b^8z&1jc%ux&b'
+# SECRET_KEY = 'django-insecure-qr)w^0mg3va_ci6al!u!%!zn5ufx)z%)fdj=zdnddmr9)ypxqw'
+SECRET_KEY = '52weq0vse@$sa-*55bex=opoc9*jij_l$3k&^b^8z&1jc%ux&b'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 # DEBUG = False
 
-# ALLOWED_HOSTS = ['*']
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
+# ALLOWED_HOSTS = []
 
 APPEND_SLASH = True
 
