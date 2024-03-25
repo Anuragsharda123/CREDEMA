@@ -36,5 +36,5 @@ class Index(View):
             
         data['projects'] = projects
         data['student'] = student
-        return render(request, "project_list.html", data)
+        return render(request, "index.html", data)
             

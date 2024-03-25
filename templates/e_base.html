@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>ProjectNexa | {% block title %}{% endblock title %}</title>
-    <link rel = "icon" href = "https://static.vecteezy.com/system/resources/previews/004/887/077/non_2x/t-letter-logo-with-wings-creative-wing-letter-t-logo-icon-design-vector.jpg" type = "image/x-icon">
+    <link rel="icon" href="/docu/download/static/images/APEEJAY_LOGO.webp" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" 
     rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" 
     crossorigin="anonymous">
@@ -18,6 +18,15 @@
     <script src="/docu/download/static/js/s_skill.js"></script>
     <script src="/docu/download/static/js/showpass.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <style>
+      li img{
+        filter: saturate(0);
+        transition: filter 500ms;
+      }
+      li img:hover{
+        filter: saturate(5);
+      }
+    </style>
 
   </head>
   <body>
@@ -64,6 +73,8 @@
         <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
           <p class="fot">© 2023 Company, Inc. All rights reserved.</p>
           <ul class="list-unstyled d-flex">
+            <li class="ms-3"><a class="link-body-emphasis" href="https://aimetc.apeejay.edu/" target="_blank"> <img src="/docu/download/static/images/APEEJAY_LOGO.webp" alt="AIMETC" width="25px" height="25px"></a></li>
+
             <li class="ms-3"><a class="link-body-emphasis" id="twit" href="https://twitter.com/credemagroup" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-twitter-x" viewBox="0 0 16 16">
               <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865l8.875 11.633Z"/>
             </svg></a></li>
