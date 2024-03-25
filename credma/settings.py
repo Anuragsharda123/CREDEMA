@@ -16,7 +16,7 @@ SECRET_KEY = '52weq0vse@$sa-*55bex=opoc9*jij_l$3k&^b^8z&1jc%ux&b'
 DEBUG = True
 # DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*', '.vercel.app']
 # ALLOWED_HOSTS = []
 
 APPEND_SLASH = True
