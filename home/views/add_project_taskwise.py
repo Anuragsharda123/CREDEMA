@@ -173,8 +173,8 @@ class AddProjectTask(View):
         if isExist:
             error_message = "Project Already Exists"
         
-        if detail[-4:] != '.pdf':
-            error_message = "Only .pdf files are accepted"
+        # if detail[-4:] != '.pdf':
+        #     error_message = "Only .pdf files are accepted"
 
         if (int(stipend_1)<1000):
             error_message = "Task 1 stipend should be ₹1000 or more"
