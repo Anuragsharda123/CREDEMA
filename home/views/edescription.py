@@ -14,6 +14,7 @@ class Description(View):
         
     
     def post(self, request):
+        try:
             if request.session['employee']:
                 pro_id = request.POST.get('pro_id')
                 applied = None
@@ -112,5 +113,5 @@ class Description(View):
 
                 return render(request, 'e_p_description.html', data)
             
-        # except:
-        #     return redirect('e_login')
+        except:
+            return redirect('e_login')
