@@ -32,7 +32,11 @@ Projects
                 
                 <td>
                 {% if project.Task_1 %}
+                  {% if project.Progress%}
                   <b style="color: green;">{{project.Progress}}%</b> 
+                  {% else %}
+                  <b style="color: red;">{{project.Progress}}%</b> 
+                  {% endif %}
                 {% else %}
                   {% if not project.Status %}
                   <b style="color: red;">Pending</b>
