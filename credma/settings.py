@@ -89,15 +89,18 @@ EMAIL_PORT = 587
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Credemadb',
-        'USER': 'postgres',
-        'PASSWORD': 'Hello@111',
-        'HOST': 'localhost'
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'CREDEMA',
+        'USER': 'root',
+        'PASSWORD': '123456',
+        'HOST':'localhost',
+        'PORT':'3306',
     }
 }
+
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.sqlite3',

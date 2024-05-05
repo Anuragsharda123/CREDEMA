@@ -59,6 +59,7 @@
 }
 #twit, #inst, #fb{
     opacity: 0.8;
+    color: grey;
     transition: color 400ms;
 }
 #fb{

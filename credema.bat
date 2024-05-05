@@ -1,7 +1,7 @@
 @echo off
 cd venv/Scripts
 
-@set "VIRTUAL_ENV=C:\Users\admin\Desktop\credma\venv"
+@set "VIRTUAL_ENV=C:\Users\admin\OneDrive\Desktop\credma\venv"
 
 @set "VIRTUAL_ENV_PROMPT="
 @if NOT DEFINED VIRTUAL_ENV_PROMPT (
