@@ -19,7 +19,6 @@ class Signup(View):
         name = request.POST.get('name')
         age = int(request.POST.get('age'))
         photo = request.FILES['photo']
-        pho = request.POST.get('photo')
         phone = request.POST.get('phone')
         gender = request.POST.get('gender')
         country = request.POST.get('country')
@@ -32,7 +31,6 @@ class Signup(View):
         course = request.POST.get('course')
         project = request.POST.get('project')
         resume = request.FILES['resume']
-        res = request.POST.get('resume')
         social1 = request.POST.get('social1')
         social2 = request.POST.get('social2')
         social3 = request.POST.get('social3')
@@ -85,14 +83,11 @@ class Signup(View):
         if rollno<0:
             error_message = "Enter Valid Roll no."
 
-        if(pho[-4:]!='.jpg' and pho[-5:]!='.jpeg'):
-            error_message = "Only JPG, JPEG format images are allowed"
-
         if (password != confirmpassword):
             error_message = "Password mismatch"
         
-        if res[-4:] != '.pdf':
-            error_message = "Only .pdf files are accepted"
+        # if res[-4:] != '.pdf':
+        #     error_message = "Only .pdf files are accepted"
 
         isExist = Student.objects.filter(Email=email)
         if isExist:
