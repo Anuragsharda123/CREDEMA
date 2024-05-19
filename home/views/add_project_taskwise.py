@@ -52,6 +52,7 @@ class AddProjectTask(View):
 
         name = request.POST.get('name')
         comp = request.POST.get('company')
+        det = request.POST.get('detail')
         detail = request.FILES['detail']
         description = request.POST.get('description')
         perk = request.POST.get('perk').lower()
@@ -173,8 +174,8 @@ class AddProjectTask(View):
         if isExist:
             error_message = "Project Already Exists"
         
-        # if detail[-4:] != '.pdf':
-        #     error_message = "Only .pdf files are accepted"
+        if det[-4:] != '.pdf':
+            error_message = "Only .pdf files are accepted"
 
         if (int(stipend_1)<1000):
             error_message = "Task 1 stipend should be ₹1000 or more"
